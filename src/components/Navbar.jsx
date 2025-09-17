@@ -8,21 +8,18 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navigation = [
-    { name: 'Accueil', href: '/' },
-    { name: 'À propos', href: '/about' },
-    { name: 'Formation', href: '/formation' },
-    { name: 'Expérience', href: '/experience' },
-    { name: 'Compétences', href: '/skills' },
-    { name: 'Projets', href: '/projects' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Contact', href: '/contact' },
   ]
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50">
+    <nav className="fixed w-full top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-gray-900/50 bg-gray-900/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-primary-600">
+            <Link href="/" className="text-xl font-bold text-white">
               Adama Djan
             </Link>
           </div>
@@ -33,19 +30,21 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-gray-200 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
               >
                 {item.name}
               </Link>
             ))}
-            <DownloadCvButton />
+            <div className="hidden lg:block">
+              <DownloadCvButton />
+            </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
+              className="text-gray-200 hover:text-white focus:outline-none"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -61,12 +60,12 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/95 border-t border-white/10">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary-600 block px-3 py-2 text-base font-medium"
+                  className="text-gray-200 hover:text-white block px-3 py-2 text-base font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
