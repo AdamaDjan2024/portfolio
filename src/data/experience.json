@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "company": "TechCorp Solutions",
+    "position": "Développeur Full Stack Senior",
+    "period": "2022 - Présent",
+    "location": "Paris, France",
+    "description": "Développement d'applications web complexes avec React et Node.js. Gestion d'équipe de 3 développeurs.",
+    "technologies": ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
+    "achievements": [
+      "Amélioration des performances de 40%",
+      "Mise en place de CI/CD",
+      "Formation de nouveaux développeurs"
+    ]
+  },
+  {
+    "id": 2,
+    "company": "StartupXYZ",
+    "position": "Développeur Frontend",
+    "period": "2020 - 2022",
+    "location": "Lyon, France",
+    "description": "Développement d'interfaces utilisateur modernes et responsives.",
+    "technologies": ["React", "TypeScript", "Tailwind CSS", "GraphQL"],
+    "achievements": [
+      "Création de composants réutilisables",
+      "Optimisation SEO",
+      "Tests unitaires et d'intégration"
+    ]
+  },
+  {
+    "id": 3,
+    "company": "WebAgency",
+    "position": "Développeur Junior",
+    "period": "2019 - 2020",
+    "location": "Marseille, France",
+    "description": "Développement de sites web pour des clients variés.",
+    "technologies": ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    "achievements": [
+      "Apprentissage des bonnes pratiques",
+      "Participation à des projets clients",
+      "Formation continue"
+    ]
+  }
+]

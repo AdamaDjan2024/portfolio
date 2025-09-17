@@ -1,0 +1,14 @@
+{
+  "name": "Adama Djan",
+  "title": "Développeur Full Stack",
+  "description": "Portfolio personnel d'Adama Djan - Développeur Full Stack passionné par les technologies web modernes",
+  "cv": "/cv.pdf",
+  "email": "adama.djan@example.com",
+  "phone": "+33 6 12 34 56 78",
+  "location": "Paris, France",
+  "gitRepo": "https://github.com/AdamaDjan2024/mon-portfolio",
+  "linkedin": "https://linkedin.com/in/adama-djan",
+  "github": "https://github.com/AdamaDjan2024",
+  "twitter": "https://twitter.com/adama_djan",
+  "keywords": ["développeur", "full stack", "react", "next.js", "node.js", "portfolio", "web development"]
+}
