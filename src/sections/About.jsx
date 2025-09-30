@@ -1,51 +1,75 @@
 // src/sections/About.jsx
-import Card from '@/components/Card'
-import DownloadCvButton from '@/components/DownloadCvButton'
+"use client";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">À propos de moi</h2>
+    <section className="py-20 bg-primary-900 text-primary-100">
+      <div className="container flex flex-col lg:flex-row gap-12 items-center text-center lg:text-left animate-fadeInUp">
+        {/* Colonne gauche : photo */}
+        <div className="relative flex-shrink-0 w-80 aspect-[7/9] mx-auto lg:mx-0">
+          <div className="border-l-4 border-b-4 border-primary-500 absolute -left-4 -bottom-4 w-full h-full"></div>
+          <Image
+            src="/images/profile.jpg"
+            alt="Photo de profil"
+            fill
+            className="relative z-10 object-cover rounded-md"
+          />
+        </div>
 
-        <div className="space-y-8">
-          <Card>
-            <h3 className="text-2xl font-semibold mb-4">Mon histoire</h3>
-            <p className="text-gray-600 mb-4">
-              Passionné par la technologie depuis mon plus jeune âge, j'ai découvert le développement web lors de mes études en informatique. Ce qui a commencé comme un simple intérêt s'est rapidement transformé en une véritable passion.
-            </p>
-            <p className="text-gray-600">
-              Au fil des années, j'ai développé une expertise solide dans l'écosystème JavaScript, en me spécialisant particulièrement dans React et Next.js. J'aime créer des applications qui ne sont pas seulement fonctionnelles, mais aussi élégantes et performantes.
-            </p>
-          </Card>
+        {/* Colonne droite : contenu */}
+        <div className="flex-1 flex flex-col gap-6">
+          <h2 className="text-3xl font-bold text-white">À propos de moi</h2>
+          <p className="text-lg text-primary-100">
+            Développeuse web passionnée par la création de{" "}
+            <span className="font-semibold">
+              sites modernes, intuitifs et centrés sur l'utilisateur
+            </span>
+            . Diplômée en génie informatique, je mets ma curiosité et ma rigueur
+            au service de chaque projet pour concevoir des interfaces
+            performantes, accessibles et esthétiques. J'aime transformer des
+            idées en expériences digitales mémorables.
+          </p>
 
-          <Card>
-            <h3 className="text-2xl font-semibold mb-4">Mes compétences clés</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-lg font-medium mb-3">Frontend</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• React & Next.js</li>
-                  <li>• TypeScript</li>
-                  <li>• Tailwind CSS</li>
-                </ul>
+          {/* Boutons contact */}
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start flex-wrap gap-4">
+            <a
+              href="mailto:adamadjandiallo9999@email.com"
+              className="inline-block sm:w-40 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-6 rounded-lg text-center hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              📧 Email
+            </a>
+
+            <a
+              href="https://github.com/AdamaDjan2024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block sm:w-40 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-6 rounded-lg text-center hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              💻 GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/adama-djan-diallo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block sm:w-40 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-6 rounded-lg text-center hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              🔗 LinkedIn
+            </a>
+          </div>
+
+          {/* Bouton principal de contact */}
+          <div className="pt-4 flex justify-center lg:justify-start">
+            <button className="flex items-center gap-3 bg-primary-500 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1">
+              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary-500">
+                ✉️
               </div>
-              <div>
-                <h4 className="text-lg font-medium mb-3">Backend</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Node.js & Express</li>
-                  <li>• PostgreSQL & MongoDB</li>
-                </ul>
-              </div>
-            </div>
-          </Card>
-
-          <Card>
-            <h3 className="text-2xl font-semibold mb-4">Télécharger mon CV</h3>
-            <DownloadCvButton />
-          </Card>
+              Contactez-moi
+            </button>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import DownloadCvButton from '@/components/DownloadCvButton'
+import DownloadCvButton from "@/components/DownloadCvButton";
 
 export default function Hero() {
   return (
@@ -15,21 +15,18 @@ export default function Hero() {
 
       {/* Contenu centré */}
       <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        
         {/* Intro animé lettre par lettre */}
         <p className="text-gray-300 text-lg mb-2">
-  {"Bonjour, je suis Adama Djan".split("").map((char, i) => (
-    <span
-      key={i}
-      className="inline-block opacity-0 animate-typing"
-      style={{ animationDelay: `${i * 0.03}s` }}
-    >
-      {char === " " ? "\u00A0" : char}
-    </span>
-  ))}
-</p>
-
-
+          {"Bonjour, je suis Adama Djan Amadou".split("").map((char, i) => (
+            <span
+              key={i}
+              className="inline-block opacity-0 animate-typing"
+              style={{ animationDelay: `${i * 0.03}s` }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </p>
 
         {/* Titre principal */}
         <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
@@ -53,5 +50,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

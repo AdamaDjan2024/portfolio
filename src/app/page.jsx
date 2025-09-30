@@ -1,14 +1,13 @@
-import Hero from '@/sections/Hero'
-import About from '@/sections/skills-experience'
-import Projects from '@/sections/Projects'
-
+import Hero from "@/sections/Hero";
+import AboutPage from "./about/page";
+import Projects from "@/sections/Projects";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
+      <AboutPage />
       <Projects />
     </>
-  )
+  );
 }
