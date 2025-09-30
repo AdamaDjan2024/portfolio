@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full top-0 z-50 bg-[#001B4B]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           
           {/* ---- Gauche : Avatar + Nom ---- */}

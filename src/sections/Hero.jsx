@@ -13,8 +13,9 @@ export default function Hero() {
       <div className="absolute bottom-16 left-1/3 w-5 h-5 bg-primary-100 rounded-sm opacity-60 animate-float delay-2000"></div>
       <div className="absolute bottom-10 right-1/4 w-2 h-2 bg-white rounded-sm opacity-80 animate-float delay-1500"></div>
 
-      {/* Contenu centré */}
-      <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      {/* Contenu centré dans container */}
+      <div className="relative container px-4 md:px-6">
+        <div className="mx-auto max-w-2xl text-center">
         {/* Intro animé lettre par lettre */}
         <p className="text-gray-300 text-lg mb-2">
           {"Bonjour, je suis Adama Djan Amadou".split("").map((char, i) => (
@@ -29,8 +30,8 @@ export default function Hero() {
         </p>
 
         {/* Titre principal */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-          Développeuse front-end passionnée et curieuse
+        <h1 className="text-4xl md:text-5xl font-extrabold text-primary-100 leading-tight mb-4">
+          Développeuse <span className="text-primary-500">front-end</span> passionnée et curieuse
         </h1>
 
         {/* Description */}
@@ -47,6 +48,7 @@ export default function Hero() {
           >
             Mes projets
           </a>
+        </div>
         </div>
       </div>
     </section>

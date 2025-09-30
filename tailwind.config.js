@@ -24,10 +24,10 @@ module.exports = {
         center: true,
         padding: "1rem",
         screens: {
-          sm: "600px",
-          md: "728px",
-          lg: "984px",
-          xl: "1240px",
+          sm: "560px",
+          md: "700px",
+          lg: "920px",
+          xl: "1080px",
         },
       },
       keyframes: {
