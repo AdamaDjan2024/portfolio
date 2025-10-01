@@ -1,96 +1,135 @@
-// "use client";
+"use client";
 
-// import { useState } from "react";
+import { useState } from "react";
+import {
+  GraduationCap,
+  Briefcase,
+  Handshake,
+  Award,
+  Code,
+  Laptop,
+} from "lucide-react";
 
-// export default function ProfileSections() {
-//   const [selected, setSelected] = useState(null);
+export default function HomeCareerTimeline() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
 
-//   const experiences = [
-//     {
-//       title: "Projets Front-End",
-//       items: [
-//         { role: "Développeuse Front-End", org: "Mansa Digitale", period: "2025 – en cours", desc: "Développement du site vitrine de l'agence avec Next.js et Tailwind CSS.", bullets: ["Développement d’applications web modernes", "Intégration d’interfaces en React et Tailwind CSS", "Collaboration avec l’équipe design"] },
-//         { role: "Développeuse Front-End", org: "Billet Facile", period: "2025 – en cours", desc: "Refonte du site et ajout de fonctionnalités de réservation.", bullets: ["Composants réutilisables + gestion API", "Tests et optimisation des performances"] },
-//         { role: "Stagiaire Front-End", org: "Startup ABC", period: "2024", desc: "Création d'une landing page responsive.", bullets: ["HTML/CSS/JS", "Collaboration avec designer UX"] },
-//         { role: "Projet perso", org: "", period: "2023", desc: "Portfolio en React avec animations CSS.", bullets: ["Animations interactives", "Responsive design"] },
-//       ],
-//     },
-//   ];
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength
+      ? text.substring(0, maxLength) + "..."
+      : text;
+  };
 
-//   const education = [
-//     {
-//       title: "Parcours académique",
-//       items: [
-//         { role: "Licence en Informatique", org: "Université XYZ", period: "2020 – 2023", desc: "Spécialisation en développement web et mobile.", bullets: ["Projets universitaires", "Stages en entreprise", "Participation à des hackathons"] },
-//       ],
-//     },
-//   ];
+  const timeline = [
+    {
+      year: "2020",
+      desc: "Obtention du diplôme en Génie Informatique.",
+      details: "Spécialisation Analyse et Développement.",
+      icon: <GraduationCap className="w-6 h-6 text-white" />,
+      type: "education",
+    },
+    {
+      year: "2021",
+      desc: "Première expérience commerciale chez Calcaire Technologie.",
+      details:
+        "Le rôle consistait à représenter et promouvoir les produits/services de l’entreprise, attirer de nouveaux clients et accroître la visibilité de la marque.",
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      type: "experience",
+    },
+    {
+      year: "2022",
+      desc: "Apporteuse d’affaires chez Mouna Technologie.",
+      details:
+        "Identifier des opportunités, mettre en relation l’entreprise avec de nouveaux partenaires/clients et contribuer au développement du portefeuille commercial.",
+      icon: <Handshake className="w-6 h-6 text-white" />,
+      type: "experience",
+    },
+    {
+      year: "2023",
+      desc: "Formations certifiantes à l’Orange Digital Center.",
+      details:
+        "Canva, Figma, Leadership, Design Thinking. Stage commercial en tant qu’assistante chez DKMAK Corporate, avec pour mission d’appuyer l’équipe dans la prospection et la gestion des relations clients.",
+      icon: <Award className="w-6 h-6 text-white" />,
+      type: "certification",
+    },
+    {
+      year: "2023 - 2025",
+      desc: "Formation approfondie en Développement Web Front-End au Nimba Hub.",
+      details:
+        "Formation approfondie en Développement Web Front-End (Octobre 2023 - Septembre 2025). Complétée par des cours en ligne sur Udemy en UX/UI Design, visant à améliorer l’expérience utilisateur et l’interface des applications web.",
+      icon: <Code className="w-6 h-6 text-white" />,
+      type: "education",
+    },
+    {
+      year: "2025",
+      desc: "Stage en cours chez Mansa Digitale en tant que Développeuse Front-End.",
+      details:
+        "Missions : concevoir et développer des interfaces web modernes, transformer des maquettes Figma en pages fonctionnelles, fluides et accessibles, tout en garantissant une excellente expérience utilisateur sur tous types d’écrans.",
+      icon: <Laptop className="w-6 h-6 text-white" />,
+      type: "experience",
+    },
+  ];
 
-//   const renderCards = (cards) =>
-//     cards.map((card, idx) => (
-//       <div key={idx} className="relative pl-8">
-//         <span className="absolute left-[-9px] top-2 h-4 w-4 rounded-full bg-primary-500 ring-4 ring-gray-900" />
-//         <div className="bg-gray-800/70 hover:bg-gray-700/80 transition rounded-xl border border-gray-700 p-4 shadow-lg">
-//           <h3 className="font-semibold text-white">{card.title}</h3>
-//           <div className="relative mt-4 h-32">
-//             {card.items.map((item, i) => (
-//               <div
-//                 key={i}
-//                 onClick={() => setSelected(item)}
-//                 className={`absolute cursor-pointer w-full p-2 rounded-md shadow-md bg-gray-700/80 transform transition-all duration-300 ease-out
-//                   ${i % 2 === 0 ? "rotate-1 translate-x-1" : "-rotate-1 -translate-x-1"} 
-//                   hover:scale-105 hover:z-20`}
-//                 style={{
-//                   top: `${i * 8}px`, // espacement vertical
-//                   zIndex: i,          // empilement initial
-//                 }}
-//               >
-//                 <p className="text-sm text-gray-300">{item.period} – {item.role}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     ));
+  const totalPages = Math.ceil(timeline.length / itemsPerPage);
+  const currentItems = timeline.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
-//   return (
-//     <section className="py-20 bg-gray-900 text-gray-100">
-//       <div className="container px-4 md:px-6">
-//         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Expériences</h2>
-//         <div className="relative border-l border-gray-700 ml-4 space-y-8">{renderCards(experiences)}</div>
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
-//         <h2 className="text-3xl md:text-4xl font-bold text-center my-12">Éducation</h2>
-//         <div className="relative border-l border-gray-700 ml-4 space-y-8">{renderCards(education)}</div>
-//       </div>
+  return (
+    <section className="py-20 bg-gray-900 text-gray-100">
+      <div className="container px-4 md:px-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+          Mon Parcours
+        </h2>
 
-//       {/* Modal */}
-//       {selected && (
-//         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-//           <div className="bg-gray-800 rounded-2xl p-6 max-w-lg w-full relative shadow-xl transition-transform duration-300 ease-out transform scale-100">
-//             <button
-//               className="absolute top-4 right-4 text-gray-400 hover:text-white"
-//               onClick={() => setSelected(null)}
-//             >
-//               X
-//             </button>
+        {/* Timeline horizontale */}
+        <div className="flex justify-center items-stretch gap-4">
+          {currentItems.map((item, i) => (
+            <div
+              key={i}
+              className="w-[220px] h-[260px] flex flex-col justify-between bg-gray-800/70 rounded-2xl p-6 text-center cursor-pointer transform transition-all duration-300 shadow-md hover:scale-105 hover:shadow-xl"
+            >
+              <div>
+                <h3 className="text-xl font-bold mb-3">{item.year}</h3>
+                <p className="text-sm text-gray-300">
+                  {truncateText(item.desc, 80)}
+                </p>
+              </div>
+              <div className="w-12 h-12 mx-auto flex items-center justify-center bg-blue-500 rounded-lg">
+                {item.icon}
+              </div>
+              <a
+                href="/parcours"
+                className="mt-2 text-primary-500 hover:underline text-sm"
+              >
+                Voir plus
+              </a>
+            </div>
+          ))}
+        </div>
 
-//             <p className="text-sm font-semibold text-primary-400">{selected.period}</p>
-//             <h3 className="mt-1 font-semibold text-white text-xl">
-//               {selected.role}{selected.org ? ` – ${selected.org}` : ""}
-//             </h3>
-
-//             {selected.desc && <p className="mt-3 text-gray-200 text-sm">{selected.desc}</p>}
-
-//             {Array.isArray(selected.bullets) && selected.bullets.length > 0 && (
-//               <ul className="mt-4 list-disc pl-5 space-y-1 text-sm text-gray-100/90">
-//                 {selected.bullets.map((b, i) => (
-//                   <li key={i}>{b}</li>
-//                 ))}
-//               </ul>
-//             )}
-//           </div>
-//         </div>
-//       )}
-//     </section>
-//   );
-// }
+        {/* Pagination */}
+        <div className="flex justify-center items-center mt-8 gap-2">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              className={`px-3 py-1 rounded-full transition-all duration-300 ${
+                currentPage === index + 1
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

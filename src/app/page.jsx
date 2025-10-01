@@ -1,4 +1,3 @@
-
 import Hero from "@/sections/Hero";
 import AboutPage from "./about/page";
 import Skills from "@/sections/Skills";
@@ -11,9 +10,8 @@ export default function HomePage() {
     <>
       <Hero />
       <AboutPage />
-      <Skills /> 
-      {/* <Experience /> */}
-    
+      <Skills />
+      <Experience />
       <Projects />
     </>
   );
