@@ -86,20 +86,22 @@ export default function HomeCareerTimeline() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           Mon Parcours
         </h2>
+
         {/* Timeline horizontale */}
         <div className="flex justify-center items-stretch gap-6">
           {currentItems.map((item, i) => (
             <div
               key={i}
-              className="w-56 h-64 flex flex-col justify-between 
-        bg-gray-800/70 rounded-2xl p-6 text-center cursor-pointer 
-        transform transition-transform duration-500 ease-out 
-        shadow-md hover:scale-105 hover:shadow-xl 
-        transition-colors duration-700 ease-in-out 
-        hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 hover:text-white"
+              className="w-[220px] h-[260px] flex flex-col justify-between 
+                bg-gray-800/70 rounded-2xl p-6 text-center cursor-pointer 
+                transform transition-all duration-300 shadow-md 
+                hover:scale-105 hover:shadow-xl 
+                 hover:from-blue-600 hover:to-blue-400 hover:text-white"
             >
               <div>
-                <h3 className="text-xl font-bold mb-3">{item.year}</h3>
+                <h3 className="text-xl font-bold mb-3 text-blue-600">
+                  {item.year}
+                </h3>
                 <p className="text-sm text-gray-300 group-hover:text-white">
                   {truncateText(item.desc, 80)}
                 </p>
@@ -132,7 +134,7 @@ export default function HomeCareerTimeline() {
             <button
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1 ${
                 currentPage === index + 1
                   ? "bg-blue-500 scale-125"
                   : "bg-gray-600 hover:bg-gray-500"
