@@ -86,26 +86,39 @@ export default function HomeCareerTimeline() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           Mon Parcours
         </h2>
-
         {/* Timeline horizontale */}
-        <div className="flex justify-center items-stretch gap-4">
+        <div className="flex justify-center items-stretch gap-6">
           {currentItems.map((item, i) => (
             <div
               key={i}
-              className="w-[220px] h-[260px] flex flex-col justify-between bg-gray-800/70 rounded-2xl p-6 text-center cursor-pointer transform transition-all duration-300 shadow-md hover:scale-105 hover:shadow-xl"
+              className="w-56 h-64 flex flex-col justify-between 
+        bg-gray-800/70 rounded-2xl p-6 text-center cursor-pointer 
+        transform transition-transform duration-500 ease-out 
+        shadow-md hover:scale-105 hover:shadow-xl 
+        transition-colors duration-700 ease-in-out 
+        hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 hover:text-white"
             >
               <div>
                 <h3 className="text-xl font-bold mb-3">{item.year}</h3>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-300 group-hover:text-white">
                   {truncateText(item.desc, 80)}
                 </p>
               </div>
-              <div className="w-12 h-12 mx-auto flex items-center justify-center bg-blue-500 rounded-lg">
+
+              {/* Icône en hexagone */}
+              <div
+                className="w-14 h-14 mx-auto flex items-center justify-center bg-blue-600 text-white"
+                style={{
+                  clipPath:
+                    "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
+                }}
+              >
                 {item.icon}
               </div>
+
               <a
                 href="/parcours"
-                className="mt-2 text-primary-500 hover:underline text-sm"
+                className="mt-2 text-blue-400 hover:text-blue-300 text-sm transition-colors"
               >
                 Voir plus
               </a>
@@ -119,14 +132,12 @@ export default function HomeCareerTimeline() {
             <button
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
-              className={`px-3 py-1 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 currentPage === index + 1
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                  ? "bg-blue-500 scale-125"
+                  : "bg-gray-600 hover:bg-gray-500"
               }`}
-            >
-              {index + 1}
-            </button>
+            />
           ))}
         </div>
       </div>
