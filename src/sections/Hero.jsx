@@ -16,39 +16,40 @@ export default function Hero() {
       {/* Contenu centré dans container */}
       <div className="relative container px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center">
-        {/* Intro animé lettre par lettre */}
-        <p className="text-gray-300 text-lg mb-2">
-          {"Bonjour, je suis Adama Djan Amadou".split("").map((char, i) => (
-            <span
-              key={i}
-              className="inline-block opacity-0 animate-typing"
-              style={{ animationDelay: `${i * 0.03}s` }}
+          {/* Intro animé lettre par lettre */}
+          <p className="text-gray-300 text-lg mb-2">
+            {"Bonjour, je suis Adama Djan Amadou".split("").map((char, i) => (
+              <span
+                key={i}
+                className="inline-block opacity-0 animate-typing"
+                style={{ animationDelay: `${i * 0.03}s` }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </p>
+
+          {/* Titre principal */}
+          <h1 className="text-4xl md:text-5xl font-extrabold text-primary-100 leading-tight mb-4">
+            Développeuse <span className="text-primary-500">front-end</span>{" "}
+            passionnée et curieuse
+          </h1>
+
+          {/* Description */}
+          <p className="text-gray-300 text-base md:text-lg mb-8">
+            Créative et engagée dans la création de projets utiles et innovants.
+          </p>
+
+          {/* Boutons */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <DownloadCvButton />
+            <a
+              href="#projects"
+              className="bg-primary-500 hover:bg-primary-700 text-white px-6 py-3 rounded-lg transition"
             >
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
-        </p>
-
-        {/* Titre principal */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-primary-100 leading-tight mb-4">
-          Développeuse <span className="text-primary-500">front-end</span> passionnée et curieuse
-        </h1>
-
-        {/* Description */}
-        <p className="text-gray-300 text-base md:text-lg mb-8">
-          Créative et engagée dans la création de projets utiles et innovants.
-        </p>
-
-        {/* Boutons */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <DownloadCvButton />
-          <a
-            href="#projects"
-            className="bg-primary-500 hover:bg-primary-700 text-white px-6 py-3 rounded-lg transition"
-          >
-            Mes projets
-          </a>
-        </div>
+              Mes projets
+            </a>
+          </div>
         </div>
       </div>
     </section>

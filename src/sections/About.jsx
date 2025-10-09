@@ -1,8 +1,19 @@
 // src/sections/About.jsx
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function AboutSection() {
+  const router = useRouter();
+
+  const handleContactClick = () => {
+    // Si la page contact est séparée
+    router.push("/contact");
+
+    // Si tu veux un scroll vers un id #contact sur la même page
+    // document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="py-20 bg-primary-900 text-primary-100">
       <div className="container px-4 md:px-6 flex flex-col lg:flex-row gap-20 items-center text-center lg:text-left animate-fadeInUp">
@@ -39,37 +50,12 @@ export default function AboutSection() {
             ma passion."
           </p>
 
-          {/* Boutons contact */}
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start flex-wrap gap-4">
-            <a
-              href="mailto:adamadjandiallo9999@email.com"
-              className="inline-block sm:w-40 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-6 rounded-lg text-center hover:scale-105 hover:shadow-lg transition-all duration-300"
-            >
-              📧 Email
-            </a>
-
-            <a
-              href="https://github.com/AdamaDjan2024"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block sm:w-40 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-6 rounded-lg text-center hover:scale-105 hover:shadow-lg transition-all duration-300"
-            >
-              💻 GitHub
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/adama-djan-diallo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block sm:w-40 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-6 rounded-lg text-center hover:scale-105 hover:shadow-lg transition-all duration-300"
-            >
-              🔗 LinkedIn
-            </a>
-          </div>
-
           {/* Bouton principal de contact */}
           <div className="pt-4 flex justify-center lg:justify-start">
-            <button className="flex items-center gap-3 bg-primary-500 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1">
+            <button
+              onClick={handleContactClick}
+              className="flex items-center gap-3 bg-primary-500 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1"
+            >
               <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary-500">
                 ✉️
               </div>
