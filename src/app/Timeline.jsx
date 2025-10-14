@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import {
   Rocket,
   Send,
-  Target,
   Hourglass,
   UserCheck,
   Briefcase,
@@ -31,12 +30,16 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: <Send className="w-8 h-8 text-[#0f2a3f]" />,
+      icon: (
+        <div className="w-8 h-8 flex items-center justify-center">
+          <Send className="w-8 h-8 text-[#0f2a3f]" />
+        </div>
+      ),
       color: "bg-[#c2f0f7]",
     },
     {
       year: "2021-2022",
-      title: "Calcaire Technologies & Muna Monde",
+      title: "Calcaire Technologies",
       description: "Début professionnel en tant que promoteur et commerciale",
       details: (
         <>
@@ -50,12 +53,16 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: <Rocket className="w-8 h-8 text-[#0f2a3f]" />,
+      icon: (
+        <div className="w-8 h-8 flex items-center justify-center">
+          <Rocket className="w-8 h-8 text-[#0f2a3f]" />
+        </div>
+      ),
       color: "bg-[#ffecc2]",
     },
     {
       year: "2023",
-      title: "Formation & Expériences commerciales",
+      title: "Formation & Expériences ",
       description: "Formation web & commerciale + assistante commerciale",
       details: (
         <>
@@ -73,25 +80,41 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: <Target className="w-8 h-8 text-[#0f2a3f]" />,
+      icon: (
+        <div className="w-8 h-8 flex items-center justify-center">
+          <Briefcase className="w-8 h-8 text-[#0f2a3f]" />
+        </div>
+      ),
       color: "bg-[#d6eaff]",
     },
     {
       year: "2024",
       title: "Front-End Developer",
-      description: "Développeuse front-end chez Nimba Hub",
+      description: "Formation à Nimba Hub",
       details: (
         <>
           <p>
-            Missions : Création d'interfaces web, intégration de designs,
-            optimisation UX/UI.
+            Missions : Devenir développeur front-end de A à Z, en créant des
+            interfaces web, en intégrant des designs et en optimisant
+            l’expérience utilisateur. La formation mettait l’accent sur la
+            logique JavaScript et React, comprendre comment structurer un code
+            efficace, gérer l’interactivité et la dynamique des composants pour
+            créer des applications web fonctionnelles et réactives.
           </p>
-          <p>Technologies : React, Tailwind CSS, Git, Bootstrap.</p>
+          <p>
+            Technologies : HTML, CSS, JavaScript, React, Tailwind CSS, Git,
+            Bootstrap.
+          </p>
         </>
       ),
-      icon: <UserCheck className="w-8 h-8 text-[#0f2a3f]" />,
+      icon: (
+        <div className="w-8 h-8 flex items-center justify-center">
+          <UserCheck className="w-8 h-8 text-[#0f2a3f]" />
+        </div>
+      ),
       color: "bg-[#ffe4b5]",
     },
+
     {
       year: "2025",
       title: "Stage Mansa Digitale",
@@ -108,7 +131,11 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: <Hourglass className="w-8 h-8 text-[#0f2a3f]" />,
+      icon: (
+        <div className="w-8 h-8 flex items-center justify-center">
+          <Hourglass className="w-8 h-8 text-[#0f2a3f]" />
+        </div>
+      ),
       color: "bg-[#c2f0f7]",
     },
   ];

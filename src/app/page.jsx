@@ -12,7 +12,7 @@ export default function HomePage() {
       <AboutPage />
       <Skills />
       <Timeline /> {/* ✅ La frise chronologique */}
-      {/* <Projects /> */}
+      <Projects />
       <ContactPage />
     </>
   );
