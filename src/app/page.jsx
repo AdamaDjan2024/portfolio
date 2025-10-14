@@ -1,9 +1,9 @@
 import Hero from "@/sections/Hero";
 import AboutPage from "./about/page";
 import Skills from "@/sections/Skills";
-import Experience from "@/sections/Experience";
+import Timeline from "@/sections/Experience";
 import Projects from "@/sections/Projects";
-import ContactPage from "./contact/page"; // ← import de ta page Contact
+import ContactPage from "./contact/page";
 
 export default function HomePage() {
   return (
@@ -11,9 +11,9 @@ export default function HomePage() {
       <Hero />
       <AboutPage />
       <Skills />
-      <Experience />
+      <Timeline /> {/* ✅ La frise chronologique */}
       {/* <Projects /> */}
-      <ContactPage /> {/* ← affichage de la section Contact */}
+      <ContactPage />
     </>
   );
 }
