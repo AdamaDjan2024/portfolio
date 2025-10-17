@@ -1,4 +1,4 @@
-import Card from './Card'
+import Card from "./Card";
 
 export default function ProjectCard({ project }) {
   return (
@@ -6,10 +6,10 @@ export default function ProjectCard({ project }) {
       <div className="aspect-video bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
         <span className="text-gray-500">Image du projet</span>
       </div>
-      
+
       <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
       <p className="text-gray-600 mb-4">{project.description}</p>
-      
+
       <div className="flex flex-wrap gap-2 mb-4">
         {project.technologies.map((tech) => (
           <span
@@ -20,7 +20,7 @@ export default function ProjectCard({ project }) {
           </span>
         ))}
       </div>
-      
+
       <div className="flex space-x-4">
         {project.github && (
           <a
@@ -44,5 +44,5 @@ export default function ProjectCard({ project }) {
         )}
       </div>
     </Card>
-  )
+  );
 }

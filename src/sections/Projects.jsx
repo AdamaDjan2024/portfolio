@@ -10,6 +10,7 @@ import {
   Keyboard,
   A11y,
 } from "swiper/modules";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 import "swiper/css";
@@ -20,37 +21,47 @@ import "swiper/css/effect-coverflow";
 
 const projects = [
   {
-    img: "/biais-facile.png",
+    img: "/billetfacile.png",
     title: "Billet Facile",
     description:
-      "Une plateforme pour comprendre et résoudre les biais cognitifs, avec des outils interactifs.",
-    technologies: ["Next.js", "Tailwind", "Booker", "Git"],
-    link: "https://biaisfacile.com",
+      "Billet Facile est une plateforme moderne qui facilite la création, la gestion et le partage de billets d’événements, de cagnottes et d’invitations. Elle permet aux utilisateurs d’organiser plus facilement leurs activités et de suivre leurs participations en toute simplicité.",
+    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
+    link: "https://billetfacile.com/",
     buttonText: "Visiter le site",
   },
   {
-    img: "/mansa-digital.png",
+    img: "/mansadigital.png",
     title: "Mansa Digital",
-    description: "Présentation de l'agence Mansa Digital et de ses services.",
-    technologies: ["Next.js", "Tailwind", "Booker", "Git"],
-    link: "https://mansadigital.com",
-    buttonText: "Plus d'infos",
+    description:
+      "Mansa Digital est une agence de communication spécialisée dans le digital : création de sites web, conception d’identités visuelles, marketing numérique et accompagnement des entreprises dans leur transformation digitale.",
+    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
+    link: "https://mansa.digital/",
+    buttonText: "Découvrir",
   },
   {
-    img: "/codesandbox.png",
+    img: "/guineedata.png",
+    title: "Guinée Data",
+    description:
+      "Guinée Data vise à centraliser et valoriser les données publiques et économiques de Guinée. Elle permet aux journalistes, chercheurs et institutions d’accéder facilement à des informations fiables, favorisant ainsi la transparence et la recherche locale.",
+    technologies: ["Next.js", "Tailwind", "Docker", "Git", "Django"],
+    link: "https://www.guineedata.org/",
+    buttonText: "Explorer",
+  },
+  {
+    img: "/codesansbox.png",
     title: "Projets CodeSandbox",
     description:
-      "J'ai réalisé plusieurs projets front-end sur CodeSandbox pour expérimenter et apprendre.",
+      "Une collection de projets front-end développés sur CodeSandbox pour expérimenter, apprendre et explorer de nouvelles approches en React, Tailwind et JavaScript.",
     technologies: ["HTML", "CSS", "JS", "React", "Tailwind", "Git"],
-    link: "https://codesandbox.io/u/tonpseudo",
-    buttonText: "Voir tous mes projets",
+    link: "https://codesandbox.io/dashboard/recent",
+    buttonText: "Voir les projets",
   },
   {
     img: "/afribook.png",
     title: "AfriBook",
     description:
-      "Projet pour valoriser la littérature africaine et les auteurs du continent.",
-    technologies: ["Next.js", "Tailwind", "Booker", "Git"],
+      "AfriBook est une plateforme qui met en valeur la littérature africaine. Elle permet aux lecteurs de commander des livres d’auteurs africains, de découvrir de nouvelles œuvres et de participer à la promotion de la culture et de la lecture sur le continent.",
+    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
     link: "#",
     buttonText: "En cours",
   },
@@ -72,10 +83,28 @@ export default function ProjectCarousel() {
   }, [swiperInstance]);
 
   return (
-    <section className="w-full py-20 bg-gradient-to-b from-[#050417] via-[#0b0630]/70 to-[#060214] overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-white">
-        Projets
-      </h2>
+    <section className="relative w-full py-20 overflow-hidden bg-gradient-to-b from-[#0d1117]/90 via-[#1b2735]/85 to-[#0d1117]/95 backdrop-blur-lg">
+      {/* Fond général */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/your-background-image.jpg"
+          alt="Background"
+          fill
+          className="object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1117]/80 to-[#1b2735]/90" />
+      </div>
+
+      {/* Titre principal */}
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-[#bcd0f7] tracking-wide"
+      >
+        Mes Projets
+      </motion.h2>
 
       <div className="relative max-w-6xl mx-auto px-4">
         <Swiper
@@ -117,111 +146,92 @@ export default function ProjectCarousel() {
         >
           {projects.map((p, i) => {
             const isActive = activeIndex === i;
-            const isPrev = activeIndex - 1 === i;
-            const isNext = activeIndex + 1 === i;
-            const isLastActive = activeIndex === projects.length - 1;
-
-            // logique d'affichage du contenu au survol ou auto-preview
-            const showHoverPreview =
-              !isLastActive && isPrev && !isActive
-                ? false
-                : isNext || (!isActive && !isPrev && !isNext);
 
             return (
               <SwiperSlide
                 key={i}
-                className={`group rounded-2xl overflow-hidden transition-all duration-500 ease-out relative ${
+                className={`group rounded-2xl overflow-hidden relative transition-all duration-500 ease-out ${
                   isActive
                     ? "scale-105 opacity-100 z-20"
-                    : "scale-90 opacity-75 z-10"
+                    : "scale-90 opacity-60 z-10"
                 }`}
                 onClick={() => {
                   if (!isActive && swiperInstance)
                     swiperInstance.slideToLoop(i);
                 }}
               >
-                <div className="relative w-full h-80 sm:h-96 md:h-[28rem] lg:h-[32rem] cursor-pointer overflow-hidden">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative w-full h-80 sm:h-96 md:h-[28rem] lg:h-[32rem] cursor-pointer overflow-hidden rounded-2xl"
+                >
                   {/* Image principale */}
                   <Image
-                    src={p.img}
+                    src={p.img || "/default-placeholder.jpg"}
                     alt={p.title}
                     fill
                     className={`object-cover transition-all duration-700 ${
-                      isActive ? "brightness-100" : "brightness-60"
+                      isActive
+                        ? "brightness-100 blur-0"
+                        : "brightness-75 blur-[1.5px]"
                     }`}
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 50vw"
                   />
 
-                  {/* Overlay sombre */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-                  {/* Contenu */}
+                  {/* Overlay */}
                   <div
-                    className={`absolute inset-0 flex flex-col justify-end p-5 text-white text-left transition-all duration-500 ${
+                    className={`absolute inset-0 transition-all duration-500 ${
                       isActive
-                        ? "bg-black/40 backdrop-blur-sm"
-                        : "bg-black/60 opacity-0 group-hover:opacity-100"
+                        ? "bg-gradient-to-t from-[#0d1117]/70 via-[#1b2735]/30 to-transparent"
+                        : "bg-black/40"
                     }`}
-                  >
-                    <div className="transition-all">
-                      <h3
-                        className={`font-semibold transition-all ${
-                          isActive
-                            ? "text-2xl mb-3"
-                            : "text-lg mb-2 text-gray-200"
-                        }`}
-                      >
+                  />
+
+                  {/* Contenu du projet */}
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute inset-0 flex flex-col justify-end p-6 text-white text-left bg-gradient-to-t from-[#0d1117]/80 via-[#1b2735]/40 to-transparent backdrop-blur-[2px]"
+                    >
+                      <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-[#bcd0f7] drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
                         {p.title}
                       </h3>
 
-                      {/* Carte active */}
-                      {isActive ? (
-                        <>
-                          <p className="text-sm md:text-base text-gray-200 leading-relaxed mb-3">
-                            {p.description}
-                          </p>
-                          <p className="text-xs md:text-sm text-gray-300">
-                            Tech : {p.technologies.join(", ")}
-                          </p>
+                      <p className="text-sm md:text-base text-gray-100 leading-relaxed mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
+                        {p.description}
+                      </p>
 
-                          {p.link === "#" ? (
-                            <button
-                              type="button"
-                              disabled
-                              className="mt-4 inline-block px-4 py-2 rounded-lg text-white text-sm font-medium bg-gray-600 cursor-not-allowed opacity-90"
-                            >
-                              {p.buttonText}
-                            </button>
-                          ) : (
-                            <a
-                              href={p.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="mt-4 inline-block px-4 py-2 rounded-lg text-white text-sm font-medium bg-blue-600 hover:bg-blue-700 transition-colors"
-                            >
-                              {p.buttonText}
-                            </a>
-                          )}
-                        </>
-                      ) : showHoverPreview ? (
-                        // Carte droite ou autre (preview visible sans hover)
-                        <div
-                          className={`block transition-transform duration-500 ${
-                            isNext ? "translate-x-2" : ""
-                          }`}
+                      <p className="text-xs md:text-sm text-[#a6b9e0] mb-4">
+                        Technologies : {p.technologies.join(", ")}
+                      </p>
+
+                      {/* Bouton chic */}
+                      {p.link === "#" ? (
+                        <button
+                          type="button"
+                          disabled
+                          className="inline-block px-6 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-gray-600 to-gray-500 text-white shadow-md cursor-not-allowed opacity-80"
                         >
-                          <p className="text-xs text-gray-300 line-clamp-2 mb-2">
-                            {p.description}
-                          </p>
-                          <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-700/50 rounded-md">
-                            Voir plus →
-                          </span>
-                        </div>
-                      ) : null}
-                    </div>
-                  </div>
-                </div>
+                          {p.buttonText}
+                        </button>
+                      ) : (
+                        <a
+                          href={p.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-block px-6 py-2.5 rounded-xl text-sm font-semibold text-[#0d1117] bg-gradient-to-r from-[#bcd0f7] to-[#89a9e8] hover:from-white hover:to-[#bcd0f7] shadow-lg hover:shadow-xl transition-all duration-300"
+                        >
+                          {p.buttonText}
+                        </a>
+                      )}
+                    </motion.div>
+                  )}
+                </motion.div>
               </SwiperSlide>
             );
           })}
@@ -229,7 +239,7 @@ export default function ProjectCarousel() {
 
         {/* Pagination dynamique */}
         <div className="absolute left-1/2 -translate-x-1/2 bottom-6 z-20">
-          <div className="px-3 py-1 rounded-full bg-black/50 text-white text-sm font-medium">
+          <div className="px-3 py-1 rounded-full bg-[#1b2735]/70 text-[#bcd0f7] text-sm font-medium">
             {activeIndex + 1} / {projects.length}
           </div>
         </div>
@@ -238,7 +248,7 @@ export default function ProjectCarousel() {
         <button
           ref={prevRef}
           aria-label="Précédent"
-          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition-all z-30"
+          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#bcd0f7]/30 bg-[#1b2735]/60 backdrop-blur-sm flex items-center justify-center text-[#bcd0f7] hover:bg-[#bcd0f7]/10 active:scale-95 transition-all z-30"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +268,7 @@ export default function ProjectCarousel() {
         <button
           ref={nextRef}
           aria-label="Suivant"
-          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition-all z-30"
+          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#bcd0f7]/30 bg-[#1b2735]/60 backdrop-blur-sm flex items-center justify-center text-[#bcd0f7] hover:bg-[#bcd0f7]/10 active:scale-95 transition-all z-30"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
