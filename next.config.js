@@ -1,23 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {},
-  output: 'standalone',
+  output: 'export',
   images: {
-    domains: ['localhost'],
+    unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        source: '/cv.pdf',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/pdf',
-          },
-        ],
-      },
-    ];
-  },
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
 }
 
 module.exports = nextConfig
