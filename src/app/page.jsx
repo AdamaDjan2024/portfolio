@@ -7,13 +7,15 @@ import ContactPage from "./contact/page";
 
 export default function HomePage() {
   return (
-    <>
+    <main className="flex-1">
       <Hero />
       <AboutPage />
       <Skills />
-      <Timeline /> {/* ✅ La frise chronologique */}
-      <Projects />
+      <Timeline />
+      <section id="projects">
+        <Projects />
+      </section>
       <ContactPage />
-    </>
+    </main>
   );
 }

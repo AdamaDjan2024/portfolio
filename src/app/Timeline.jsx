@@ -11,6 +11,7 @@ import {
 
 export default function Timeline() {
   const [selectedYear, setSelectedYear] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const detailRef = useRef(null);
 
   const timeline = [
@@ -18,7 +19,7 @@ export default function Timeline() {
       year: "2020",
       title: "Fin de licence",
       description:
-        "Licence en génie informatique obtenue à l'Université Malet Magali",
+        "Licence en génie informatique obtenue à l'Université Mahatma Gandhi",
       details: (
         <>
           <p>
@@ -30,12 +31,7 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: (
-        <div className="w-8 h-8 flex items-center justify-center">
-          <Send className="w-8 h-8 text-[#0f2a3f]" />
-        </div>
-      ),
-      color: "bg-[#c2f0f7]",
+      icon: <Send className="w-8 h-8 text-[#002B45]" />,
     },
     {
       year: "2021-2022",
@@ -53,16 +49,11 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: (
-        <div className="w-8 h-8 flex items-center justify-center">
-          <Rocket className="w-8 h-8 text-[#0f2a3f]" />
-        </div>
-      ),
-      color: "bg-[#ffecc2]",
+      icon: <Rocket className="w-8 h-8 text-[#002B45]" />,
     },
     {
       year: "2023",
-      title: "Formation & Expériences ",
+      title: "Formation & Expériences",
       description: "Formation web & commerciale + assistante commerciale",
       details: (
         <>
@@ -80,12 +71,7 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: (
-        <div className="w-8 h-8 flex items-center justify-center">
-          <Briefcase className="w-8 h-8 text-[#0f2a3f]" />
-        </div>
-      ),
-      color: "bg-[#d6eaff]",
+      icon: <Briefcase className="w-8 h-8 text-[#002B45]" />,
     },
     {
       year: "2024",
@@ -96,10 +82,7 @@ export default function Timeline() {
           <p>
             Missions : Devenir développeur front-end de A à Z, en créant des
             interfaces web, en intégrant des designs et en optimisant
-            l’expérience utilisateur. La formation mettait l’accent sur la
-            logique JavaScript et React, comprendre comment structurer un code
-            efficace, gérer l’interactivité et la dynamique des composants pour
-            créer des applications web fonctionnelles et réactives.
+            l’expérience utilisateur.
           </p>
           <p>
             Technologies : HTML, CSS, JavaScript, React, Tailwind CSS, Git,
@@ -107,14 +90,8 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: (
-        <div className="w-8 h-8 flex items-center justify-center">
-          <UserCheck className="w-8 h-8 text-[#0f2a3f]" />
-        </div>
-      ),
-      color: "bg-[#ffe4b5]",
+      icon: <UserCheck className="w-8 h-8 text-[#002B45]" />,
     },
-
     {
       year: "2025",
       title: "Stage Mansa Digitale",
@@ -131,12 +108,7 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: (
-        <div className="w-8 h-8 flex items-center justify-center">
-          <Hourglass className="w-8 h-8 text-[#0f2a3f]" />
-        </div>
-      ),
-      color: "bg-[#c2f0f7]",
+      icon: <Hourglass className="w-8 h-8 text-[#002B45]" />,
     },
   ];
 
@@ -152,26 +124,40 @@ export default function Timeline() {
     }
   }, [selectedYear]);
 
+  const handleOpenDetail = (year) => {
+    setScrollPosition(window.scrollY); // mémorise la position
+    setSelectedYear(year);
+  };
+
+  const handleCloseDetail = () => {
+    setSelectedYear(null);
+    // Utiliser un timeout pour laisser React mettre à jour le DOM
+    setTimeout(() => {
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+    }, 50);
+  };
+
   const renderDetails = (item) => (
     <div
       ref={detailRef}
       className="mt-10 p-6 rounded-2xl shadow-2xl max-w-xl mx-auto relative z-20 bg-white"
     >
       <div className="flex items-center gap-4">
-        <div
-          className={`w-16 h-16 rounded-full border-2 border-[#0f2a3f] flex items-center justify-center ${item.color}`}
-        >
+        <div className="w-16 h-16 rounded-full border-2 border-[#2AE8A8] flex items-center justify-center shadow-inner">
           {item.icon}
         </div>
-        <h2 className="text-2xl font-bold text-[#0f2a3f]">
+        <h2 className="text-2xl font-bold text-[#002B45]">
           {item.title} ({item.year})
         </h2>
       </div>
-      <p className="mt-4 text-[#0f2a3f]">{item.description}</p>
-      <div className="mt-2 text-[#0f2a3f]">{item.details}</div>
+      <p className="mt-4 text-[#002B45]">{item.description}</p>
+      <div className="mt-2 text-[#002B45]">{item.details}</div>
       <button
-        className="mt-4 px-4 py-2 bg-[#0f2a3f] text-white rounded-full hover:bg-[#133d5c] transition flex items-center gap-2"
-        onClick={() => setSelectedYear(null)}
+        className="mt-4 px-4 py-2 bg-[#2AE8A8] text-[#002B45] rounded-full hover:bg-[#27D3A0] transition flex items-center gap-2"
+        onClick={handleCloseDetail}
       >
         <ArrowLeft className="w-4 h-4" /> Retour
       </button>
@@ -179,13 +165,13 @@ export default function Timeline() {
   );
 
   return (
-    <section className="relative bg-[#0f2a3f] text-white py-20 px-6 flex flex-col items-center">
-      <h1 className="text-5xl md:text-4xl font-bold mb-16 bg-gradient-to-r from-[#4ade80] via-[#3b82f6] to-[#facc15] bg-clip-text text-transparent text-center">
+    <section className="relative bg-white text-[#002B45] py-20 px-6 flex flex-col items-center">
+      <h1 className="text-5xl md:text-4xl font-bold mb-16 bg-gradient-to-r from-[#018ABE] to-[#2AE8A8] bg-clip-text text-transparent text-center">
         EXPÉRIENCE
       </h1>
 
       <div className="relative w-full max-w-4xl mx-auto">
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-[#4ade80]/70 via-[#3b82f6]/60 to-[#facc15]/70 z-0" />
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-[#018ABE]/70 via-[#2AE8A8]/60 to-[#D6E8EE]/50 z-0" />
 
         <div className="flex flex-col space-y-16 relative z-10">
           {timeline.map((item, index) => (
@@ -195,23 +181,16 @@ export default function Timeline() {
                 index % 2 === 0 ? "start" : "end"
               } w-full`}
             >
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-[#2AE8A8] shadow-md z-10" />
               <div
-                className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 ${item.color} rounded-full border-4 border-[#0f2a3f] shadow-md z-10`}
-              />
-              <div
-                className={`group relative w-[calc(50%-2rem)] p-6 rounded-2xl ${
-                  item.color
-                } text-[#0f2a3f] shadow-xl hover:shadow-2xl transition cursor-pointer z-10 ${
+                className={`group relative w-[calc(50%-2rem)] p-6 rounded-2xl bg-white text-[#002B45] shadow-xl transition cursor-pointer z-10 ${
                   index % 2 === 0
                     ? "ml-auto origin-left"
                     : "mr-auto origin-right"
-                } hover:scale-105`}
-                onClick={() => setSelectedYear(item.year)}
+                }`}
               >
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`flex items-center justify-center w-14 h-14 rounded-full border-2 border-[#0f2a3f] ${item.color} shadow-inner`}
-                  >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center justify-center w-14 h-14 rounded-full border-2 border-[#2AE8A8] shadow-inner bg-white">
                     {item.icon}
                   </div>
                   <div>
@@ -219,6 +198,13 @@ export default function Timeline() {
                     <p className="text-sm mt-1">{item.year}</p>
                   </div>
                 </div>
+
+                <button
+                  className="mt-2 px-4 py-2 bg-[#2AE8A8] text-[#002B45] rounded-full hover:bg-[#27D3A0] transition"
+                  onClick={() => handleOpenDetail(item.year)}
+                >
+                  Voir détails
+                </button>
               </div>
             </div>
           ))}

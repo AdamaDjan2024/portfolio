@@ -1,38 +1,37 @@
 [
   {
-    "id": 1,
-    "name": "AWS Certified Developer",
-    "issuer": "Amazon Web Services",
+    "name": "Attestation de participation",
+    "issuer": "Orange Digital Center",
     "date": "2023",
-    "credential_id": "AWS-DEV-123456",
-    "url": "https://aws.amazon.com/certification/",
-    "description": "Certification officielle AWS pour le développement d'applications cloud"
+    "url": "/certifications/orange_canva_figma.pdf",
+    "description": "Formation Canva & Figma"
   },
   {
-    "id": 2,
-    "name": "React Developer Certification",
-    "issuer": "Meta",
-    "date": "2022",
-    "credential_id": "REACT-DEV-789012",
-    "url": "https://react.dev/",
-    "description": "Certification officielle React pour le développement d'interfaces utilisateur"
+    "name": "Attestation de participation",
+    "issuer": "Orange Digital Center",
+    "date": "2023",
+    "url": "/certifications/Design thinking .pdf",
+    "description": "Formation Design Thinking"
   },
   {
-    "id": 3,
-    "name": "Node.js Application Developer",
-    "issuer": "OpenJS Foundation",
-    "date": "2021",
-    "credential_id": "NODE-DEV-345678",
-    "url": "https://nodejs.org/",
-    "description": "Certification Node.js pour le développement d'applications serveur"
+    "name": "Attestation de participation",
+    "issuer": "Orange Digital Center",
+    "date": "2023",
+    "url": "/certifications/Personal branding.pdf",
+    "description": "Personal Branding et Leadership"
   },
   {
-    "id": 4,
-    "name": "Docker Certified Associate",
-    "issuer": "Docker Inc.",
-    "date": "2020",
-    "credential_id": "DOCKER-CA-901234",
-    "url": "https://docker.com/",
-    "description": "Certification Docker pour la containerisation d'applications"
+    "name": "Certificat de fin de formation",
+    "issuer": "Udemy",
+    "date": "2025",
+    "url": "/certifications/udemy figma.pdf",
+    "description": "Complete Web & Mobile Designer UI/UX Figma"
+  },
+  {
+    "name": "Certificat de fin de formation",
+    "issuer": "Nimba Hub",
+    "date": "2025",
+    "url": "/certifications/nimba hub.jpeg",
+    "description": "Devenir développeur front-end de A à Z"
   }
 ]

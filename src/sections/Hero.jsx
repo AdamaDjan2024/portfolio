@@ -2,22 +2,17 @@ import DownloadCvButton from "@/components/DownloadCvButton";
 
 export default function Hero() {
   return (
-    <section className="relative py-32 bg-primary-700 overflow-hidden">
-      {/* Background shapes principaux */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-primary-500/20 rounded-3xl blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-primary-300/30 rounded-lg blur-2xl animate-pulse" />
+    <section className="relative py-32 bg-white overflow-hidden">
+      {/* Background shapes supprimés pour fond propre */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-transparent" />
+      <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-transparent" />
 
-      {/* Petits cubes brillants flottants */}
-      <div className="absolute top-10 left-10 w-4 h-4 bg-white rounded-sm opacity-70 animate-float"></div>
-      <div className="absolute top-20 right-20 w-3 h-3 bg-primary-300 rounded-sm opacity-50 animate-float delay-1000"></div>
-      <div className="absolute bottom-16 left-1/3 w-5 h-5 bg-primary-100 rounded-sm opacity-60 animate-float delay-2000"></div>
-      <div className="absolute bottom-10 right-1/4 w-2 h-2 bg-white rounded-sm opacity-80 animate-float delay-1500"></div>
-
-      {/* Contenu centré dans container */}
+      {/* Petits carrés flottants aussi supprimés */}
+      {/* Contenu centré */}
       <div className="relative container px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          {/* Intro animé lettre par lettre */}
-          <p className="text-gray-300 text-lg mb-2">
+          {/* Intro animé */}
+          <p className="text-[#002B45] text-lg mb-2">
             {"Bonjour, je suis Adama Djan Amadou".split("").map((char, i) => (
               <span
                 key={i}
@@ -30,13 +25,13 @@ export default function Hero() {
           </p>
 
           {/* Titre principal */}
-          <h1 className="text-4xl md:text-5xl font-extrabold text-primary-100 leading-tight mb-4">
-            Développeuse <span className="text-primary-500">front-end</span>{" "}
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#001B4B] leading-tight mb-4">
+            Développeuse <span className="text-[#2AE8A8]">front-end</span>{" "}
             passionnée et curieuse
           </h1>
 
           {/* Description */}
-          <p className="text-gray-300 text-base md:text-lg mb-8">
+          <p className="text-gray-600 text-base md:text-lg mb-8">
             Créative et engagée dans la création de projets utiles et innovants.
           </p>
 
@@ -45,7 +40,7 @@ export default function Hero() {
             <DownloadCvButton />
             <a
               href="#projects"
-              className="bg-primary-500 hover:bg-primary-700 text-white px-6 py-3 rounded-lg transition"
+              className="bg-[#2AE8A8] hover:bg-[#24C896] text-[#002B45] px-6 py-3 rounded-lg font-semibold transition"
             >
               Mes projets
             </a>

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "AfriBooks",
+    "description": "Une bibliothèque en ligne pour découvrir et partager des livres africains.",
+    "details": "Projet complet avec React, Redux et JSON Server. Permet la recherche et la gestion des livres.",
+    "technologies": ["React", "Redux", "JSON Server"]
+  },
+  {
+    "id": 2,
+    "title": "BilletFacile",
+    "description": "Application pour gérer la réservation de billets de transport.",
+    "details": "Front-end en React avec système de filtres et back-end JSON Server pour les données.",
+    "technologies": ["React", "Tailwind", "JSON Server"]
+  }
+]

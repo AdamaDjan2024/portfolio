@@ -51,39 +51,36 @@ export default function Skills() {
       let animation;
 
       if (hovered) {
-        // remplissage rapide mais progressif
         animation = setInterval(() => {
           setAngle((prev) => {
-            const next = prev + 6; // vitesse augmentée
+            const next = prev + 6;
             return next >= percent * 3.6 ? percent * 3.6 : next;
           });
         }, 15);
       } else {
-        // vidage rapide
         animation = setInterval(() => {
           setAngle((prev) => {
-            const next = prev - 12; // vitesse rapide pour vider
+            const next = prev - 12;
             return next <= 0 ? 0 : next;
           });
         }, 10);
       }
-
       return () => clearInterval(animation);
     }, [hovered, percent]);
 
     const style = {
-      backgroundImage: `conic-gradient(from 0deg, ${gradient[0]} 0deg, ${gradient[1]} ${angle}deg, rgba(255,255,255,0.1) ${angle}deg)`,
+      backgroundImage: `conic-gradient(from 0deg, ${gradient[0]} 0deg, ${gradient[1]} ${angle}deg, rgba(0,0,0,0.05) ${angle}deg)`,
       transition: "background-image 0.05s linear",
     };
 
     return (
       <div
-        className="relative w-36 h-36 rounded-full p-1 shadow-xl shadow-black/50 flex items-center justify-center cursor-pointer"
+        className="relative w-36 h-36 rounded-full p-1 shadow-xl shadow-gray-200 flex items-center justify-center cursor-pointer"
         style={style}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <div className="absolute inset-2 rounded-full bg-gray-900 flex items-center justify-center">
+        <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center shadow-inner">
           {icon}
         </div>
       </div>
@@ -91,7 +88,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 bg-gray-900 text-gray-100">
+    <section id="skills" className="py-24 bg-white text-[#002B45]">
       <div className="container px-4 md:px-6">
         <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-16 tracking-wide">
           Mes Compétences
@@ -101,7 +98,7 @@ export default function Skills() {
           {items.map((it) => (
             <div
               key={it.name}
-              className="flex flex-col items-center text-center group transition-transform hover:scale-105 focus:outline-none rounded"
+              className="flex flex-col items-center text-center group transition-transform hover:scale-105"
             >
               <Circle
                 percent={it.percent}
@@ -109,7 +106,7 @@ export default function Skills() {
                 icon={it.icon}
               />
               <h3
-                className="mt-5 font-bold text-2xl md:text-3xl tracking-tight transition-colors duration-300"
+                className="mt-5 font-bold text-2xl md:text-3xl tracking-tight"
                 style={{
                   background: `linear-gradient(to right, ${it.gradient[0]}, ${it.gradient[1]})`,
                   WebkitBackgroundClip: "text",
