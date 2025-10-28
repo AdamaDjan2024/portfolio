@@ -1,5 +1,7 @@
 import { generateSitemap } from '@/utils/seo'
 
+export const dynamic = 'force-static'
+
 export async function GET() {
   const sitemap = generateSitemap()
   

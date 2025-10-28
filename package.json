@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "next dev",
     "build": "next build",
-    "start": "PORT=3000 next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "preprod:up": "docker compose -f docker-compose.preprod.yml up -d --build",
-    "preprod:down": "docker compose -f docker-compose.preprod.yml down",
-    "preprod:logs": "docker compose -f docker-compose.preprod.yml logs -f"
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
