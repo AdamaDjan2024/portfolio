@@ -1,0 +1,50 @@
+{
+  "education": [
+    {
+      "year": "2020",
+      "desc": "Obtention du diplôme en Génie Informatique.",
+      "details": "Spécialisation Analyse et Développement.",
+      "icon": "GraduationCap"
+    },
+    {
+      "year": "2023 - 2025",
+      "desc": "Formation approfondie en Développement Web Front-End au Nimba Hub.",
+      "details": "Formation approfondie en Développement Web Front-End (Octobre 2023 - Septembre 2025). Complétée par des cours en ligne sur Udemy en UX/UI Design, visant à améliorer l’expérience utilisateur et l’interface des applications web.",
+      "icon": "Code"
+    }
+  ],
+  "experience": [
+    {
+      "year": "2021",
+      "desc": "Promotrice chez Calcaire Technologie.",
+      "details": "Missions : représenter et promouvoir les produits/services de l’entreprise, attirer de nouveaux clients et accroître la visibilité de la marque.",
+      "icon": "Briefcase"
+    },
+    {
+      "year": "2022",
+      "desc": "Apporteuse d’affaires chez Mouna Technologie.",
+      "details": "Missions : identifier des opportunités commerciales, mettre en relation l’entreprise avec de nouveaux partenaires/clients et contribuer à l’expansion du portefeuille commercial.",
+      "icon": "Handshake"
+    },
+    {
+      "year": "2023",
+      "desc": "Stage commercial chez DKMAK Corporate en tant qu’assistante.",
+      "details": "Missions : appuyer l’équipe dans la prospection, la gestion des relations clients et l’accompagnement des projets commerciaux.",
+      "icon": "Users"
+    },
+    {
+      "year": "2025",
+      "desc": "Stage en cours chez Mansa Digitale en tant que Développeuse Front-End.",
+      "details": "Missions : concevoir et développer des interfaces web modernes, transformer des maquettes Figma en pages fonctionnelles, fluides et accessibles, tout en garantissant une excellente expérience utilisateur sur tous types d’écrans.",
+      "icon": "Laptop"
+    }
+  ],
+  "certifications": [
+    {
+      "year": "2023",
+      "desc": "Formations certifiantes à l’Orange Digital Center.",
+      "details": "Certifications obtenues : Canva, Figma, Leadership, Design Thinking.",
+      "icon": "Award"
+    }
+  ]
+}

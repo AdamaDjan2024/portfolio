@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Attestation de participation",
+    "issuer": "Orange Digital Center",
+    "date": "2023",
+    "url": "/certifications/orange_canva_figma.pdf",
+    "description": "Formation Canva & Figma"
+  },
+  {
+    "name": "Attestation de participation",
+    "issuer": "Orange Digital Center",
+    "date": "2023",
+    "url": "/certifications/Design thinking .pdf",
+    "description": "Formation Design Thinking"
+  },
+  {
+    "name": "Attestation de participation",
+    "issuer": "Orange Digital Center",
+    "date": "2023",
+    "url": "/certifications/Personal branding.pdf",
+    "description": "Personal Branding et Leadership"
+  },
+  {
+    "name": "Certificat de fin de formation",
+    "issuer": "Udemy",
+    "date": "2025",
+    "url": "/certifications/udemy figma.pdf",
+    "description": "Complete Web & Mobile Designer UI/UX Figma"
+  },
+  {
+    "name": "Certificat de fin de formation",
+    "issuer": "Nimba Hub",
+    "date": "2025",
+    "url": "/certifications/nimba hub.jpeg",
+    "description": "Devenir développeur front-end de A à Z"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "degree": "Master en Informatique",
+    "school": "Université de Paris",
+    "period": "2017 - 2019",
+    "location": "Paris, France",
+    "description": "Spécialisation en développement web et bases de données",
+    "grade": "Mention Bien",
+    "relevant_courses": [
+      "Architecture des systèmes d'information",
+      "Développement web avancé",
+      "Bases de données relationnelles",
+      "Intelligence artificielle"
+    ]
+  },
+  {
+    "id": 2,
+    "degree": "Licence en Informatique",
+    "school": "Université de Lyon",
+    "period": "2014 - 2017",
+    "location": "Lyon, France",
+    "description": "Formation générale en informatique et programmation",
+    "grade": "Mention Assez Bien",
+    "relevant_courses": [
+      "Algorithmique et programmation",
+      "Structures de données",
+      "Systèmes d'exploitation",
+      "Réseaux informatiques"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mansa-portfolio.vercel.app/sitemap.xml
+
+# Allow CV download
+Allow: /cv.pdf
