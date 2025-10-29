@@ -112,7 +112,8 @@ export default function ProjectCarousel() {
               role="group"
               aria-label={`Projet ${index + 1} sur ${projects.length}: ${
                 project.title
-              }`}
+              }`}$
+              
             >
               <div
                 className="relative w-full max-w-sm h-96 rounded-2xl overflow-hidden shadow-lg focus:outline-none focus:ring-4 focus:ring-[#2AE8A8]/40"

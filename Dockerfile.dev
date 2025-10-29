@@ -1,0 +1,22 @@
+# Dockerfile.dev
+
+# Image Node.js légère
+FROM node:20-alpine
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier les fichiers package.json et package-lock.json
+COPY package*.json ./
+
+# Installer les dépendances
+RUN npm install
+
+# Copier tout le reste du projet
+COPY . .
+
+# Exposer le port de l'application Next.js
+EXPOSE 3000
+
+# Commande pour démarrer le serveur en mode développement
+CMD ["npm", "run", "dev"]

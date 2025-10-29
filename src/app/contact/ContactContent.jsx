@@ -69,9 +69,9 @@ export default function ContactContent() {
   const title = "Contactez-moi";
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="relative py-16 px-6 lg:px-12 bg-white">
-        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start text-[#001B4B]">
+    <div className="bg-white">
+      <section className="relative py-8 sm:py-10 md:py-12 px-6 lg:px-12 bg-white">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-start text-[#001B4B]">
           {/* ===== GAUCHE : Contact info ===== */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -80,7 +80,7 @@ export default function ContactContent() {
             className="flex flex-col justify-between"
           >
             <div>
-              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 overflow-hidden">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 overflow-hidden whitespace-nowrap">
                 {title.split("").map((char, index) => (
                   <motion.span
                     key={index}
@@ -139,8 +139,8 @@ export default function ContactContent() {
               </div>
             </div>
 
-            <div className="mt-10">
-              <h3 className="text-lg font-semibold text-[#374151] mb-3">
+            <div className="mt-6 sm:mt-8">
+              <h3 className="text-lg font-semibold text-[#374151] mb-2 sm:mb-3">
                 Retrouvez-moi
               </h3>
               <div className="flex gap-4">

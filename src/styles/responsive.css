@@ -1,0 +1,70 @@
+/* Base mobile-first styles */
+@layer utilities {
+  .container {
+    @apply w-full mx-auto px-4;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    @apply overflow-x-hidden;
+    width: 100%;
+  }
+}
+
+/* Mobile (< 480px) */
+@media (max-width: 480px) {
+  .container {
+    @apply px-4;
+  }
+  
+  /* Navbar mobile adjustments */
+  .navbar-mobile-menu {
+    @apply w-full;
+  }
+  
+  /* Section spacing for mobile */
+  .section {
+    @apply py-12;
+  }
+  
+  /* Typography adjustments */
+  .section-title {
+    @apply text-2xl mb-6;
+  }
+}
+
+/* Tablet Portrait (480px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    @apply px-6;
+  }
+  
+  /* Tablet-specific navbar adjustments */
+  .nav-content {
+    @apply gap-4;
+  }
+}
+
+/* Tablet Landscape (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    @apply px-8;
+    max-width: 960px;
+  }
+}
+
+/* Desktop (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Large Desktop (> 1280px) */
+@media (min-width: 1281px) {
+  .container {
+    max-width: 1280px;
+  }
+}
