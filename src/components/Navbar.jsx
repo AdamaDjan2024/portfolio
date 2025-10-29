@@ -13,7 +13,7 @@ export default function Navbar() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 sm:h-4 sm:w-4"
+          className="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -33,7 +33,7 @@ export default function Navbar() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 sm:h-4 sm:w-4"
+          className="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -53,7 +53,7 @@ export default function Navbar() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 sm:h-4 sm:w-4"
+          className="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -71,14 +71,14 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+      <div className="container px-4 md:px-6">
+        <div className="flex items-center justify-between h-20">
           {/* ---- Gauche : Avatar + Nom ---- */}
-          <div className="flex items-center gap-2 md:gap-3">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-r from-[#2AE8A8] to-[#06B6D4] flex items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#2AE8A8] to-[#06B6D4] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 md:h-5 md:w-5 text-white"
+                className="h-5 w-5 text-[#FFFFFF]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -92,22 +92,22 @@ export default function Navbar() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="text-[#001B4B] font-semibold text-xs md:text-sm lg:text-base">
+              <span className="text-[#001B4B] font-semibold text-sm sm:text-base">
                 Adama Djan Amadou Diallo
               </span>
-              <span className="text-[#002B45] text-xs md:text-sm">
+              <span className="text-[#002B45] text-xs sm:text-sm">
                 Développeuse Frontend Junior
               </span>
             </div>
           </div>
 
           {/* ---- Navigation Desktop ---- */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-6">
+          <div className="hidden md:flex items-center gap-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-1.5 lg:gap-2 text-[#002B45] hover:text-[#2AE8A8] px-2.5 lg:px-3 py-2 rounded-md text-sm lg:text-base transition-colors hover:bg-[#2AE8A8]/10"
+                className="flex items-center gap-1 text-[#002B45] hover:text-[#2AE8A8] px-3 py-2 rounded-md transition-colors hover:bg-[#2AE8A8]/10"
               >
                 {item.icon}
                 <span>{item.name}</span>
@@ -115,7 +115,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-2 lg:ml-4 px-3 lg:px-4 py-2 rounded-md text-sm lg:text-base font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"
+              className="ml-4 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"
             >
               Contact
             </Link>
@@ -128,7 +128,7 @@ export default function Navbar() {
               className="text-[#002B45] hover:text-[#2AE8A8]"
             >
               <svg
-                className="h-6 w-6 sm:h-5 sm:w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -155,13 +155,13 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200/50 shadow-lg max-h-screen overflow-auto">
+        <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200/50 shadow-lg">
           <div className="px-4 py-3 space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-2 sm:gap-3 text-[#002B45] hover:text-[#2AE8A8] px-3 py-2 rounded-md hover:bg-[#2AE8A8]/10 transition-colors"
+                className="flex items-center gap-2 text-[#002B45] hover:text-[#2AE8A8] px-3 py-2 rounded-md hover:bg-[#2AE8A8]/10 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.icon}
@@ -170,7 +170,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="block text-center mt-2 px-4 py-2 sm:px-6 sm:py-3 rounded-md text-sm sm:text-base font-medium text-[#002B45] bg-[#2AE8A8]"
+              className="block text-center mt-2 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8]"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
