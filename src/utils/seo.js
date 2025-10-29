@@ -25,7 +25,7 @@ export function generateMetadata(pageTitle = '', pageDescription = '') {
     openGraph: {
       type: 'website',
       locale: 'fr_FR',
-      url: 'https://mansa-portfolio.vercel.app',
+      url: 'https://mon-portfolio-zeta-bice.vercel.app',
       title,
       description,
       siteName: siteData.name,
@@ -46,13 +46,13 @@ export function generateMetadata(pageTitle = '', pageDescription = '') {
       images: ['/images/og-image.jpg'],
     },
     alternates: {
-      canonical: 'https://mansa-portfolio.vercel.app',
+      canonical: 'https://mon-portfolio-zeta-bice.vercel.app',
     },
   }
 }
 
 export function generateSitemap() {
-  const baseUrl = 'https://mansa-portfolio.vercel.app'
+  const baseUrl = 'https://mon-portfolio-zeta-bice.vercel.app'
   
   const routes = [
     '',

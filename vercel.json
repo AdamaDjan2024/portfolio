@@ -4,5 +4,13 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://mon-portfolio-zeta-bice.vercel.app"
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
 }
