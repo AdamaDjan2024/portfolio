@@ -103,13 +103,10 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-600 mt-12 pt-8 text-center text-lg text-gray-300">
-          <p>
-            &copy; {currentYear} Adama Djan Amadou Diallo. Tous droits réservés.
-          </p>
+          &copy; {currentYear} Adama Djan Amadou Diallo. Tous droits réservés.
         </div>
       </div>
 
-      {/* Animation */}
       <style jsx>{`
         @keyframes pulse-slow {
           0%,

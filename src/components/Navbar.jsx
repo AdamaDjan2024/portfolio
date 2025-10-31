@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Lock body scroll when mobile menu is open
+  useLockBodyScroll(isMenuOpen);
 
   const navigation = [
     {
@@ -13,7 +15,7 @@ export default function Navbar() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-5 w-5 md:h-6 md:w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -33,7 +35,7 @@ export default function Navbar() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-5 w-5 md:h-6 md:w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -53,7 +55,7 @@ export default function Navbar() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-5 w-5 md:h-6 md:w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -73,12 +75,12 @@ export default function Navbar() {
     <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200/50">
       <div className="container px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* ---- Gauche : Avatar + Nom ---- */}
+          {/* ---- Left: Avatar + Name ---- */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#2AE8A8] to-[#06B6D4] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-[#FFFFFF]"
+                className="h-5 w-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -92,17 +94,17 @@ export default function Navbar() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="text-[#001B4B] font-semibold text-sm sm:text-base">
+              <span className="text-[#001B4B] font-semibold text-sm sm:text-base md:text-base lg:text-lg">
                 Adama Djan Amadou Diallo
               </span>
-              <span className="text-[#002B45] text-xs sm:text-sm">
+              <span className="text-[#002B45] text-xs sm:text-sm md:text-sm lg:text-base">
                 Développeuse Frontend Junior
               </span>
             </div>
           </div>
 
-          {/* ---- Navigation Desktop ---- */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* ---- Desktop Navigation ---- */}
+          <div className="hidden lg:flex items-center gap-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -121,8 +123,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* ---- Menu mobile ---- */}
-          <div className="md:hidden flex items-center">
+          {/* ---- Mobile / Tablet Menu ---- */}
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-[#002B45] hover:text-[#2AE8A8]"
@@ -155,8 +157,8 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200/50 shadow-lg">
-          <div className="px-4 py-3 space-y-2">
+        <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200/50 shadow-lg left-0 right-0 w-full">
+          <div className="flex flex-col px-4 py-3 space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -170,7 +172,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="block text-center mt-2 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8]"
+              className="block text-center mt-2 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
@@ -180,4 +182,20 @@ export default function Navbar() {
       )}
     </nav>
   );
+}
+
+// Keep body scroll locked when mobile menu is open
+function useLockBodyScroll(isLocked) {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const original = document.body.style.overflow;
+    if (isLocked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = original || "";
+    }
+    return () => {
+      document.body.style.overflow = original || "";
+    };
+  }, [isLocked]);
 }

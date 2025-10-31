@@ -16,6 +16,11 @@
   }
 }
 
+/* Ensure no horizontal scroll by default (mobile-first). If a component needs overflow, opt-in locally.) */
+html, body {
+  overflow-x: hidden;
+}
+
 @layer components {
   /* Boutons */
   .btn-primary {

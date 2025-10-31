@@ -151,14 +151,14 @@ export default function Timeline() {
           {timeline.map((item, index) => (
             <div
               key={index}
-              className={`relative flex items-center justify-${
+              className={`relative flex flex-col md:flex-row items-center w-full md:justify-${
                 index % 2 === 0 ? "start" : "end"
-              } w-full`}
+              }`}
             >
               <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-[#2AE8A8] shadow-md z-10" />
               <div
-                className={`group relative w-[calc(50%-2rem)] p-6 rounded-2xl bg-white text-[#002B45] shadow-xl transition cursor-pointer z-10 ${
-                  index % 2 === 0 ? "ml-auto origin-left" : "mr-auto origin-right"
+                className={`group relative w-full md:w-[calc(50%-2rem)] p-6 rounded-2xl bg-white text-[#002B45] shadow-xl transition cursor-pointer z-10 ${
+                  index % 2 === 0 ? "md:ml-auto md:origin-left" : "md:mr-auto md:origin-right"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
