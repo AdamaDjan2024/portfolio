@@ -87,6 +87,10 @@ Personnaliser les couleurs dans tailwind.config.js
 
 Vercel : le dossier est déjà lié au projet existant, un déploiement sur ce projet conserve donc la même URL
 
+URL actuelle du portfolio déployé : https://mon-portfolio-ada3.vercel.app
+
+Ancienne URL figée à ne pas réutiliser : https://mon-portfolio-h7bnxt9cs-ada3.vercel.app
+
 Docker :
 
 docker build -t mon-portfolio .
