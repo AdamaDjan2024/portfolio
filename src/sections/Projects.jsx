@@ -5,43 +5,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Keyboard, A11y } from "swiper/modules";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { portfolioProjects } from "@/data/projects";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-const projects = [
-  {
-    img: "/billetfacile.png",
-    title: "Billet Facile",
-    description:
-      "Billet Facile est une plateforme moderne qui facilite la création, la gestion et le partage de billets d’événements, de cagnottes et d’invitations.",
-    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
-    link: "https://billetfacile.com/",
-    buttonText: "Visiter le site",
-  },
-  {
-    img: "/mansadigital.png",
-    title: "Mansa Digital",
-    description:
-      "Agence de communication digitale spécialisée dans la création de sites web, le marketing et la transformation numérique.",
-    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
-    link: "https://mansa.digital/",
-    buttonText: "Découvrir",
-  },
-  {
-    img: "/guineedata.png",
-    title: "Guinée Data",
-    description:
-      "Plateforme qui centralise et valorise les données publiques et économiques de Guinée pour plus de transparence et d’accès à l’information.",
-    technologies: ["Next.js", "Tailwind", "Django"],
-    link: "https://www.guineedata.org/",
-    buttonText: "Explorer",
-  },
-];
-
 export default function ProjectCarousel() {
+  const projects = portfolioProjects.filter((project) => project.showInCarousel);
   const [swiper, setSwiper] = useState(null);
   const [announce, setAnnounce] = useState("");
+  const canLoop = projects.length >= 5;
 
   return (
     <section className="relative w-full py-24 bg-gray-50">
@@ -70,8 +43,8 @@ export default function ProjectCarousel() {
           slidesPerView={3}
           centeredSlides={true}
           spaceBetween={30}
-          loop={true}
-          loopedSlides={3} // Assure un nombre suffisant de slides dupliqués
+          loop={canLoop}
+          rewind={!canLoop}
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
@@ -129,7 +102,7 @@ export default function ProjectCarousel() {
                     {project.title}
                   </h3>
                   <p className="text-sm text-gray-800 mb-4">
-                    {project.description}
+                    {project.summary}
                   </p>
                   <a
                     href={project.link}

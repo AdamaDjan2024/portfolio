@@ -1,69 +1,35 @@
 "use client";
 import { useState } from "react";
-import { FaExternalLinkAlt, FaCode, FaDatabase, FaTicketAlt, FaBook } from "react-icons/fa";
+import {
+  FaExternalLinkAlt,
+  FaCode,
+  FaDatabase,
+  FaTicketAlt,
+  FaBook,
+  FaBriefcase,
+} from "react-icons/fa";
+import { portfolioProjects, projectFilters } from "@/data/projects";
 
-const projectsData = [
-  {
-    id: 1,
-    title: "Mansa Digital",
-    description:
-      "Site vitrine conçu lors de mon stage pour une agence de communication digitale.",
-    details:
-      "Le site met en valeur l'expertise de l'agence en développement web et UX/UI. Design moderne et responsive, navigation fluide et agréable.",
-    technologies: ["Next.js", "Tailwind", "CSS", "Docker", "Git"],
-    link: "https://mansa.digital/",
-    icon: FaCode,
-    category: "Web Development",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Guinée Data",
-    description:
-      "Plateforme centralisée de données publiques et économiques pour plus de transparence.",
-    details:
-      "Valorise les informations économiques et améliore la prise de décision grâce à un design clair et accessible à tous.",
-    technologies: ["Next.js", "Tailwind", "Django", "UI/UX", "Git"],
-    link: "https://www.guineedata.org/",
-    icon: FaDatabase,
-    category: "Data Platform",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "Billet Facile",
-    description:
-      "Application de gestion complète d'événements et de cagnottes très populaire en Guinée.",
-    details:
-      "La plateforme digitalise l'événementiel, simplifie la création et la gestion de billets et cagnottes, offrant une expérience fluide et fiable.",
-    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
-    link: "https://billetfacile.com/",
-    icon: FaTicketAlt,
-    category: "Event Management",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "AfriBook",
-    description:
-      "Bibliothèque numérique dédiée aux auteurs africains souvent méconnus.",
-    details:
-      "Mise en avant des auteurs africains, organisation de sessions de lecture et book clubs, initiation des jeunes à la lecture et création d'une communauté active autour du livre africain.",
-    technologies: ["Next.js", "Tailwind", "Docker", "Git"],
-    link: "",
-    icon: FaBook,
-    category: "Digital Library",
-    featured: false,
-  },
-];
+const iconMap = {
+  code: FaCode,
+  database: FaDatabase,
+  ticket: FaTicketAlt,
+  book: FaBook,
+  briefcase: FaBriefcase,
+};
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState("all");
 
-  const filteredProjects = filter === "all" 
-    ? projectsData 
-    : projectsData.filter(project => project.category.toLowerCase().includes(filter.toLowerCase()));
+  const filteredProjects =
+    filter === "all"
+      ? portfolioProjects
+      : portfolioProjects.filter((project) => project.filterKey === filter);
+
+  const SelectedProjectIcon = selectedProject
+    ? iconMap[selectedProject.iconKey] || FaCode
+    : FaCode;
 
   return (
     <div className="min-h-screen bg-white">
@@ -82,17 +48,17 @@ export default function ProjectsPage() {
       {/* Filter Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-center gap-4 flex-wrap">
-          {["all", "web", "data", "event", "library"].map((filterType) => (
+          {projectFilters.map((filterType) => (
             <button
-              key={filterType}
-              onClick={() => setFilter(filterType)}
+              key={filterType.value}
+              onClick={() => setFilter(filterType.value)}
               className={`px-6 py-3 rounded-full font-medium ${
-                filter === filterType
+                filter === filterType.value
                   ? "bg-[#001B4B] text-white"
                   : "bg-gray-100 text-gray-600"
               }`}
             >
-              {filterType === "all" ? "Tous" : filterType.charAt(0).toUpperCase() + filterType.slice(1)}
+              {filterType.label}
             </button>
           ))}
         </div>
@@ -102,7 +68,7 @@ export default function ProjectsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => {
-            const IconComponent = project.icon;
+            const IconComponent = iconMap[project.iconKey] || FaCode;
             return (
               <div
                 key={project.id}
@@ -146,7 +112,7 @@ export default function ProjectsPage() {
                   <p className={`flex-grow mb-6 leading-relaxed ${
                     project.featured ? "text-white/80" : "text-gray-600"
                   }`}>
-                    {project.description}
+                    {project.summary}
                   </p>
 
                   {/* Technologies */}
@@ -221,7 +187,7 @@ export default function ProjectsPage() {
 
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 bg-gradient-to-br from-blue-500/20 to-teal-500/20 rounded-xl">
-                <selectedProject.icon className="text-3xl text-blue-400" />
+                <SelectedProjectIcon className="text-3xl text-blue-400" />
               </div>
               <div>
                 <h2 className="text-3xl font-bold text-white">
@@ -233,7 +199,7 @@ export default function ProjectsPage() {
 
             <div className="space-y-6">
               <p className="text-gray-300 text-lg leading-relaxed">
-                {selectedProject.description}
+                {selectedProject.summary}
               </p>
               
               {selectedProject.details && (
