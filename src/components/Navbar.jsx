@@ -73,7 +73,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200/50">
-      <div className="container px-4 md:px-6">
+      <div className="page-shell">
         <div className="flex items-center justify-between h-20">
           {/* ---- Left: Avatar + Name ---- */}
           <div className="flex items-center gap-3">
@@ -109,7 +109,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="flex items-center gap-1 text-[#002B45] hover:text-[#2AE8A8] px-3 py-2 rounded-md transition-colors hover:bg-[#2AE8A8]/10"
+                className="flex items-center gap-1 rounded-md px-3 py-2 text-[#002B45] transition-colors hover:text-[#001B4B] focus:outline-none focus-visible:text-[#001B4B]"
               >
                 {item.icon}
                 <span>{item.name}</span>
@@ -127,7 +127,7 @@ export default function Navbar() {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-[#002B45] hover:text-[#2AE8A8]"
+              className="text-[#002B45] transition-colors hover:text-[#001B4B] focus:outline-none focus-visible:text-[#001B4B]"
             >
               <svg
                 className="h-6 w-6"
@@ -158,25 +158,27 @@ export default function Navbar() {
 
       {isMenuOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200/50 shadow-lg left-0 right-0 w-full">
-          <div className="flex flex-col px-4 py-3 space-y-2">
-            {navigation.map((item) => (
+          <div className="page-shell">
+            <div className="flex flex-col py-3 space-y-2">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-[#002B45] transition-colors hover:text-[#001B4B] focus:outline-none focus-visible:text-[#001B4B]"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.icon}
+                  {item.name}
+                </Link>
+              ))}
               <Link
-                key={item.name}
-                href={item.href}
-                className="flex items-center gap-2 text-[#002B45] hover:text-[#2AE8A8] px-3 py-2 rounded-md hover:bg-[#2AE8A8]/10 transition-colors"
+                href="/contact"
+                className="block text-center mt-2 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item.icon}
-                {item.name}
+                Contact
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="block text-center mt-2 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            </div>
           </div>
         </div>
       )}

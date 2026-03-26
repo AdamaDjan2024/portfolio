@@ -7,10 +7,10 @@ export const metadata = generateMetadata('Formation', 'Mon parcours académique 
 export default function FormationPage() {
   return (
     <div className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="page-shell">
         <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Formation</h1>
         
-        <div className="space-y-8">
+        <div className="mx-auto max-w-4xl space-y-8">
           {educationData.map((edu) => (
             <Card key={edu.id}>
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">

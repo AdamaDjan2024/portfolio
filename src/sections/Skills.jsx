@@ -89,12 +89,12 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-24 bg-white text-[#002B45]">
-      <div className="container px-4 md:px-6">
+      <div className="page-shell">
         <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-16 tracking-wide">
           Mes Compétences
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
           {items.map((it) => (
             <div
               key={it.name}

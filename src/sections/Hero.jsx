@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative py-24 sm:py-28 md:py-32 bg-white overflow-hidden">
       {/* Conteneur principal */}
-      <div className="relative container px-4 sm:px-6 md:px-6">
+      <div className="relative page-shell">
         <div className="mx-auto max-w-2xl text-center">
           {/* Intro animé */}
           <p className="text-[#002B45] text-base sm:text-lg mb-2">

@@ -36,6 +36,14 @@ html, body {
     @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
   }
 
+  .page-shell {
+    @apply w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-shell-narrow {
+    @apply w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8;
+  }
+
   /* Titres de section */
   .section-title {
     @apply text-3xl font-bold text-primary-900 mb-8 text-center;

@@ -17,29 +17,24 @@ export default function ProjectCarousel() {
   const canLoop = projects.length >= 5;
 
   return (
-    <section className="relative w-full py-24 bg-gray-50">
-      {/* Titre principal */}
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-5xl md:text-5xl font-bold mb-16 text-center text-[#001B4B] tracking-wide"
-      >
-        Mes Projets
-      </motion.h2>
+    <section className="relative w-full py-20 sm:py-24 bg-gray-50">
+      <div className="relative page-shell">
+        {/* Titre principal */}
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-4xl sm:text-5xl font-bold mb-12 sm:mb-16 text-center text-[#001B4B] tracking-wide"
+        >
+          Mes Projets
+        </motion.h2>
 
-      <div className="relative max-w-7xl mx-auto px-6">
         <Swiper
           className="!bg-gray-50"
-          onSwiper={(sw) => {
-            setSwiper(sw);
-            // Initialisation avec un délai pour s'assurer que tout est bien chargé
-            setTimeout(() => {
-              sw.slideTo(1, 0);
-            }, 100);
-          }}
+          onSwiper={setSwiper}
           modules={[Autoplay, EffectCoverflow, Keyboard, A11y]}
+          initialSlide={projects.length > 1 ? 1 : 0}
           slidesPerView={3}
           centeredSlides={true}
           spaceBetween={30}
@@ -72,8 +67,8 @@ export default function ProjectCarousel() {
             );
           }}
           breakpoints={{
-            // keep 3 on medium+ screens; on small screens show 1 for usability
-            320: { slidesPerView: 1, spaceBetween: 12 },
+            320: { slidesPerView: 1, spaceBetween: 16 },
+            640: { slidesPerView: 1.15, spaceBetween: 18 },
             768: { slidesPerView: 2, spaceBetween: 20 },
             1024: { slidesPerView: 3, spaceBetween: 30 },
           }}
@@ -88,7 +83,7 @@ export default function ProjectCarousel() {
               }`}
             >
               <div
-                className="relative w-full max-w-sm h-96 rounded-2xl overflow-hidden shadow-lg focus:outline-none focus:ring-4 focus:ring-[#2AE8A8]/40"
+                className="relative w-full max-w-sm h-[26rem] sm:h-96 rounded-2xl overflow-hidden shadow-lg focus:outline-none focus:ring-4 focus:ring-[#2AE8A8]/40"
                 tabIndex={0}
               >
                 <Image
@@ -97,7 +92,7 @@ export default function ProjectCarousel() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gray-100/80 backdrop-blur-md">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gray-100/80 backdrop-blur-md">
                   <h3 className="text-lg font-semibold text-[#001B4B] mb-2">
                     {project.title}
                   </h3>
@@ -119,7 +114,7 @@ export default function ProjectCarousel() {
         </Swiper>
 
         {/* Boutons de navigation */}
-        <div className="flex justify-between items-center mt-8">
+        <div className="flex justify-center sm:justify-between items-center gap-4 mt-8">
           <button
             aria-label="Projet précédent"
             onClick={() => {

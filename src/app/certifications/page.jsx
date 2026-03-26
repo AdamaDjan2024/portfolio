@@ -10,8 +10,8 @@ export default function CertificationsPage() {
   return (
     <div className="min-h-screen bg-white py-20">
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <h1 className="text-5xl md:text-6xl font-bold text-[#001B4B] mb-6 tracking-tight">
+      <div className="page-shell text-center mb-16">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#001B4B] mb-6 tracking-tight">
           Mes Certifications
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -21,12 +21,12 @@ export default function CertificationsPage() {
       </div>
 
       {/* Certifications Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="page-shell">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="relative flex flex-col justify-between bg-white p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-500"
+              className="relative flex flex-col justify-between bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div>

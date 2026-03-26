@@ -58,6 +58,7 @@ function Dropdown({ options, placeholder, name, required = false, onChange }) {
             <li
               key={option}
               role="option"
+              aria-selected={selected === option}
               onClick={() => handleSelect(option)}
               className="cursor-pointer px-4 py-2 hover:bg-[#2AE8A8] hover:text-white rounded-md"
             >
@@ -86,8 +87,8 @@ export default function ContactContent() {
   const title = "Contactez-moi";
 
   return (
-    <section className="py-16 px-6 lg:px-12 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start text-[#001B4B]">
+    <section className="py-16 bg-white">
+      <div className="page-shell grid grid-cols-1 lg:grid-cols-2 gap-12 items-start text-[#001B4B]">
         {/* ===== GAUCHE : Contact info ===== */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -98,11 +99,10 @@ export default function ContactContent() {
           <div>
             {/* ✅ Titre responsive sur une seule ligne */}
             <motion.h1
-              className="font-extrabold mb-6 text-nowrap"
+              className="font-extrabold mb-6"
               style={{
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 lineHeight: "1.1",
-                whiteSpace: "nowrap",
               }}
             >
               {title}

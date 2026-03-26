@@ -94,7 +94,7 @@ export default function CareerPage() {
 
   return (
     <section className="py-20 bg-gray-900 text-gray-100">
-      <div className="container px-4 md:px-8">
+      <div className="page-shell">
         <h1 className="text-4xl font-bold text-center mb-12">Mon Parcours</h1>
         <Section
           title="Éducation"
@@ -116,7 +116,7 @@ export default function CareerPage() {
         />
         <div className="mt-12 text-center">
           <Link href="/" className="text-primary-500 hover:underline">
-            Retour à l'accueil
+            Retour à l’accueil
           </Link>
         </div>
       </div>

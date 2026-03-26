@@ -15,23 +15,25 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#001B4B] text-white transition-colors duration-500 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="page-shell py-16">
+        <div className="footer-tablet-grid grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About Section */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4">
+          <div className="footer-about">
+            <h3 className="footer-tablet-name text-2xl font-bold mb-4">
               Adama Djan Amadou Diallo
             </h3>
-            <p className="text-gray-300 text-lg">
-              Développeur Frontend passionné par la création d'interfaces
+            <p className="footer-tablet-copy text-gray-300 text-lg">
+              Développeur Frontend passionné par la création d’interfaces
               modernes et performantes.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-2xl font-semibold mb-4">Liens rapides</h3>
-            <ul className="space-y-3 text-lg">
+            <h3 className="footer-tablet-title text-2xl font-semibold mb-4">
+              Liens rapides
+            </h3>
+            <ul className="footer-tablet-list space-y-3 text-lg">
               <li>
                 <Link href="/about" className="hover:text-[#2AE8A8] transition">
                   À propos
@@ -58,42 +60,47 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div>
-            <h3 className="text-2xl font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3 text-lg">
-              <li className="flex items-center gap-3 hover:text-[#2AE8A8] transition">
+            <h3 className="footer-tablet-title text-2xl font-semibold mb-4">
+              Contact
+            </h3>
+            <ul className="footer-tablet-list space-y-3 text-lg">
+              <li className="footer-contact-item flex items-center gap-3 hover:text-[#2AE8A8] transition">
                 <FaEnvelope />{" "}
-                <a href="mailto:adamadjandiallo@gmail.com">
+                <a
+                  href="mailto:adamadjandiallo@gmail.com"
+                  className="footer-contact-link"
+                >
                   adamadjandiallo@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-3 hover:text-[#2AE8A8] transition">
+              <li className="footer-contact-item flex items-center gap-3 hover:text-[#2AE8A8] transition">
                 <FaPhone /> (+224) 629 31 95 56
               </li>
-              <li className="flex items-center gap-3 hover:text-[#2AE8A8] transition">
+              <li className="footer-contact-item flex items-center gap-3 hover:text-[#2AE8A8] transition">
                 <FaMapMarkerAlt /> Guinée, Conakry
               </li>
             </ul>
 
             {/* Social icons */}
-            <div className="flex mt-6 gap-4">
+            <div className="footer-social-row flex mt-6 gap-4">
               <a
                 href="https://www.linkedin.com/in/adama-djan-diallo/"
                 target="_blank"
-                className="p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
+                className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaLinkedin size={22} />
               </a>
               <a
                 href="https://github.com/AdamaDjan2024"
                 target="_blank"
-                className="p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
+                className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaGithub size={22} />
               </a>
               <a
                 href="https://x.com/adahoussei"
                 target="_blank"
-                className="p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
+                className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaTwitter size={22} />
               </a>
@@ -102,7 +109,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-600 mt-12 pt-8 text-center text-lg text-gray-300">
+        <div className="footer-bottom border-t border-gray-600 mt-12 pt-8 text-center text-lg text-gray-300">
           &copy; {currentYear} Adama Djan Amadou Diallo. Tous droits réservés.
         </div>
       </div>
@@ -119,6 +126,55 @@ export default function Footer() {
         }
         .animate-pulse-slow {
           animation: pulse-slow 3s infinite;
+        }
+
+        @media (min-width: 768px) and (max-width: 900px) {
+          .footer-tablet-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem 1.5rem;
+          }
+
+          .footer-about {
+            grid-column: 1 / -1;
+            max-width: 42rem;
+          }
+
+          .footer-tablet-name {
+            font-size: 1.5rem;
+            line-height: 1.25;
+          }
+
+          .footer-tablet-title {
+            font-size: 1.3rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+          }
+
+          .footer-tablet-copy,
+          .footer-tablet-list,
+          .footer-bottom {
+            font-size: 0.95rem;
+            line-height: 1.6;
+          }
+
+          .footer-contact-item {
+            align-items: flex-start;
+            gap: 0.65rem;
+            min-width: 0;
+          }
+
+          .footer-contact-link {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+          }
+
+          .footer-social-row {
+            gap: 0.75rem;
+          }
+
+          .footer-social-link {
+            padding: 0.7rem;
+          }
         }
       `}</style>
     </footer>
