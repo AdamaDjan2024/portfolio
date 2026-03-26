@@ -1,6 +1,6 @@
-import Timeline from "../app/Timeline";
+import Timeline from "./Timeline";
 
-export default function ExperiencePage() {
+export default function ExperienceSection() {
   return (
     <main className="bg-[#0f2a3f] text-white min-h-screen">
       <Timeline />

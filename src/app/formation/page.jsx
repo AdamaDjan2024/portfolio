@@ -2,7 +2,11 @@ import { generateMetadata } from '@/utils/seo'
 import Card from '@/components/Card'
 import educationData from '@/data/education.json'
 
-export const metadata = generateMetadata('Formation', 'Mon parcours académique et formations')
+export const metadata = generateMetadata(
+  'Formation',
+  'Mon parcours académique et les formations qui structurent mon profil.',
+  '/formation'
+)
 
 export default function FormationPage() {
   return (

@@ -1,5 +1,3 @@
-"use client";
-
 import DownloadCvButton from "@/components/DownloadCvButton";
 
 export default function Hero() {
@@ -10,7 +8,7 @@ export default function Hero() {
         <div className="mx-auto max-w-2xl text-center">
           {/* Intro animé */}
           <p className="text-[#002B45] text-base sm:text-lg mb-2">
-            {"Bonjour, je suis Adama Djan Amadou".split("").map((char, i) => (
+            {"Bonjour, je suis Adama Dian Amadou".split("").map((char, i) => (
               <span
                 key={i}
                 className="inline-block opacity-0 animate-typing"

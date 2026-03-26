@@ -11,7 +11,7 @@ export const portfolioProjects = [
   {
     id: 1,
     title: "Mansa Digital",
-    img: "/mansadigital-empereur.png",
+    img: "/images/projects/mansadigital-empereur.png",
     summary:
       "J'ai travaillé côté front sur un site professionnel pensé pour rendre l'offre de l'agence plus lisible, plus crédible et plus engageante.",
     details:
@@ -80,7 +80,7 @@ export const portfolioProjects = [
   {
     id: 2,
     title: "Mansa Talents",
-    img: "/mansatalents.jpg",
+    img: "/images/projects/mansatalents.jpg",
     summary:
       "J'ai travaillé côté front sur une plateforme emploi qui rend les parcours candidat et recruteur plus clairs, plus lisibles et plus simples à utiliser.",
     details:
@@ -150,7 +150,7 @@ export const portfolioProjects = [
   {
     id: 3,
     title: "Guinée Data",
-    img: "/guineedata.png",
+    img: "/images/projects/guineedata.png",
     summary:
       "J'ai surtout accompagné le projet sur la partie UI/UX pour rendre la consultation des données plus claire, plus lisible et plus accessible.",
     details:
@@ -210,7 +210,7 @@ export const portfolioProjects = [
   {
     id: 4,
     title: "Billet Facile",
-    img: "/billetfacile-official.png",
+    img: "/images/projects/billetfacile-official.png",
     summary:
       "J'ai travaillé côté front sur une solution de billetterie pensée pour rendre la création d'événements et le suivi des participants plus fluides.",
     details:
@@ -280,7 +280,6 @@ export const portfolioProjects = [
   {
     id: 5,
     title: "AfriBook",
-    img: "/afribook.png",
     summary:
       "Plateforme culturelle pensée pour rendre la littérature africaine francophone plus accessible, plus visible et plus vivante.",
     details:

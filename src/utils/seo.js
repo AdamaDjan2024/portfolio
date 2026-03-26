@@ -1,13 +1,38 @@
 import siteData from "@/data/site.json";
 
-export function generateMetadata(pageTitle = "", pageDescription = "") {
+function normalizeSiteUrl(url) {
+  return url.replace(/\/$/, "");
+}
+
+export function getSiteUrl() {
+  const deploymentUrl =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+
+  if (deploymentUrl) {
+    const absoluteUrl = deploymentUrl.startsWith("http")
+      ? deploymentUrl
+      : `https://${deploymentUrl}`;
+
+    return normalizeSiteUrl(absoluteUrl);
+  }
+
+  return normalizeSiteUrl(siteData.siteUrl);
+}
+
+export function generateMetadata(
+  pageTitle = "",
+  pageDescription = "",
+  pathname = "/"
+) {
+  const siteUrl = getSiteUrl();
+  const canonicalUrl = new URL(pathname, `${siteUrl}/`).toString();
   const title = pageTitle ? `${pageTitle} | ${siteData.name}` : siteData.name;
   const description = pageDescription || siteData.description;
 
   return {
     title,
     description,
-    metadataBase: new URL("https://portfolio.vercel.app"),
+    metadataBase: new URL(siteUrl),
     keywords: siteData.keywords.join(", "),
     authors: [{ name: siteData.name }],
     creator: siteData.name,
@@ -26,16 +51,16 @@ export function generateMetadata(pageTitle = "", pageDescription = "") {
     openGraph: {
       type: "website",
       locale: "fr_FR",
-      url: "https://portfolio.vercel.app",
+      url: canonicalUrl,
       title,
       description,
       siteName: siteData.name,
       images: [
         {
-          url: "/images/og-image.jpg",
+          url: siteData.ogImage,
           width: 1200,
           height: 630,
-          alt: siteData.name,
+          alt: siteData.fullName,
         },
       ],
     },
@@ -43,26 +68,25 @@ export function generateMetadata(pageTitle = "", pageDescription = "") {
       card: "summary_large_image",
       title,
       description,
-      creator: "@adama_djan",
-      images: ["/images/og-image.jpg"],
+      creator: siteData.twitterHandle,
+      images: [siteData.ogImage],
     },
     alternates: {
-      canonical: "https://portfolio.vercel.app",
+      canonical: canonicalUrl,
     },
   };
 }
 
 export function generateSitemap() {
-  const baseUrl = "https://portfolio.vercel.app";
+  const baseUrl = getSiteUrl();
 
   const routes = [
     "",
     "/about",
     "/formation",
-    "/education",
-    "/certifications",
     "/experience",
-    "/skills",
+    "/parcours",
+    "/certifications",
     "/projects",
     "/contact",
   ];

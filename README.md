@@ -1,4 +1,4 @@
-Portfolio Personnel - Adama Djan
+Portfolio Personnel - Adama Dian
 
 Portfolio moderne et responsive développé avec Next.js 15+, Tailwind CSS et Docker.
 
@@ -13,14 +13,15 @@ Docker & Docker Compose
 SEO optimisé : metadata, sitemap.xml, robots.txt, OpenGraph
 
 📁 Structure du projet
-mansa-portfolio/
-├── public/           # Images, favicon, CV
-│   └── cv.pdf
+mon-portfolio/
+├── public/
+│   ├── documents/    # CV et certifications
+│   ├── images/       # Photos et visuels de projets
+│   └── favicon.ico
 ├── src/
 │   ├── app/          # Pages et layout
 │   ├── components/   # Composants réutilisables
-│   ├── sections/     # Sections spécifiques
-│   ├── styles/       # Tailwind global
+│   ├── sections/     # Sections et blocs de page
 │   ├── data/         # Données JSON
 │   └── utils/        # Fonctions utilitaires
 ├── Dockerfile
@@ -52,13 +53,11 @@ npm start         # Lancer prod
 
 /formation - Formation académique
 
-/education - Détails parcours éducatif
-
 /certifications - Certifications
 
 /experience - Expérience pro
 
-/skills - Compétences techniques
+/parcours - Parcours complet
 
 /projects - Portfolio projets
 
@@ -68,30 +67,30 @@ npm start         # Lancer prod
 
 SEO optimisé : metadata dynamique, sitemap, robots.txt, OpenGraph
 
-Composants réutilisables : Navbar, Footer, Card, ProjectCard, SkillBar, DownloadCvButton
+Composants réutilisables : Navbar, Footer, Card, DownloadCvButton
 
 Design responsive : mobile-first, grilles adaptatives, hamburger menu
 
 📊 Données JSON
 
-site.json, projects.json, skills.json, experience.json, education.json, certifications.json
+site.json, projects.js, education.json, certifications.json
 
 🔧 Personnalisation
 
 Modifier src/data/* pour vos contenus
 
-Remplacer public/cv.pdf par votre CV
+Remplacer public/documents/cv.pdf par votre CV
 
 Personnaliser les couleurs dans tailwind.config.js
 
 🚀 Déploiement
 
-Vercel : connecter le repo et déployer
+Vercel : le dossier est déjà lié au projet existant, un déploiement sur ce projet conserve donc la même URL
 
 Docker :
 
-docker build -t mansa-portfolio .
-docker run -p 3000:3000 mansa-portfolio
+docker build -t mon-portfolio .
+docker run -p 3000:3000 mon-portfolio
 
 📝 Scripts
 
@@ -118,7 +117,7 @@ Pull request
 Licence MIT
 
 📞 Contact
-**Adama Djan**
-- Email: adama.djan@example.com
-- LinkedIn: [linkedin.com/in/adama-djan](https://linkedin.com/in/adama-djan)
+**Adama Dian**
+- Email: adamadiandiallo9999@gmail.com
+- LinkedIn: [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
 - GitHub: [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)

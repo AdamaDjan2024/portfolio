@@ -1,8 +1,10 @@
+import siteData from "@/data/site.json";
+
 export default function DownloadCvButton({ className = "" }) {
   return (
     <a
-      href="/certifications/cv.pdf"
-      download="/certifications/cv.pdf"
+      href={siteData.cv}
+      download
       className={`inline-flex items-center px-6 py-3 rounded-lg font-semibold transition bg-[#001B4B] text-white hover:bg-[#002B70] ${className}`}
     >
       <svg

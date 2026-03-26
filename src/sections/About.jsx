@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import siteData from "@/data/site.json";
 
 export default function AboutSection() {
   const router = useRouter();
@@ -22,8 +23,8 @@ export default function AboutSection() {
         <div className="relative flex-shrink-0 w-60 sm:w-72 md:w-80 aspect-[7/9] mx-auto lg:mx-0">
           <div className="border-l-4 border-b-4 border-[#2AE8A8] absolute left-0 sm:-left-2 md:-left-4 -bottom-2 sm:-bottom-3 md:-bottom-4 w-full h-full overflow-hidden"></div>
           <Image
-            src="/adama.jpeg"
-            alt="Photo de profil"
+            src={siteData.profileImage}
+            alt={`Photo de profil de ${siteData.fullName}`}
             fill
             className="relative z-10 object-cover rounded-md"
           />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import siteData from "@/data/site.json";
 import {
   Mail,
   Phone,
@@ -74,16 +75,7 @@ function Dropdown({ options, placeholder, name, required = false, onChange }) {
 }
 
 // ===== Composant principal =====
-export default function ContactContent() {
-  const siteData = {
-    email: "adamadiandiallo9999@gmail.com",
-    phone: "224629319556",
-    location: "Guinée-Conakry",
-    github: "https://github.com/AdamaDjan2024",
-    linkedin: "https://www.linkedin.com/in/adama-djan-diallo/",
-    twitter: "https://x.com/adahoussei",
-  };
-
+export default function ContactSection() {
   const title = "Contactez-moi";
 
   return (
@@ -144,10 +136,10 @@ export default function ContactContent() {
                     Téléphone :
                   </span>
                   <a
-                    href={`tel:+${siteData.phone}`}
+                    href={`tel:+${siteData.phoneRaw}`}
                     className="text-base font-medium hover:underline truncate block"
                   >
-                    +{siteData.phone}
+                    {siteData.phone}
                   </a>
                 </div>
               </div>
@@ -170,6 +162,8 @@ export default function ContactContent() {
                 href={siteData.github}
                 className="p-2 bg-[#001B4B] rounded-full hover:bg-[#2AE8A8] transition"
                 aria-label="GitHub"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Github size={18} className="text-white" />
               </a>
@@ -177,6 +171,8 @@ export default function ContactContent() {
                 href={siteData.linkedin}
                 className="p-2 bg-[#001B4B] rounded-full hover:bg-[#2AE8A8] transition"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Linkedin size={18} className="text-white" />
               </a>
@@ -184,6 +180,8 @@ export default function ContactContent() {
                 href={siteData.twitter}
                 className="p-2 bg-[#001B4B] rounded-full hover:bg-[#2AE8A8] transition"
                 aria-label="Twitter"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Twitter size={18} className="text-white" />
               </a>

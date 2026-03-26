@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import siteData from "@/data/site.json";
 import {
   FaPhone,
   FaEnvelope,
@@ -12,6 +13,11 @@ import {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const quickLinks = [
+    { href: "/about", label: "À propos" },
+    { href: "/projects", label: "Projets" },
+    { href: "/contact", label: "Contact" },
+  ];
 
   return (
     <footer className="bg-[#001B4B] text-white transition-colors duration-500 ">
@@ -20,11 +26,11 @@ export default function Footer() {
           {/* About Section */}
           <div className="footer-about">
             <h3 className="footer-tablet-name text-2xl font-bold mb-4">
-              Adama Djan Amadou Diallo
+              {siteData.fullName}
             </h3>
             <p className="footer-tablet-copy text-gray-300 text-lg">
-              Développeur Frontend passionné par la création d’interfaces
-              modernes et performantes.
+              {siteData.title} passionnée par la création d’interfaces modernes
+              et performantes.
             </p>
           </div>
 
@@ -34,27 +40,16 @@ export default function Footer() {
               Liens rapides
             </h3>
             <ul className="footer-tablet-list space-y-3 text-lg">
-              <li>
-                <Link href="/about" className="hover:text-[#2AE8A8] transition">
-                  À propos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="hover:text-[#2AE8A8] transition"
-                >
-                  Projets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-[#2AE8A8] transition"
-                >
-                  Contact
-                </Link>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-[#2AE8A8] transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -67,39 +62,42 @@ export default function Footer() {
               <li className="footer-contact-item flex items-center gap-3 hover:text-[#2AE8A8] transition">
                 <FaEnvelope />{" "}
                 <a
-                  href="mailto:adamadjandiallo@gmail.com"
+                  href={`mailto:${siteData.email}`}
                   className="footer-contact-link"
                 >
-                  adamadjandiallo@gmail.com
+                  {siteData.email}
                 </a>
               </li>
               <li className="footer-contact-item flex items-center gap-3 hover:text-[#2AE8A8] transition">
-                <FaPhone /> (+224) 629 31 95 56
+                <FaPhone /> {siteData.phone}
               </li>
               <li className="footer-contact-item flex items-center gap-3 hover:text-[#2AE8A8] transition">
-                <FaMapMarkerAlt /> Guinée, Conakry
+                <FaMapMarkerAlt /> {siteData.location}
               </li>
             </ul>
 
             {/* Social icons */}
             <div className="footer-social-row flex mt-6 gap-4">
               <a
-                href="https://www.linkedin.com/in/adama-djan-diallo/"
+                href={siteData.linkedin}
                 target="_blank"
+                rel="noreferrer"
                 className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaLinkedin size={22} />
               </a>
               <a
-                href="https://github.com/AdamaDjan2024"
+                href={siteData.github}
                 target="_blank"
+                rel="noreferrer"
                 className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaGithub size={22} />
               </a>
               <a
-                href="https://x.com/adahoussei"
+                href={siteData.twitter}
                 target="_blank"
+                rel="noreferrer"
                 className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaTwitter size={22} />
@@ -110,7 +108,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="footer-bottom border-t border-gray-600 mt-12 pt-8 text-center text-lg text-gray-300">
-          &copy; {currentYear} Adama Djan Amadou Diallo. Tous droits réservés.
+          &copy; {currentYear} {siteData.fullName}. Tous droits réservés.
         </div>
       </div>
 

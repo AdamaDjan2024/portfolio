@@ -1,7 +1,12 @@
-"use client";
-
+import { generateMetadata } from "@/utils/seo";
 import { GraduationCap, Briefcase, Award } from "lucide-react";
 import Link from "next/link";
+
+export const metadata = generateMetadata(
+  "Parcours",
+  "Découvrez mon parcours académique, mes expériences professionnelles et mes formations.",
+  "/parcours"
+);
 
 export default function CareerPage() {
   const education = [

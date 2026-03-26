@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import siteData from "@/data/site.json";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,10 +96,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-[#001B4B] font-semibold text-sm sm:text-base md:text-base lg:text-lg">
-                Adama Djan Amadou Diallo
+                {siteData.fullName}
               </span>
               <span className="text-[#002B45] text-xs sm:text-sm md:text-sm lg:text-base">
-                Développeuse Frontend Junior
+                {siteData.title}
               </span>
             </div>
           </div>

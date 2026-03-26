@@ -1,11 +1,12 @@
 import { generateMetadata } from "@/utils/seo";
-import ContactContent from "./ContactContent";
+import ContactSection from "@/sections/Contact";
 
 export const metadata = generateMetadata(
   "Contact",
-  "Contactez-moi pour discuter de vos projets"
+  "Contactez-moi pour discuter de vos projets",
+  "/contact"
 );
 
 export default function ContactPage() {
-  return <ContactContent />;
+  return <ContactSection />;
 }
