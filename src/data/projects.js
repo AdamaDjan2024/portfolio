@@ -13,14 +13,21 @@ export const portfolioProjects = [
     title: "Mansa Digital",
     img: "/images/projects/mansadigital-empereur.png",
     summary:
-      "J'ai travaillé côté front sur un site professionnel pensé pour rendre l'offre de l'agence plus lisible, plus crédible et plus engageante.",
+      "Intégration front des pages de présentation de l'agence, création de composants Next.js réutilisables et adaptation responsive complète du site.",
     details:
-      "Mon travail s'est concentré sur l'intégration front, la hiérarchie visuelle, le responsive et la fluidité du parcours utilisateur en lien avec la structure back déjà en place.",
+      "J'ai transformé les maquettes Figma en interfaces exploitables, harmonisé les sections clés du site et ajusté l'UI avec l'équipe pour rendre l'offre plus lisible et la prise de contact plus simple.",
     focusTag: "Acquisition de leads",
     highlight:
       "Objectif : rendre l'offre de l'agence plus lisible et plus convaincante pour transformer les visites en opportunités.",
     contribution:
-      "Je suis intervenue principalement sur la partie front-end : intégration des interfaces, lisibilité des contenus, responsive et cohérence de l'expérience utilisateur.",
+      "Mon rôle a porté sur l'intégration front, la structuration de composants réutilisables, la qualité du responsive et la livraison d'un rendu propre dans l'environnement Docker du projet.",
+    roleHighlights: [
+      "Transformation des maquettes Figma en pages vitrines fonctionnelles",
+      "Création de composants réutilisables en Next.js pour les sections marketing",
+      "Responsive complet sur mobile, tablette et desktop",
+      "Ajustements UI pour clarifier l'offre, les appels à l'action et les formulaires",
+      "Validation du rendu dans l'environnement Docker déjà en place",
+    ],
     problem:
       "Une agence digitale a besoin d'une présence en ligne claire et crédible pour présenter ses services, rassurer les prospects et faciliter la prise de contact.",
     solution:
@@ -212,14 +219,21 @@ export const portfolioProjects = [
     title: "Billet Facile",
     img: "/images/projects/billetfacile-official.png",
     summary:
-      "J'ai travaillé côté front sur une solution de billetterie pensée pour rendre la création d'événements et le suivi des participants plus fluides.",
+      "Intégration front des écrans de billetterie et d'événement, avec une interface pensée pour des actions rapides côté organisateur comme côté participant.",
     details:
-      "Mon rôle a porté sur l'intégration front des parcours utiles aux organisateurs et aux utilisateurs, avec une attention particulière à la clarté des actions et à la fluidité d'usage.",
+      "J'ai travaillé sur les parcours de création d'événements, de réservation et de suivi en soignant la clarté des actions, la restitution des statuts et l'adaptation responsive sur mobile.",
     focusTag: "Événementiel",
     highlight:
       "Objectif : centraliser la création d'événements, la billetterie et la gestion des participations dans une interface simple.",
     contribution:
-      "Je me suis concentrée sur le front-end, l'intégration des interfaces et la restitution claire des informations liées à la billetterie et aux événements.",
+      "J'ai intégré des interfaces front réutilisables pour la billetterie, aligné les écrans avec les données fournies par le back Symfony et validé le rendu dans le workflow Git/Docker du projet.",
+    roleHighlights: [
+      "Intégration des écrans organisateur et participant pour la billetterie",
+      "Création de composants réutilisables pour cartes d'événement, billets et formulaires",
+      "Affichage clair des statuts de réservation et des informations utiles en interface",
+      "Responsive mobile complet pour la consultation et l'achat de billets",
+      "Travail aligné avec le back Symfony et le workflow Git/Docker du projet",
+    ],
     problem:
       "La gestion manuelle des billets, invitations et participations génère des frictions, des erreurs et un manque de visibilité pour les organisateurs.",
     solution:

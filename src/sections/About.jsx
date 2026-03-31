@@ -41,10 +41,11 @@ export default function AboutSection() {
             <span className="font-semibold text-[#97CADB]">
               sites modernes, intuitifs et centrés sur l’utilisateur
             </span>
-            . Diplômée en génie informatique, je mets ma curiosité et ma rigueur
-            au service de chaque projet pour concevoir des interfaces
-            performantes, accessibles et esthétiques. J’aime transformer des
-            idées en expériences digitales mémorables.
+            . Diplômée en génie informatique, j&apos;intègre des maquettes
+            Figma en interfaces Next.js et Tailwind CSS avec une attention
+            particulière au responsive, à l&apos;accessibilité et à la
+            lisibilité. J’aime transformer des idées en expériences digitales
+            mémorables.
           </p>
 
           <p className="italic text-sm sm:text-base md:text-base text-[#97CADB]">

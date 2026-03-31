@@ -1,127 +1,79 @@
-Portfolio Personnel - Adama Dian
+# Portfolio d'Adama Dian
 
-Portfolio moderne et responsive développé avec Next.js 15+, Tailwind CSS et Docker.
+Portfolio personnel développé avec Next.js 15, React, Tailwind CSS et Docker pour présenter mon parcours, mes compétences et mes projets en production.
 
-🚀 Technologies
+## Aperçu
 
-Next.js 15+ (App Router)
+- Site en ligne : [mon-portfolio.vercel.app](https://mon-portfolio.vercel.app)
+- Code source : [github.com/AdamaDjan2024/portfolio](https://github.com/AdamaDjan2024/portfolio)
+- Profil GitHub : [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
+- LinkedIn : [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
 
-Tailwind CSS
+## Stack
 
-Docker & Docker Compose
+- Next.js 15 + React 18
+- JavaScript
+- Tailwind CSS
+- Docker / Docker Compose
+- Git
+- SEO technique : metadata, Open Graph, sitemap, robots.txt
 
-SEO optimisé : metadata, sitemap.xml, robots.txt, OpenGraph
+## Projets en production
 
-📁 Structure du projet
-mon-portfolio/
-├── public/
-│   ├── documents/    # CV et certifications
-│   ├── images/       # Photos et visuels de projets
-│   └── favicon.ico
-├── src/
-│   ├── app/          # Pages et layout
-│   ├── components/   # Composants réutilisables
-│   ├── sections/     # Sections et blocs de page
-│   ├── data/         # Données JSON
-│   └── utils/        # Fonctions utilitaires
-├── Dockerfile
-├── Dockerfile.dev
-├── docker-compose.yml
-└── README.md
+- Portfolio : [mon-portfolio.vercel.app](https://mon-portfolio.vercel.app)
+- Mansa Digital : [mansa.digital](https://mansa.digital/)
+- Mansa Talents : [mansatalents.com](https://mansatalents.com/)
+- Billet Facile : [billetfacile.com](https://billetfacile.com/)
+- Guinée Data : [guineedata.org](https://guineedata.org/)
 
-🐳 Docker
-Développement
-docker compose build --no-cache
-docker compose up
-# Accessible sur http://localhost:3000
+## Lancer le projet
 
-Production
-docker compose -f docker-compose.yml build --no-cache
-docker compose -f docker-compose.yml up
+### En local
 
-🧪 Local (sans Docker)
+```bash
 npm install
-npm run dev       # Développement
-npm run build     # Build prod
-npm start         # Lancer prod
+npm run dev
+```
 
-📄 Pages
+Application disponible sur `http://localhost:3000`.
 
-/ - Accueil : hero, à propos, projets récents
+### Avec Docker
 
-/about - À propos
+```bash
+docker compose up --build
+```
 
-/formation - Formation académique
+## Scripts utiles
 
-/certifications - Certifications
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-/experience - Expérience pro
+## Structure
 
-/parcours - Parcours complet
+```text
+src/
+  app/          Pages et layout
+  components/   Composants réutilisables
+  sections/     Sections de pages
+  data/         Contenus du portfolio
+  utils/        SEO et helpers
+public/
+  documents/    CV et certifications
+  images/       Photos et visuels de projets
+```
 
-/projects - Portfolio projets
+## Personnalisation
 
-/contact - Formulaire de contact
+- Modifier les contenus dans `src/data/`
+- Remplacer le CV dans `public/documents/cv.pdf`
+- Mettre à jour les visuels dans `public/images/`
 
-🎨 Fonctionnalités
+## Contact
 
-SEO optimisé : metadata dynamique, sitemap, robots.txt, OpenGraph
-
-Composants réutilisables : Navbar, Footer, Card, DownloadCvButton
-
-Design responsive : mobile-first, grilles adaptatives, hamburger menu
-
-📊 Données JSON
-
-site.json, projects.js, education.json, certifications.json
-
-🔧 Personnalisation
-
-Modifier src/data/* pour vos contenus
-
-Remplacer public/documents/cv.pdf par votre CV
-
-Personnaliser les couleurs dans tailwind.config.js
-
-🚀 Déploiement
-
-Vercel : le dossier est déjà lié au projet existant, un déploiement sur ce projet conserve donc la même URL
-
-URL actuelle du portfolio déployé : https://mon-portfolio-ada3.vercel.app
-
-Ancienne URL figée à ne pas réutiliser : https://mon-portfolio-h7bnxt9cs-ada3.vercel.app
-
-Docker :
-
-docker build -t mon-portfolio .
-docker run -p 3000:3000 mon-portfolio
-
-📝 Scripts
-
-npm run dev : développement
-
-npm run build : build production
-
-npm run start : serveur prod
-
-npm run lint : ESLint
-
-🤝 Contribution
-
-Fork du projet
-
-Créer une branche feature
-
-Commit & push
-
-Pull request
-
-📄 Licence
-
-Licence MIT
-
-📞 Contact
-**Adama Dian**
-- Email: adamadiandiallo9999@gmail.com
-- LinkedIn: [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
-- GitHub: [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
+- Email : `adamadiandiallo9999@gmail.com`
+- GitHub : [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
+- LinkedIn : [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { FaGithub } from "react-icons/fa";
 import siteData from "@/data/site.json";
 
 export default function Navbar() {
@@ -116,6 +117,16 @@ export default function Navbar() {
                 <span>{item.name}</span>
               </Link>
             ))}
+            <a
+              href={siteData.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Ouvrir le profil GitHub de ${siteData.fullName}`}
+              className="flex items-center gap-2 rounded-md border border-[#d7e4eb] px-3 py-2 text-[#002B45] transition-colors hover:border-[#2AE8A8] hover:text-[#001B4B] focus:outline-none focus-visible:border-[#2AE8A8] focus-visible:text-[#001B4B]"
+            >
+              <FaGithub className="h-5 w-5" />
+              <span>GitHub</span>
+            </a>
             <Link
               href="/contact"
               className="ml-4 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"
@@ -172,6 +183,16 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href={siteData.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-[#002B45] transition-colors hover:text-[#001B4B] focus:outline-none focus-visible:text-[#001B4B]"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaGithub className="h-5 w-5" />
+                GitHub
+              </a>
               <Link
                 href="/contact"
                 className="block text-center mt-2 px-4 py-2 rounded-md text-sm font-medium text-[#002B45] bg-[#2AE8A8] hover:bg-[#24C896] transition"

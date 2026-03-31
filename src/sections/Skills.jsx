@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   SiHtml5,
   SiCss3,
@@ -9,113 +9,122 @@ import {
   SiNextdotjs,
 } from "react-icons/si";
 
-export default function Skills() {
-  const items = [
-    {
-      name: "HTML",
-      percent: 98,
-      gradient: ["#FF6B6B", "#D84E41"],
-      icon: <SiHtml5 size={64} color="#D84E41" />,
-    },
-    {
-      name: "CSS",
-      percent: 95,
-      gradient: ["#56CCF2", "#018ABE"],
-      icon: <SiCss3 size={64} color="#018ABE" />,
-    },
-    {
-      name: "JavaScript",
-      percent: 77,
-      gradient: ["#FDE68A", "#F7DF1E"],
-      icon: <SiJavascript size={64} color="#F7DF1E" />,
-    },
-    {
-      name: "React",
-      percent: 70,
-      gradient: ["#61DAFB", "#0A85C6"],
-      icon: <SiReact size={64} color="#61DAFB" />,
-    },
-    {
-      name: "Next.js",
-      percent: 70,
-      gradient: ["#000000", "#434343"],
-      icon: <SiNextdotjs size={64} color="#000000" />,
-    },
-  ];
+const skills = [
+  {
+    label: "HTML",
+    icon: SiHtml5,
+    percent: 98,
+    iconColor: "#E44D26",
+    ringColor: "#F15C59",
+    labelColor: "#FF6B6B",
+  },
+  {
+    label: "CSS",
+    icon: SiCss3,
+    percent: 95,
+    iconColor: "#1693CC",
+    ringColor: "#2DA8DA",
+    labelColor: "#42B6E8",
+  },
+  {
+    label: "JavaScript",
+    icon: SiJavascript,
+    percent: 77,
+    iconColor: "#F7DF1E",
+    ringColor: "#F6D54A",
+    labelColor: "#F6D54A",
+  },
+  {
+    label: "React",
+    icon: SiReact,
+    percent: 70,
+    iconColor: "#61DAFB",
+    ringColor: "#51C6F2",
+    labelColor: "#51C6F2",
+  },
+  {
+    label: "Next.js",
+    icon: SiNextdotjs,
+    percent: 70,
+    iconColor: "#111111",
+    ringColor: "#171717",
+    labelColor: "#171717",
+  },
+];
 
-  const Circle = ({ percent, gradient, icon }) => {
-    const [hovered, setHovered] = useState(false);
-    const [angle, setAngle] = useState(0);
-
-    useEffect(() => {
-      let animation;
-
-      if (hovered) {
-        animation = setInterval(() => {
-          setAngle((prev) => {
-            const next = prev + 6;
-            return next >= percent * 3.6 ? percent * 3.6 : next;
-          });
-        }, 15);
-      } else {
-        animation = setInterval(() => {
-          setAngle((prev) => {
-            const next = prev - 12;
-            return next <= 0 ? 0 : next;
-          });
-        }, 10);
-      }
-      return () => clearInterval(animation);
-    }, [hovered, percent]);
-
-    const style = {
-      backgroundImage: `conic-gradient(from 0deg, ${gradient[0]} 0deg, ${gradient[1]} ${angle}deg, rgba(0,0,0,0.05) ${angle}deg)`,
-      transition: "background-image 0.05s linear",
-    };
-
-    return (
-      <div
-        className="relative w-36 h-36 rounded-full p-1 shadow-xl shadow-gray-200 flex items-center justify-center cursor-pointer"
-        style={style}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center shadow-inner">
-          {icon}
-        </div>
-      </div>
-    );
-  };
+function SkillItem({ skill }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const Icon = skill.icon;
+  const radius = 86;
+  const circumference = 2 * Math.PI * radius;
+  const progress = circumference - (skill.percent / 100) * circumference;
 
   return (
-    <section id="skills" className="py-24 bg-white text-[#002B45]">
-      <div className="page-shell">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-16 tracking-wide">
-          Mes Compétences
-        </h2>
+    <div
+      className="flex flex-col items-center text-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative flex h-44 w-44 items-center justify-center sm:h-48 sm:w-48">
+        <svg
+          viewBox="0 0 200 200"
+          className="absolute inset-0 h-full w-full -rotate-90 drop-shadow-[0_22px_40px_rgba(15,23,42,0.08)]"
+          aria-hidden="true"
+        >
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            fill="none"
+            stroke="#edf1f4"
+            strokeWidth="10"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            fill="none"
+            stroke={skill.ringColor}
+            strokeWidth="10"
+            strokeLinecap="butt"
+            strokeDasharray={circumference}
+            strokeDashoffset={isHovered ? progress : circumference}
+            style={{
+              transition: "stroke-dashoffset 1400ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          />
+        </svg>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
-          {items.map((it) => (
-            <div
-              key={it.name}
-              className="flex flex-col items-center text-center group transition-transform hover:scale-105"
-            >
-              <Circle
-                percent={it.percent}
-                gradient={it.gradient}
-                icon={it.icon}
-              />
-              <h3
-                className="mt-5 font-bold text-2xl md:text-3xl tracking-tight"
-                style={{
-                  background: `linear-gradient(to right, ${it.gradient[0]}, ${it.gradient[1]})`,
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                {it.name}
-              </h3>
-            </div>
+        <div className="relative flex h-[8.3rem] w-[8.3rem] items-center justify-center rounded-full bg-white shadow-[inset_0_10px_18px_rgba(255,255,255,0.9)] sm:h-[8.8rem] sm:w-[8.8rem]">
+          <Icon
+            className="text-[4.5rem] sm:text-[4.8rem]"
+            style={{ color: skill.iconColor }}
+          />
+        </div>
+      </div>
+      <h3
+        className="mt-8 text-3xl font-extrabold tracking-tight sm:text-[3.1rem]"
+        style={{ color: skill.labelColor }}
+      >
+        {skill.label}
+      </h3>
+    </div>
+  );
+}
+
+export default function Skills() {
+  return (
+    <section id="skills" className="bg-[#fbfcfd] py-24 lg:py-28">
+      <div className="page-shell">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="text-5xl font-black tracking-tight text-[#032B4A] sm:text-6xl lg:text-7xl">
+            Mes Competences
+          </h2>
+        </div>
+
+        <div className="mx-auto mt-16 grid max-w-7xl gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {skills.map((skill) => (
+            <SkillItem key={skill.label} skill={skill} />
           ))}
         </div>
       </div>

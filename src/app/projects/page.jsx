@@ -393,9 +393,30 @@ export default function ProjectsPage() {
                 {selectedProject.contribution && (
                   <ProjectDetailPanel
                     icon={FaBriefcase}
-                    title="Mon rôle"
+                    title={
+                      selectedProject.roleHighlights?.length > 0
+                        ? "Mon rôle concret"
+                        : "Mon rôle"
+                    }
                   >
                     <p>{selectedProject.contribution}</p>
+
+                    {selectedProject.roleHighlights?.length > 0 && (
+                      <ul className="grid gap-3 sm:grid-cols-2">
+                        {selectedProject.roleHighlights.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3"
+                          >
+                            <FaCheckCircle
+                              className="mt-0.5 shrink-0 text-[#8AF6D4]"
+                              aria-hidden="true"
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </ProjectDetailPanel>
                 )}
 

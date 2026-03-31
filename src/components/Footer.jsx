@@ -32,6 +32,15 @@ export default function Footer() {
               {siteData.title} passionnée par la création d’interfaces modernes
               et performantes.
             </p>
+            <a
+              href={siteData.gitRepo}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#9CF5D9] transition hover:text-white"
+            >
+              <FaGithub size={18} />
+              Voir le code du portfolio
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -82,6 +91,7 @@ export default function Footer() {
                 href={siteData.linkedin}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Profil LinkedIn"
                 className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaLinkedin size={22} />
@@ -90,6 +100,7 @@ export default function Footer() {
                 href={siteData.github}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Profil GitHub"
                 className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaGithub size={22} />
@@ -98,6 +109,7 @@ export default function Footer() {
                 href={siteData.twitter}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Profil X"
                 className="footer-social-link p-3 rounded-full border-2 border-[#2AE8A8] hover:bg-[#2AE8A8] hover:text-[#001B4B] transition animate-pulse-slow"
               >
                 <FaTwitter size={22} />

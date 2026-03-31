@@ -1,22 +1,33 @@
 import siteData from "@/data/site.json";
 
 function normalizeSiteUrl(url) {
-  return url.replace(/\/$/, "");
+  return String(url).trim().replace(/\/$/, "");
+}
+
+function toAbsoluteSiteUrl(url) {
+  if (!url) return "";
+
+  const normalizedUrl = String(url).trim();
+
+  if (
+    normalizedUrl.startsWith("http://") ||
+    normalizedUrl.startsWith("https://")
+  ) {
+    return normalizedUrl;
+  }
+
+  return `https://${normalizedUrl}`;
 }
 
 export function getSiteUrl() {
-  const deploymentUrl =
-    process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+  const siteUrlCandidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    siteData.siteUrl,
+    process.env.VERCEL_URL,
+  ].filter(Boolean);
 
-  if (deploymentUrl) {
-    const absoluteUrl = deploymentUrl.startsWith("http")
-      ? deploymentUrl
-      : `https://${deploymentUrl}`;
-
-    return normalizeSiteUrl(absoluteUrl);
-  }
-
-  return normalizeSiteUrl(siteData.siteUrl);
+  return normalizeSiteUrl(toAbsoluteSiteUrl(siteUrlCandidates[0]));
 }
 
 export function generateMetadata(

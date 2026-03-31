@@ -2,7 +2,7 @@
   "name": "Adama Dian",
   "fullName": "Adama Dian Amadou Diallo",
   "title": "Développeuse Frontend Junior",
-  "description": "Portfolio personnel d'Adama Dian, développeuse frontend spécialisée dans la création d'interfaces web modernes, accessibles et soignées.",
+  "description": "Portfolio personnel d'Adama Dian, développeuse frontend spécialisée en Next.js, Tailwind CSS, intégration responsive, accessibilité et interfaces web soignées.",
   "siteUrl": "https://mon-portfolio.vercel.app",
   "cv": "/documents/cv.pdf",
   "email": "adamadiandiallo9999@gmail.com",
@@ -16,5 +16,5 @@
   "twitterHandle": "@adahoussei",
   "profileImage": "/images/profile/adama.jpeg",
   "ogImage": "/images/profile/adama.jpeg",
-  "keywords": ["développeur", "full stack", "react", "next.js", "node.js", "portfolio", "web development"]
+  "keywords": ["développeuse frontend", "react", "next.js", "tailwind css", "figma", "git", "docker", "responsive design", "accessibilité", "portfolio"]
 }
