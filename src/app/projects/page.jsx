@@ -3,6 +3,9 @@ import SpotlightBackground from "@/components/SpotlightBackground";
 import { portfolioProjects } from "@/data/projects";
 
 export default function ProjectsPage() {
+  const deliveredProjects = portfolioProjects.filter((project) => !project.isInProgress);
+  const inProgressProjects = portfolioProjects.filter((project) => project.isInProgress);
+
   return (
     <main className="relative min-h-screen">
       <SpotlightBackground />
@@ -30,10 +33,22 @@ export default function ProjectsPage() {
 
         <section id="projects" className="mt-10 sm:mt-14">
           <div className="grid gap-4">
-            {portfolioProjects.map((project) => (
+            {deliveredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
+          {inProgressProjects.length ? (
+            <div className="mt-12 border-t border-white/10 pt-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                Projet en cours
+              </p>
+              <div className="mt-4 grid gap-4">
+                {inProgressProjects.map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
       </div>
     </main>

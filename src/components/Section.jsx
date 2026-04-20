@@ -1,16 +1,20 @@
+import Reveal from "@/components/Reveal";
+
 export default function Section({ id, title, children }) {
   return (
     <section
       id={id}
-      className="scroll-mt-24 py-10 sm:py-14 border-b border-white/5"
+      className="scroll-mt-28 border-b border-white/5 py-12 sm:py-14 lg:py-16"
     >
-      <div className="flex items-center gap-4 mb-6">
-        <h2 className="text-sm font-semibold tracking-[0.18em] text-slate-200/70 uppercase">
+      <div className="mb-8 flex items-center gap-4">
+        <h2 className="section-title">
           {title}
         </h2>
-        <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
+        <div className="h-px flex-1 bg-gradient-to-r from-cyan-200/35 to-transparent" />
       </div>
-      <div className="text-slate-200/80 leading-relaxed">{children}</div>
+      <Reveal as="div" className="body-md text-slate-200/82">
+        {children}
+      </Reveal>
     </section>
   );
 }

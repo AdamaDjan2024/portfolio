@@ -5,10 +5,10 @@ export default function DownloadCvButton({ className = "" }) {
     <a
       href={siteData.cv}
       download
-      className={`inline-flex min-h-[3.75rem] items-center justify-center gap-2.5 rounded-[1rem] px-7 py-4 text-sm font-semibold leading-none transition sm:px-8 sm:text-base bg-[#001B4B] text-white hover:bg-[#002B70] ${className}`}
+      className={`group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-xl border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold leading-none text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.08] ${className}`}
     >
       <svg
-        className="h-4 w-4 shrink-0 sm:h-[1.1rem] sm:w-[1.1rem]"
+        className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5 sm:h-[1.05rem] sm:w-[1.05rem]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

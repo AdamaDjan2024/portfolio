@@ -1,17 +1,21 @@
 import DownloadCvButton from "@/components/DownloadCvButton";
 import ProjectCard from "@/components/ProjectCard";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import SideNav from "@/components/SideNav";
 import SpotlightBackground from "@/components/SpotlightBackground";
 import { portfolioProjects } from "@/data/projects";
 import siteData from "@/data/site.json";
+import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 export default function HomePage() {
+  const deliveredProjects = portfolioProjects.filter((project) => !project.isInProgress);
+  const inProgressProjects = portfolioProjects.filter((project) => project.isInProgress);
+
   const navItems = [
     { id: "about", label: "À propos" },
-    { id: "experience", label: "Expériences" },
+    { id: "experience", label: "Expérience" },
     { id: "projects", label: "Projets" },
-    { id: "contact", label: "Contact" },
   ];
 
   const experiences = [
@@ -80,72 +84,72 @@ export default function HomePage() {
         Aller au contenu
       </a>
 
-      <div className="page-shell py-10 sm:py-14 lg:py-0">
-        <div className="lg:grid lg:h-screen lg:grid-cols-[520px,1fr] lg:gap-32">
-          <header className="lg:sticky lg:top-0 lg:h-screen lg:py-14">
-            <div className="max-w-xl">
-              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-50">
+      <div className="page-shell py-10 sm:py-14 lg:h-screen lg:py-0">
+        <div className="lg:grid lg:h-full lg:grid-cols-[minmax(320px,460px),1fr] lg:gap-20 xl:gap-24">
+          <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-start lg:py-14">
+            <Reveal className="max-w-xl">
+              <h1 className="text-[40px] sm:text-[42px] lg:text-[44px] leading-[1.08] font-extrabold tracking-[-0.02em] text-slate-50 max-w-full [overflow-wrap:anywhere]">
                 {siteData.fullName}
               </h1>
-              <p className="mt-3 text-lg font-semibold text-slate-200">
+              <p className="mt-4 text-[clamp(1.05rem,0.88rem+0.55vw,1.35rem)] font-semibold text-slate-200">
                 {siteData.title}
               </p>
-              <p className="mt-4 max-w-md text-base text-slate-200/70">
+              <p className="body-md mt-6 max-w-md text-slate-200/70">
                 Créative et engagée dans la création de projets utiles et innovants.
                 J’intègre des maquettes en interfaces Next.js/Tailwind avec une attention
                 à l’accessibilité, au responsive et aux détails.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <DownloadCvButton className="bg-white/5 hover:bg-white/10 border border-white/10" />
+                <DownloadCvButton />
               </div>
 
               <SideNav items={navItems} scrollContainerId="content-scroll" />
 
-              <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-300/80">
+              <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-300/80">
                 <span className="inline-flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-cyan-200/80" />
                   {siteData.location}
                 </span>
                 <span className="text-white/15">/</span>
-                <a href={`mailto:${siteData.email}`} className="hover:text-slate-100">
+                <a href={`mailto:${siteData.email}`} className="interactive-link">
                   {siteData.email}
                 </a>
               </div>
 
-              <div className="mt-6 flex items-center gap-5 text-sm font-semibold text-slate-200/70">
+              <div className="mt-8 flex items-center gap-4 text-sm font-semibold text-slate-200/80">
                 <a
                   href={siteData.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-slate-100"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] transition duration-300 hover:-translate-y-1 hover:border-cyan-200/45 hover:text-cyan-100"
+                  aria-label="Profil GitHub"
                 >
-                  GitHub
+                  <FaGithub />
                 </a>
                 <a
                   href={siteData.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-slate-100"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] transition duration-300 hover:-translate-y-1 hover:border-cyan-200/45 hover:text-cyan-100"
+                  aria-label="Profil LinkedIn"
                 >
-                  LinkedIn
+                  <FaLinkedinIn />
                 </a>
                 <a
                   href={siteData.twitter}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-slate-100"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] transition duration-300 hover:-translate-y-1 hover:border-cyan-200/45 hover:text-cyan-100"
+                  aria-label="Profil X"
                 >
-                  X
+                  <FaXTwitter />
                 </a>
               </div>
-            </div>
+            </Reveal>
           </header>
 
-          <div
-            id="content-scroll"
-            className="mt-12 lg:mt-0 lg:h-screen lg:overflow-y-auto lg:py-14 lg:pr-4 lg:pl-4 scrollbar-none"
-          >
+          <div id="content-scroll" className="mt-12 scroll-smooth lg:mt-0 lg:h-screen lg:overflow-y-auto lg:py-14 lg:pr-2 lg:pl-6 scrollbar-none lg:[&>section:first-of-type]:pt-0">
             <Section id="about" title="À propos">
               <p>
                 Développeuse web passionnée par la création de{" "}
@@ -164,12 +168,13 @@ export default function HomePage() {
               </p>
             </Section>
 
-            <Section id="experience" title="Expériences">
-              <ol className="space-y-3">
-                {experiences.map((item) => (
+            <Section id="experience" title="Expérience">
+              <ol className="space-y-4">
+                {experiences.map((item, index) => (
                   <li
                     key={`${item.year}-${item.title}`}
-                    className="group relative rounded-xl p-5"
+                    className="group relative rounded-xl p-5 transition-transform duration-300 hover:-translate-y-0.5"
+                    style={{ transitionDelay: `${index * 35}ms` }}
                   >
                     <div
                       aria-hidden="true"
@@ -186,8 +191,16 @@ export default function HomePage() {
                       <span className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-500">
                         {item.year}
                       </span>
-                      <h3 className="text-base font-semibold text-slate-100">
-                        {item.title}
+                      <h3 className="group/title inline-flex items-center gap-2 text-base font-semibold text-slate-100">
+                        <span className="transition-colors duration-300 group-hover:text-cyan-100">
+                          {item.title}
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="text-slate-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-cyan-100"
+                        >
+                          ↗
+                        </span>
                       </h3>
                     </header>
                     <p className="mt-3 text-sm text-slate-200/70">
@@ -225,49 +238,32 @@ export default function HomePage() {
 
             <Section id="projects" title="Projets">
               <div className="grid gap-4">
-                {portfolioProjects.map((project) => (
+                {deliveredProjects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </div>
+              {inProgressProjects.length ? (
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="section-title">Projet en cours</p>
+                  <div className="mt-4 grid gap-4">
+                    {inProgressProjects.map((project) => (
+                      <ProjectCard key={project.id} project={project} />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               <div className="mt-8">
                 <a
                   href="/projects"
-                  className="inline-flex items-center text-sm font-semibold text-slate-200/80 hover:text-slate-100"
+                  className="group interactive-link text-sm font-semibold"
                 >
-                  Voir tous les projets <span aria-hidden="true" className="ml-2">→</span>
-                </a>
-              </div>
-            </Section>
-
-            <Section id="contact" title="Contact">
-              <p className="text-sm text-slate-200/70">
-                Discutons de vos projets web, de vos idées créatives ou de
-                potentielles collaborations. Je conçois des interfaces modernes
-                et réalise des applications performantes adaptées à vos besoins.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href={`mailto:${siteData.email}`}
-                  className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-inset ring-white/10 hover:bg-white/10"
-                >
-                  {siteData.email}
-                </a>
-                <a
-                  href={siteData.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-inset ring-white/10 hover:bg-white/10"
-                >
-                  LinkedIn <span aria-hidden="true">↗</span>
-                </a>
-                <a
-                  href={siteData.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 ring-1 ring-inset ring-white/10 hover:bg-white/10"
-                >
-                  GitHub <span aria-hidden="true">↗</span>
+                  Voir tous les projets{" "}
+                  <span
+                    aria-hidden="true"
+                    className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
                 </a>
               </div>
             </Section>

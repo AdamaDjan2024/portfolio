@@ -330,6 +330,7 @@ export const portfolioProjects = [
     iconKey: "book",
     category: "Bibliothèque numérique",
     filterKey: "library",
+    isInProgress: true,
     featured: false,
     showInCarousel: false,
   },

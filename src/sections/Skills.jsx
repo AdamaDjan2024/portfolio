@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "@/components/Reveal";
 import {
   SiHtml5,
   SiCss3,
@@ -61,14 +62,14 @@ function SkillItem({ skill }) {
 
   return (
     <div
-      className="flex flex-col items-center text-center"
+      className="group flex flex-col items-center text-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative flex h-44 w-44 items-center justify-center sm:h-48 sm:w-48">
+      <div className="relative flex h-40 w-40 items-center justify-center sm:h-44 sm:w-44">
         <svg
           viewBox="0 0 200 200"
-          className="absolute inset-0 h-full w-full -rotate-90 drop-shadow-[0_22px_40px_rgba(15,23,42,0.08)]"
+          className="absolute inset-0 h-full w-full -rotate-90 drop-shadow-[0_20px_34px_rgba(2,12,27,0.28)]"
           aria-hidden="true"
         >
           <circle
@@ -76,7 +77,7 @@ function SkillItem({ skill }) {
             cy="100"
             r={radius}
             fill="none"
-            stroke="#edf1f4"
+            stroke="rgba(148,163,184,0.18)"
             strokeWidth="10"
           />
           <circle
@@ -95,34 +96,35 @@ function SkillItem({ skill }) {
           />
         </svg>
 
-        <div className="relative flex h-[8.3rem] w-[8.3rem] items-center justify-center rounded-full bg-white shadow-[inset_0_10px_18px_rgba(255,255,255,0.9)] sm:h-[8.8rem] sm:w-[8.8rem]">
+        <div className="relative flex h-[7.7rem] w-[7.7rem] items-center justify-center rounded-full border border-white/10 bg-slate-900/45 shadow-[inset_0_12px_20px_rgba(15,23,42,0.52)] transition-transform duration-300 group-hover:-translate-y-0.5 sm:h-[8.2rem] sm:w-[8.2rem]">
           <Icon
-            className="text-[4.5rem] sm:text-[4.8rem]"
+            className="text-[4.1rem] transition-transform duration-300 group-hover:scale-105 sm:text-[4.3rem]"
             style={{ color: skill.iconColor }}
           />
         </div>
       </div>
       <h3
-        className="mt-8 text-3xl font-extrabold tracking-tight sm:text-[3.1rem]"
-        style={{ color: skill.labelColor }}
+        className="mt-6 text-[clamp(1.25rem,1.02rem+0.9vw,1.72rem)] font-bold tracking-tight text-slate-100"
       >
         {skill.label}
       </h3>
+      <p className="mt-1 text-sm text-slate-400">{skill.percent}%</p>
     </div>
   );
 }
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-[#fbfcfd] py-24 lg:py-28">
+    <section id="skills" className="py-16 sm:py-20">
       <div className="page-shell">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-5xl font-black tracking-tight text-[#032B4A] sm:text-6xl lg:text-7xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="section-title">Compétences</p>
+          <h2 className="title-lg mt-5 font-extrabold text-slate-50">
             Mes Competences
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="mx-auto mt-16 grid max-w-7xl gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="mx-auto mt-12 grid max-w-7xl gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {skills.map((skill) => (
             <SkillItem key={skill.label} skill={skill} />
           ))}

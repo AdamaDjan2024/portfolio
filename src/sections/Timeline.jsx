@@ -9,6 +9,7 @@ import {
   Briefcase,
   ArrowLeft,
 } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 export default function Timeline() {
   const [selectedYear, setSelectedYear] = useState(null);
@@ -27,7 +28,7 @@ export default function Timeline() {
           <p>Compétences acquises : MySQL, C, C++, SQL, HTML/CSS, JavaScript.</p>
         </>
       ),
-      icon: <Send className="w-8 h-8 text-[#002B45]" />,
+      icon: <Send className="h-8 w-8 text-cyan-100" />,
     },
     {
       year: "2021-2022",
@@ -42,7 +43,7 @@ export default function Timeline() {
           <p>Compétences acquises : Relation client, négociation, organisation, communication commerciale.</p>
         </>
       ),
-      icon: <Rocket className="w-8 h-8 text-[#002B45]" />,
+      icon: <Rocket className="h-8 w-8 text-cyan-100" />,
     },
     {
       year: "2023",
@@ -55,7 +56,7 @@ export default function Timeline() {
           <p>Compétences acquises : Communication, planification, relation client, gestion de projet.</p>
         </>
       ),
-      icon: <Briefcase className="w-8 h-8 text-[#002B45]" />,
+      icon: <Briefcase className="h-8 w-8 text-cyan-100" />,
     },
     {
       year: "2024",
@@ -70,7 +71,7 @@ export default function Timeline() {
           <p>Technologies : HTML, CSS, JavaScript, React, Tailwind CSS, Git, Bootstrap.</p>
         </>
       ),
-      icon: <UserCheck className="w-8 h-8 text-[#002B45]" />,
+      icon: <UserCheck className="h-8 w-8 text-cyan-100" />,
     },
     {
       year: "2025",
@@ -85,7 +86,7 @@ export default function Timeline() {
           </p>
         </>
       ),
-      icon: <Hourglass className="w-8 h-8 text-[#002B45]" />,
+      icon: <Hourglass className="h-8 w-8 text-cyan-100" />,
     },
   ];
 
@@ -116,21 +117,21 @@ export default function Timeline() {
   const renderDetails = (item) => (
     <div
       ref={detailRef}
-      className="mt-10 p-6 rounded-2xl shadow-2xl max-w-xl mx-auto relative z-20 bg-white"
+      className="surface-card relative z-20 mx-auto mt-10 max-w-xl p-6"
     >
       <div className="flex items-center gap-4 mb-4">
-        <div className="flex items-center justify-center w-16 h-16 rounded-full border-2 border-[#2AE8A8] shadow-inner bg-white">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-cyan-200/35 bg-slate-900/50 shadow-inner">
           {item.icon}
         </div>
         <div>
-          <h2 className="text-2xl font-bold">{item.title}</h2>
-          <p className="text-sm mt-1">{item.year}</p>
+          <h2 className="text-2xl font-bold text-slate-50">{item.title}</h2>
+          <p className="mt-1 text-sm text-slate-400">{item.year}</p>
         </div>
       </div>
-      <p className="mt-4 text-[#002B45]">{item.description}</p>
-      <div className="mt-2 text-[#002B45]">{item.details}</div>
+      <p className="mt-4 text-slate-200/80">{item.description}</p>
+      <div className="mt-2 text-slate-300/75">{item.details}</div>
       <button
-        className="mt-4 px-4 py-2 bg-[#2AE8A8] text-[#002B45] rounded-full hover:bg-[#27D3A0] transition flex items-center gap-2"
+        className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.08]"
         onClick={handleCloseDetail}
       >
         <ArrowLeft className="w-4 h-4" /> Retour
@@ -139,14 +140,17 @@ export default function Timeline() {
   );
 
   return (
-    <section className="relative bg-white text-[#002B45] py-20">
+    <section className="relative py-16 sm:py-20">
       <div className="page-shell flex flex-col items-center">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-16 bg-gradient-to-r from-[#018ABE] to-[#2AE8A8] bg-clip-text text-transparent text-center">
+        <Reveal
+          as="h1"
+          className="title-lg mb-14 bg-gradient-to-r from-cyan-200 to-teal-200 bg-clip-text text-center font-extrabold text-transparent"
+        >
           EXPÉRIENCE
-        </h1>
+        </Reveal>
 
         <div className="relative w-full max-w-4xl mx-auto">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-[#018ABE]/70 via-[#2AE8A8]/60 to-[#D6E8EE]/50 z-0" />
+          <div className="absolute left-1/2 z-0 h-full w-[2px] -translate-x-1/2 transform bg-gradient-to-b from-cyan-200/70 via-cyan-200/35 to-white/5" />
 
           <div className="flex flex-col space-y-16 relative z-10">
             {timeline.map((item, index) => (
@@ -156,26 +160,26 @@ export default function Timeline() {
                   index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                 }`}
               >
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-[#2AE8A8] shadow-md z-10" />
+                <div className="absolute left-1/2 z-10 h-6 w-6 -translate-x-1/2 transform rounded-full border-4 border-cyan-200/80 bg-slate-950 shadow-md" />
                 <div
-                  className={`group relative w-full md:w-[calc(50%-2rem)] p-6 rounded-2xl bg-white text-[#002B45] shadow-xl transition cursor-pointer z-10 ${
+                  className={`group surface-card relative z-10 w-full cursor-pointer rounded-2xl p-6 text-slate-200 transition duration-300 hover:-translate-y-0.5 md:w-[calc(50%-2rem)] ${
                     index % 2 === 0
                       ? "md:ml-auto md:origin-left"
                       : "md:mr-auto md:origin-right"
                   }`}
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex items-center justify-center w-14 h-14 rounded-full border-2 border-[#2AE8A8] shadow-inner bg-white">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-cyan-200/35 bg-slate-900/55 shadow-inner">
                       {item.icon}
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold">{item.title}</h2>
-                      <p className="text-sm mt-1">{item.year}</p>
+                      <h2 className="text-xl font-bold text-slate-50">{item.title}</h2>
+                      <p className="mt-1 text-sm text-slate-400">{item.year}</p>
                     </div>
                   </div>
 
                   <button
-                    className="mt-2 px-4 py-2 bg-[#2AE8A8] text-[#002B45] rounded-full hover:bg-[#27D3A0] transition"
+                    className="mt-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-100 transition duration-300 hover:bg-white/[0.08]"
                     onClick={() => handleOpenDetail(item.year)}
                   >
                     Voir détails
