@@ -1,6 +1,7 @@
 import { generateMetadata } from "@/utils/seo";
 import { GraduationCap, Briefcase, Award } from "lucide-react";
 import Link from "next/link";
+import SpotlightBackground from "@/components/SpotlightBackground";
 
 export const metadata = generateMetadata(
   "Parcours",
@@ -74,57 +75,93 @@ export default function CareerPage() {
     },
   ];
 
-  const Section = ({ title, items, icon, color }) => (
-    <div className="mb-12">
-      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-        <span className={`p-2 rounded-full ${color}`}>{icon}</span>
-        {title}
-      </h2>
-      <div className="space-y-8">
-        {items.map((item, index) => (
-          <div key={index} className="border-l border-gray-700 pl-6">
-            <p className="text-sm font-semibold text-primary-400">
-              {item.period}
-            </p>
-            <h3 className="mt-1 font-semibold text-white text-lg">
-              {item.title}
-            </h3>
-            <p className="text-gray-300 text-sm">{item.organization}</p>
-            <p className="mt-2 text-gray-300 text-sm">{item.description}</p>
-          </div>
-        ))}
+  const Section = ({ title, items, icon }) => (
+    <section className="py-10 sm:py-14 border-b border-white/5">
+      <div className="flex items-center gap-4 mb-6">
+        <h2 className="text-sm font-semibold tracking-[0.18em] text-slate-200/70 uppercase">
+          {title}
+        </h2>
+        <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/30 to-transparent" />
       </div>
-    </div>
+
+      <ol className="space-y-3">
+        {items.map((item) => (
+          <li key={`${item.period}-${item.title}`} className="group relative rounded-xl p-5">
+            <div
+              aria-hidden="true"
+              className={[
+                "pointer-events-none absolute -inset-x-4 -inset-y-4 hidden rounded-xl opacity-0 transition",
+                "lg:block",
+                "lg:group-hover:opacity-100",
+                "bg-slate-800/40",
+                "ring-1 ring-inset ring-white/10",
+                "shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]",
+              ].join(" ")}
+            />
+
+            <header className="flex flex-wrap items-center justify-between gap-3">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase text-slate-500">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-slate-200">
+                  {icon}
+                </span>
+                {item.period}
+              </span>
+              <h3 className="text-base font-semibold text-slate-100">{item.title}</h3>
+            </header>
+
+            <p className="mt-3 text-sm text-slate-200/70">{item.organization}</p>
+            <p className="mt-3 text-sm text-slate-200/70">{item.description}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 
   return (
-    <section className="py-20 bg-gray-900 text-gray-100">
-      <div className="page-shell">
-        <h1 className="text-4xl font-bold text-center mb-12">Mon Parcours</h1>
+    <main className="relative min-h-screen">
+      <SpotlightBackground />
+
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-slate-900 focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-100"
+      >
+        Aller au contenu
+      </a>
+
+      <div id="content" className="page-shell py-10 sm:py-14">
+        <header className="max-w-3xl">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">
+            Éducation · Expérience · Formations
+          </p>
+          <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-50">
+            Parcours
+          </h1>
+          <p className="mt-4 max-w-2xl text-base text-slate-200/70">
+            Un résumé clair de mes étapes académiques et professionnelles.
+          </p>
+        </header>
+
         <Section
           title="Éducation"
           items={education}
-          icon={<GraduationCap className="w-5 h-5 text-white" />}
-          color="bg-blue-500"
+          icon={<GraduationCap className="h-4 w-4" aria-hidden="true" />}
         />
         <Section
           title="Expérience Professionnelle"
           items={experience}
-          icon={<Briefcase className="w-5 h-5 text-white" />}
-          color="bg-green-500"
+          icon={<Briefcase className="h-4 w-4" aria-hidden="true" />}
         />
         <Section
           title="Formations & Certifications"
           items={certifications}
-          icon={<Award className="w-5 h-5 text-white" />}
-          color="bg-purple-500"
+          icon={<Award className="h-4 w-4" aria-hidden="true" />}
         />
         <div className="mt-12 text-center">
-          <Link href="/" className="text-primary-500 hover:underline">
+          <Link href="/" className="text-sm font-semibold text-slate-200/80 hover:text-slate-100">
             Retour à l’accueil
           </Link>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

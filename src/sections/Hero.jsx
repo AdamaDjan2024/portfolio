@@ -35,7 +35,7 @@ export default function Hero() {
             <DownloadCvButton />
             <a
               href="#projects"
-              className="bg-[#2AE8A8] hover:bg-[#24C896] text-[#002B45] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition text-sm sm:text-base"
+              className="inline-flex min-h-[3.75rem] items-center justify-center rounded-[1rem] bg-[#2AE8A8] px-7 py-4 text-sm font-semibold leading-none text-[#002B45] transition hover:bg-[#24C896] sm:px-8 sm:text-base"
             >
               Mes projets
             </a>

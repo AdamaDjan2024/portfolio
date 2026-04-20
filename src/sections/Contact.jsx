@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import siteData from "@/data/site.json";
+import SpotlightBackground from "@/components/SpotlightBackground";
 import {
   Mail,
   Phone,
@@ -42,18 +43,18 @@ function Dropdown({ options, placeholder, name, required = false, onChange }) {
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        className={`w-full h-12 flex items-center justify-between rounded-xl border-2 border-[#2AE8A8] bg-white text-[#001B4B] text-sm pl-3 pr-4 ${
+        className={`w-full h-12 flex items-center justify-between rounded-xl border border-white/10 bg-slate-900/40 text-slate-100 text-sm pl-3 pr-4 ${
           required && !selected ? "ring-1 ring-red-500" : ""
         }`}
       >
         <span className="truncate">{selected || placeholder}</span>
-        <ChevronDown className="text-gray-400 ml-2" size={24} />
+        <ChevronDown className="text-slate-400 ml-2" size={24} />
       </button>
 
       {isOpen && (
         <ul
           role="listbox"
-          className="absolute z-20 mt-1 w-full bg-white border-2 border-[#2AE8A8] rounded-xl shadow-lg text-[#001B4B]"
+          className="absolute z-20 mt-1 w-full rounded-xl border border-white/10 bg-[#0b1224] shadow-[0_18px_50px_-30px_rgba(2,12,27,0.9)] text-slate-100"
         >
           {options.map((option) => (
             <li
@@ -61,7 +62,7 @@ function Dropdown({ options, placeholder, name, required = false, onChange }) {
               role="option"
               aria-selected={selected === option}
               onClick={() => handleSelect(option)}
-              className="cursor-pointer px-4 py-2 hover:bg-[#2AE8A8] hover:text-white rounded-md"
+              className="cursor-pointer px-4 py-2 rounded-md hover:bg-white/[0.06]"
             >
               {option}
             </li>
@@ -79,8 +80,18 @@ export default function ContactSection() {
   const title = "Contactez-moi";
 
   return (
-    <section className="py-16 bg-white">
-      <div className="page-shell grid grid-cols-1 lg:grid-cols-2 gap-12 items-start text-[#001B4B]">
+    <main className="relative min-h-screen">
+      <SpotlightBackground />
+
+      <a
+        href="#contact"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-slate-900 focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-100"
+      >
+        Aller au contenu
+      </a>
+
+      <section id="contact" className="page-shell py-10 sm:py-14">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-start text-slate-100">
         {/* ===== GAUCHE : Contact info ===== */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -91,7 +102,7 @@ export default function ContactSection() {
           <div>
             {/* ✅ Titre responsive sur une seule ligne */}
             <motion.h1
-              className="font-extrabold mb-6"
+              className="font-extrabold mb-6 text-slate-50"
               style={{
                 fontSize: "clamp(2rem, 5vw, 4rem)",
                 lineHeight: "1.1",
@@ -100,26 +111,26 @@ export default function ContactSection() {
               {title}
             </motion.h1>
 
-            <p className="text-[#374151] max-w-xl text-lg mb-8 leading-relaxed">
+            <p className="max-w-xl text-base text-slate-200/70 mb-8 leading-relaxed">
               Discutons de vos projets web, de vos idées créatives ou de
               potentielles collaborations. Je conçois des interfaces modernes et
               réalise des applications performantes adaptées à vos besoins.
             </p>
 
             {/* ✅ Card contact avec lignes alignées */}
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-lg border-2 border-[#2AE8A8] p-6 text-[#001B4B] space-y-5">
+            <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-slate-100 shadow-[0_18px_50px_-30px_rgba(2,12,27,0.8)] space-y-5">
               {/* Bloc Email */}
               <div className="flex items-center gap-3 whitespace-nowrap overflow-hidden text-ellipsis">
-                <div className="flex-shrink-0 p-2 bg-[#001B4B] rounded-md border border-[#2AE8A8]">
-                  <Mail className="text-white" size={20} />
+                <div className="flex-shrink-0 p-2 rounded-md border border-white/10 bg-slate-900/50">
+                  <Mail className="text-slate-100" size={20} />
                 </div>
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-sm text-[#6B7280] flex-shrink-0">
+                  <span className="text-sm text-slate-300/70 flex-shrink-0">
                     Email :
                   </span>
                   <a
                     href={`mailto:${siteData.email}`}
-                    className="text-base font-medium hover:underline truncate block"
+                    className="text-base font-medium hover:text-slate-50 truncate block"
                   >
                     {siteData.email}
                   </a>
@@ -128,16 +139,16 @@ export default function ContactSection() {
 
               {/* Bloc Téléphone */}
               <div className="flex items-center gap-3 whitespace-nowrap overflow-hidden text-ellipsis">
-                <div className="flex-shrink-0 p-2 bg-[#001B4B] rounded-md border border-[#2AE8A8]">
-                  <Phone className="text-white" size={20} />
+                <div className="flex-shrink-0 p-2 rounded-md border border-white/10 bg-slate-900/50">
+                  <Phone className="text-slate-100" size={20} />
                 </div>
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-sm text-[#6B7280] flex-shrink-0">
+                  <span className="text-sm text-slate-300/70 flex-shrink-0">
                     Téléphone :
                   </span>
                   <a
                     href={`tel:+${siteData.phoneRaw}`}
-                    className="text-base font-medium hover:underline truncate block"
+                    className="text-base font-medium hover:text-slate-50 truncate block"
                   >
                     {siteData.phone}
                   </a>
@@ -146,7 +157,7 @@ export default function ContactSection() {
             </div>
 
             {/* Localisation */}
-            <div className="mt-6 flex items-center gap-3 text-[#374151]">
+            <div className="mt-6 flex items-center gap-3 text-slate-200/70">
               <MapPin size={18} />
               <span className="text-sm">{siteData.location}</span>
             </div>
@@ -154,36 +165,36 @@ export default function ContactSection() {
 
           {/* Réseaux sociaux */}
           <div className="mt-10">
-            <h3 className="text-lg font-semibold text-[#374151] mb-3">
+            <h3 className="text-sm font-semibold tracking-[0.18em] uppercase text-slate-200/70 mb-4">
               Retrouvez-moi
             </h3>
             <div className="flex gap-4">
               <a
                 href={siteData.github}
-                className="p-2 bg-[#001B4B] rounded-full hover:bg-[#2AE8A8] transition"
+                className="p-2 rounded-full border border-white/10 bg-white/[0.03] text-slate-200 hover:bg-white/[0.06] hover:text-slate-50 transition"
                 aria-label="GitHub"
                 target="_blank"
                 rel="noreferrer"
               >
-                <Github size={18} className="text-white" />
+                <Github size={18} />
               </a>
               <a
                 href={siteData.linkedin}
-                className="p-2 bg-[#001B4B] rounded-full hover:bg-[#2AE8A8] transition"
+                className="p-2 rounded-full border border-white/10 bg-white/[0.03] text-slate-200 hover:bg-white/[0.06] hover:text-slate-50 transition"
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
               >
-                <Linkedin size={18} className="text-white" />
+                <Linkedin size={18} />
               </a>
               <a
                 href={siteData.twitter}
-                className="p-2 bg-[#001B4B] rounded-full hover:bg-[#2AE8A8] transition"
+                className="p-2 rounded-full border border-white/10 bg-white/[0.03] text-slate-200 hover:bg-white/[0.06] hover:text-slate-50 transition"
                 aria-label="Twitter"
                 target="_blank"
                 rel="noreferrer"
               >
-                <Twitter size={18} className="text-white" />
+                <Twitter size={18} />
               </a>
             </div>
           </div>
@@ -194,9 +205,9 @@ export default function ContactSection() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-xl shadow-lg p-6 border-2 border-[#2AE8A8]"
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-[0_18px_50px_-30px_rgba(2,12,27,0.8)]"
         >
-          <h2 className="text-xl font-semibold mb-4 text-[#001B4B]">
+          <h2 className="text-lg font-semibold mb-4 text-slate-50">
             Envoyez un message
           </h2>
 
@@ -219,13 +230,13 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-lg font-semibold text-[#001B4B] mb-2 mt-2"
+                  className="block text-sm font-semibold text-slate-200/70 mb-2 mt-2"
                 >
                   Nom complet
                 </label>
                 <div className="relative">
                   <User
-                    className="absolute left-3 top-3 text-[#6B7280]"
+                    className="absolute left-3 top-3 text-slate-400"
                     size={16}
                   />
                   <input
@@ -233,7 +244,7 @@ export default function ContactSection() {
                     type="text"
                     name="name"
                     placeholder="Ex : Adama Diallo"
-                    className="pl-9 w-full h-12 rounded-xl border-2 border-[#2AE8A8] text-[#001B4B] text-sm placeholder-[#6B7280] focus:ring-2 focus:ring-[#2AE8A8] focus:outline-none"
+                    className="pl-9 w-full h-12 rounded-xl border border-white/10 bg-slate-900/40 text-slate-100 text-sm placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-200/50 focus:outline-none"
                     required
                   />
                 </div>
@@ -243,13 +254,13 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-lg font-semibold text-[#001B4B] mb-2 mt-2"
+                  className="block text-sm font-semibold text-slate-200/70 mb-2 mt-2"
                 >
                   Adresse e-mail
                 </label>
                 <div className="relative">
                   <AtSign
-                    className="absolute left-3 top-3 text-[#6B7280]"
+                    className="absolute left-3 top-3 text-slate-400"
                     size={16}
                   />
                   <input
@@ -257,7 +268,7 @@ export default function ContactSection() {
                     type="email"
                     name="email"
                     placeholder="exemple@email.com"
-                    className="pl-9 w-full h-12 rounded-xl border-2 border-[#2AE8A8] text-[#001B4B] text-sm placeholder-[#6B7280] focus:ring-2 focus:ring-[#2AE8A8] focus:outline-none"
+                    className="pl-9 w-full h-12 rounded-xl border border-white/10 bg-slate-900/40 text-slate-100 text-sm placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-200/50 focus:outline-none"
                     required
                   />
                 </div>
@@ -269,13 +280,13 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-lg font-semibold text-[#001B4B] mb-2 mt-2"
+                  className="block text-sm font-semibold text-slate-200/70 mb-2 mt-2"
                 >
                   Numéro de téléphone
                 </label>
                 <div className="relative">
                   <Phone
-                    className="absolute left-3 top-3 text-[#6B7280]"
+                    className="absolute left-3 top-3 text-slate-400"
                     size={16}
                   />
                   <input
@@ -283,14 +294,14 @@ export default function ContactSection() {
                     type="tel"
                     name="phone"
                     placeholder="+224 620 000 000"
-                    className="pl-9 w-full h-12 rounded-xl border-2 border-[#2AE8A8] text-[#001B4B] text-sm placeholder-[#6B7280] focus:ring-2 focus:ring-[#2AE8A8] focus:outline-none"
+                    className="pl-9 w-full h-12 rounded-xl border border-white/10 bg-slate-900/40 text-slate-100 text-sm placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-200/50 focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Dropdown Sujet */}
               <div>
-                <label className="block text-lg font-semibold text-[#001B4B] mb-2 mt-2">
+                <label className="block text-sm font-semibold text-slate-200/70 mb-2 mt-2">
                   Sélectionner le sujet
                 </label>
                 <Dropdown
@@ -313,7 +324,7 @@ export default function ContactSection() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-lg font-semibold text-[#001B4B] mb-4 mt-6"
+                className="block text-sm font-semibold text-slate-200/70 mb-3 mt-6"
               >
                 Écrivez-moi votre message
               </label>
@@ -322,7 +333,7 @@ export default function ContactSection() {
                 name="message"
                 rows={5}
                 placeholder="Tapez votre message ici..."
-                className="w-full rounded-xl border-2 border-[#2AE8A8] p-4 text-[#001B4B] text-sm placeholder-[#6B7280] focus:ring-2 focus:ring-[#2AE8A8] focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-slate-900/40 p-4 text-slate-100 text-sm placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-200/50 focus:outline-none"
                 required
               />
             </div>
@@ -331,14 +342,15 @@ export default function ContactSection() {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#001B4B] text-white text-sm font-medium shadow-md transition hover:bg-[#2AE8A8]"
+                className="inline-flex items-center justify-center rounded-full bg-white/5 px-6 py-3 text-sm font-semibold text-slate-100 ring-1 ring-inset ring-white/10 hover:bg-white/10"
               >
                 Envoyer le message
               </button>
             </div>
           </form>
         </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -17,9 +17,6 @@ module.exports = {
           100: "#D6E8EE",
         },
       },
-      fontFamily: {
-        sans: ["Montserrat", "system-ui", "sans-serif"],
-      },
       container: {
         center: true,
         padding: "1rem",
