@@ -27,9 +27,9 @@ export default function ProjectCard({ project }) {
             <Image
               src={project.img}
               alt={project.title}
-              width={200}
-              height={48}
-              className="aspect-video w-full object-cover opacity-80 transition duration-500 group-hover:opacity-100 group-hover:scale-105"
+              width={400}
+              height={225}
+              className="aspect-video w-full object-contain bg-slate-800/10 opacity-80 transition duration-500 group-hover:opacity-100 group-hover:scale-105"
               sizes="(min-width: 640px) 200px, 100vw"
             />
           </div>

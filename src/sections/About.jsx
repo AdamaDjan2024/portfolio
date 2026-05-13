@@ -1,4 +1,13 @@
 export default function About() {
+  const skills = [
+    "JavaScript (ES6+)",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Figma",
+    "Design System",
+  ];
+
   return (
     <div className="space-y-4 text-slate">
       <p>
@@ -16,6 +25,17 @@ export default function About() {
         J&apos;aime transformer des idées en expériences digitales mémorables
         tout en respectant les meilleures pratiques du développement web.
       </p>
+      <p>
+        Voici quelques technologies avec lesquelles j&apos;ai travaillé
+        récemment :
+      </p>
+      <ul className="grid grid-cols-2 gap-2 text-sm font-medium text-slate-300">
+        {skills.map((skill, index) => (
+          <li key={index} className="flex items-center gap-2">
+            <span className="text-accent">▹</span> {skill}
+          </li>
+        ))}
+      </ul>
       <p>
         Quand je ne suis pas devant mon écran, j&apos;aime explorer de nouvelles
         technologies, lire sur le design system ou contribuer à des projets qui

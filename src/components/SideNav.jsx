@@ -8,7 +8,7 @@ export default function SideNav({ items }) {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "0px 0px -80% 0px",
+      rootMargin: "-20% 0px -70% 0px",
       threshold: 0,
     };
 
@@ -36,7 +36,7 @@ export default function SideNav({ items }) {
         {items.map((item) => (
           <li key={item.id}>
             <a
-              className={`group flex items-center py-3 ${
+              className={`nav-link group ${
                 activeId === item.id ? "active" : ""
               }`}
               href={`#${item.id}`}
@@ -47,8 +47,8 @@ export default function SideNav({ items }) {
                 });
               }}
             >
-              <span className={`nav-indicator ${activeId === item.id ? "w-16 bg-lightest" : "w-8 bg-darkslate group-hover:w-16 group-hover:bg-lightest"}`}></span>
-              <span className={`nav-text ${activeId === item.id ? "text-lightest" : "text-darkslate group-hover:text-lightest"}`}>
+              <span className="nav-indicator"></span>
+              <span className="nav-text">
                 {item.label}
               </span>
             </a>

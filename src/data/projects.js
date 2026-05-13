@@ -14,75 +14,11 @@ export const portfolioProjects = [
     img: "/images/projects/mansadigital-empereur.png",
     summary:
       "Développement front-end du site vitrine pour clarifier l'offre de l'agence, renforcer la crédibilité de la marque et faciliter la conversion.",
-    details:
-      "J'ai transformé les maquettes en interfaces Next.js pixel-perfect, structuré des composants réutilisables et optimisé les sections clés pour une lecture rapide sur mobile et desktop.",
-    focusTag: "Acquisition de leads",
-    highlight:
-      "Objectif : améliorer la qualité perçue du site et augmenter les prises de contact qualifiées.",
-    contribution:
-      "Mon rôle a couvert l'intégration front, la standardisation des patterns UI, le responsive complet et l'alignement continu avec les retours design/produit.",
-    roleHighlights: [
-      "Transformation des maquettes Figma en pages vitrines fonctionnelles",
-      "Création de composants réutilisables en Next.js pour les sections marketing",
-      "Responsive complet sur mobile, tablette et desktop",
-      "Ajustements UI pour clarifier l'offre, les appels à l'action et les formulaires",
-      "Validation du rendu dans l'environnement Docker déjà en place",
-    ],
-    problem:
-      "Une agence digitale a besoin d'une présence en ligne claire et crédible pour présenter ses services, rassurer les prospects et faciliter la prise de contact.",
-    solution:
-      "J'ai participé à l'intégration d'un site vitrine moderne et responsive qui structure l'offre, valorise l'expertise de l'agence et simplifie le parcours de découverte.",
-    mainFeatures: [
-      "Présentation structurée des services et expertises",
-      "Navigation fluide avec une hiérarchie claire des contenus",
-      "Mise en avant des points de contact et de la proposition de valeur",
-      "Expérience responsive adaptée au desktop comme au mobile",
-    ],
-    backOffice: {
-      summary:
-        "Le back-office permet de gérer les contenus visibles côté front sans repasser par une modification complète de l'interface.",
-      features: [
-        "Mise à jour des services, contenus et blocs de présentation",
-        "Gestion des prises de contact et des informations affichées",
-        "Organisation des contenus mis en avant sur le site",
-      ],
-    },
-    backendPerspective: {
-      level: "Intégré",
-      summary:
-        "Le backend Symfony est déjà intégré pour structurer la partie serveur et alimenter correctement les contenus exploités côté front.",
-      useCases: [
-        "Stockage des formulaires de contact et suivi des leads",
-        "CRUD simple pour les études de cas, témoignages et services",
-        "Authentification admin pour la mise à jour du contenu",
-      ],
-      note:
-        "Backend déjà intégré avec Symfony pour la logique serveur et l'évolution du site.",
-    },
-    backendDocs: {
-      summary:
-        "Pour avancer côté front, je me suis appuyée sur les besoins métier et sur la structure fournie par le back pour intégrer les contenus de manière cohérente.",
-      items: [
-        "Compréhension des champs à afficher et de leur organisation",
-        "Alignement du front avec la logique de gestion des contenus",
-        "Prise en compte des retours liés à la structure serveur",
-      ],
-    },
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "CSS",
-      "Docker",
-      "Git",
-      "Symfony",
-    ],
+    technologies: ["Next.js", "Tailwind CSS", "Docker", "Symfony"],
+    year: "2025",
     link: "https://mansa.digital/",
-    buttonText: "Découvrir",
-    iconKey: "code",
     category: "Développement web",
     filterKey: "web",
-    featured: true,
-    showInCarousel: true,
   },
   {
     id: 2,
@@ -90,249 +26,47 @@ export const portfolioProjects = [
     img: "/images/projects/mansatalents.jpg",
     summary:
       "Plateforme produit RH sur laquelle j'ai construit des interfaces front-end pour simplifier les parcours candidat et recruteur.",
-    details:
-      "J'ai intégré des écrans métier, connecté les données API et travaillé la cohérence UI pour fluidifier la recherche d'emploi, la publication d'offres et le suivi des candidatures.",
-    focusTag: "Recrutement",
-    highlight:
-      "Objectif : réduire la friction sur des parcours sensibles (candidature, publication et tri des profils).",
-    contribution:
-      "J'ai pris en charge l'intégration front des interfaces clés, la qualité responsive et la mise en place de composants partagés pour accélérer les évolutions produit.",
-    problem:
-      "Les candidats manquent souvent d'outils clairs pour valoriser leur profil, tandis que les recruteurs ont besoin d'un espace simple pour publier, trier et suivre les candidatures.",
-    solution:
-      "La plateforme réunit les deux parcours dans une interface unique, avec des actions rapides pour créer un CV, consulter des offres et gérer le recrutement.",
-    mainFeatures: [
-      "Création et mise à jour de CV en ligne",
-      "Recherche d'offres et exploration d'entreprises",
-      "Espace recruteur pour publier et administrer les annonces",
-      "Parcours pensé pour accélérer la mise en relation",
-    ],
-    backOffice: {
-      summary:
-        "Le back-office sert à administrer la plateforme côté recruteur et à piloter les contenus et données métiers affichés dans le front.",
-      features: [
-        "Gestion des offres d'emploi et de leur publication",
-        "Suivi des candidatures et des statuts de traitement",
-        "Administration des comptes et des rôles utilisateurs",
-      ],
-    },
-    backendPerspective: {
-      level: "Intégré",
-      summary:
-        "Le backend Symfony est déjà intégré pour gérer les comptes, les rôles, les offres, les candidatures et le suivi des statuts exploités dans les écrans front.",
-      useCases: [
-        "Authentification distincte pour candidats et recruteurs",
-        "CRUD des profils, offres et candidatures",
-        "Stockage structuré des CV, pièces jointes et statuts",
-        "Règles d'accès selon les rôles et tableaux de suivi",
-      ],
-      note:
-        "Backend déjà intégré avec Symfony pour piloter toute la logique métier recrutement.",
-    },
-    backendDocs: {
-      summary:
-        "Mon travail front était lié aux informations et comportements définis côté back, en particulier pour les profils, les offres et les candidatures.",
-      items: [
-        "Compréhension des rôles candidat et recruteur",
-        "Utilisation de la structure des données pour afficher les offres et profils",
-        "Respect des statuts et informations remontés par le back-end",
-      ],
-    },
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "CSS",
-      "Docker",
-      "Git",
-      "Symfony",
-    ],
+    technologies: ["Next.js", "Tailwind CSS", "Docker", "Symfony"],
+    year: "2025",
     link: "https://mansatalents.com/",
-    buttonText: "Découvrir",
-    iconKey: "briefcase",
     category: "Plateforme emploi",
     filterKey: "career",
-    featured: false,
-    showInCarousel: true,
   },
   {
     id: 3,
     title: "Guinée Data",
     img: "/images/projects/guineedata.png",
     summary:
-      "J'ai surtout accompagné le projet sur la partie UI/UX pour rendre la consultation des données plus claire, plus lisible et plus accessible.",
-    details:
-      "Je n'ai pas porté tout le projet. Mon intervention s'est surtout concentrée sur l'expérience utilisateur, l'habillage visuel et la réflexion design autour de la présentation des données.",
-    focusTag: "UI/UX & Design Thinking",
-    highlight:
-      "Ma contribution a surtout porté sur l'expérience visuelle, la clarté de lecture et la réflexion design autour des parcours, pas sur l'ensemble de la plateforme.",
-    contribution:
-      "J'ai principalement assisté sur la partie UI/UX, la hiérarchie visuelle et le design thinking appliqué aux parcours de lecture et de consultation, en accompagnement du projet plutôt qu'en prise en charge complète.",
-    problem:
-      "Une plateforme de données doit rendre des informations parfois denses plus lisibles pour faciliter leur consultation et leur compréhension.",
-    solution:
-      "J'ai contribué à améliorer la clarté de l'interface, la hiérarchie visuelle et l'expérience de lecture afin de rendre les données plus accessibles et plus simples à parcourir.",
-    mainFeatures: [
-      "Amélioration de la lisibilité des écrans de consultation",
-      "Travail sur la hiérarchie visuelle et l'organisation des blocs",
-      "Réflexion design thinking autour des parcours utilisateurs",
-      "Support UI/UX pour une interface plus claire et plus accessible",
-    ],
-    backOffice: {
-      summary:
-        "Sur la partie back-office, mon regard a surtout porté sur l'expérience utilisateur, l'organisation des informations et la clarté des écrans de gestion.",
-      features: [
-        "Réflexion UI/UX sur l'organisation des informations administrées",
-        "Travail sur la lisibilité des contenus avant affichage côté interface",
-        "Approche design thinking pour clarifier certains parcours de gestion",
-      ],
-    },
-    backendPerspective: {
-      level: "Support",
-      summary:
-        "Le backend existait déjà pour alimenter la plateforme en données. Mon travail était surtout lié à la façon de les présenter côté front.",
-      useCases: [
-        "Compréhension des données à afficher dans l'interface",
-        "Prise en compte de la structure des contenus fournis par le back",
-        "Adaptation de l'UI aux informations réellement disponibles",
-      ],
-      note:
-        "Contribution surtout UI/UX et front, avec appui sur l'existant côté back-end.",
-    },
-    stackTitle: "Approche et outils",
-    technologies: [
-      "UI/UX",
-      "Design Thinking",
-      "Hiérarchie visuelle",
-      "Parcours utilisateur",
-      "Architecture de l'information",
-    ],
+      "Accompagnement UI/UX pour rendre la consultation des données plus claire, plus lisible et plus accessible.",
+    technologies: ["UI/UX", "Design Thinking", "Architecture Info"],
+    year: "2023",
     link: "https://guineedata.org/",
-    buttonText: "Explorer",
-    iconKey: "database",
     category: "Plateforme data",
     filterKey: "data",
-    featured: false,
-    showInCarousel: true,
   },
   {
     id: 4,
     title: "Billet Facile",
     img: "/images/projects/billetfacile-official.png",
     summary:
-      "Intégration front des écrans de billetterie et d'événement, avec une interface pensée pour des actions rapides côté organisateur comme côté participant.",
-    details:
-      "J'ai travaillé sur les parcours de création d'événements, de réservation et de suivi en soignant la clarté des actions, la restitution des statuts et l'adaptation responsive sur mobile.",
-    focusTag: "Événementiel",
-    highlight:
-      "Objectif : centraliser la création d'événements, la billetterie et la gestion des participations dans une interface simple.",
-    contribution:
-      "J'ai intégré des interfaces front réutilisables pour la billetterie, aligné les écrans avec les données fournies par le back Symfony et validé le rendu dans le workflow Git/Docker du projet.",
-    roleHighlights: [
-      "Intégration des écrans organisateur et participant pour la billetterie",
-      "Création de composants réutilisables pour cartes d'événement, billets et formulaires",
-      "Affichage clair des statuts de réservation et des informations utiles en interface",
-      "Responsive mobile complet pour la consultation et l'achat de billets",
-      "Travail aligné avec le back Symfony et le workflow Git/Docker du projet",
-    ],
-    problem:
-      "La gestion manuelle des billets, invitations et participations génère des frictions, des erreurs et un manque de visibilité pour les organisateurs.",
-    solution:
-      "L'application centralise la création d'événements et la gestion des billets afin d'offrir un parcours plus fluide, plus rapide et plus fiable.",
-    mainFeatures: [
-      "Création et gestion de billets d'événements",
-      "Partage d'invitations et de cagnottes",
-      "Suivi des participants et de la diffusion",
-      "Interface pensée pour des actions rapides et claires",
-    ],
-    backOffice: {
-      summary:
-        "Le back-office permet aux organisateurs d'administrer les événements et les informations visibles dans les interfaces front.",
-      features: [
-        "Gestion des événements, billets et paramètres associés",
-        "Suivi des participants et des réservations",
-        "Administration des comptes organisateurs et des informations métier",
-      ],
-    },
-    backendPerspective: {
-      level: "Intégré",
-      summary:
-        "Le backend Symfony est déjà intégré pour gérer les événements, les billets, les utilisateurs et l'état des réservations exploités côté front.",
-      useCases: [
-        "CRUD des événements, billets et organisateurs",
-        "Stockage des participants et statut des réservations",
-        "Authentification organisateur et participant",
-        "Synchronisation des réservations et historique des actions",
-      ],
-      note:
-        "Backend déjà intégré avec Symfony pour la gestion métier de la billetterie.",
-    },
-    backendDocs: {
-      summary:
-        "Pour avancer sur le front, je me suis appuyée sur les besoins fonctionnels et sur les informations exposées par le back autour des événements et des réservations.",
-      items: [
-        "Compréhension des données liées aux billets et événements",
-        "Prise en compte des statuts de réservation dans l'interface",
-        "Alignement du front avec les parcours organisateur et participant",
-      ],
-    },
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "CSS",
-      "Docker",
-      "Git",
-      "Symfony",
-    ],
+      "Intégration front des écrans de billetterie et d'événement, avec une interface pensée pour des actions rapides.",
+    technologies: ["Next.js", "Tailwind CSS", "Docker", "Symfony"],
+    year: "2024",
     link: "https://billetfacile.com/",
-    buttonText: "Visiter le site",
-    iconKey: "ticket",
     category: "Gestion d'événements",
     filterKey: "event",
-    featured: false,
-    showInCarousel: true,
   },
   {
     id: 5,
     title: "AfriBooks",
     img: "/images/projects/afribooks.png",
     summary:
-      "Projet de plateforme culturelle conçu pour améliorer la découverte de la littérature africaine francophone et créer une expérience communautaire autour de la lecture.",
-    details:
-      "J'ai cadré le MVP, structuré les parcours de découverte et défini une interface orientée engagement (filtres, fiches livres, profils auteurs, interactions communautaires).",
-    focusTag: "Culture & communauté",
-    highlight:
-      "Objectif : centraliser découverte, recommandation et échanges pour augmenter la visibilité des auteurs et l'engagement des lecteurs.",
-    problem:
-      "Les œuvres d'auteurs africains restent peu visibles, dispersées et difficiles à découvrir, tandis que les lecteurs disposent de peu d'espaces pour échanger et construire une communauté autour de la lecture.",
-    solution:
-      "AfriBook réunit dans une même plateforme la découverte de livres, la valorisation des auteurs et des formats communautaires comme les Book Clubs pour créer un vrai point d'entrée culturel.",
-    targetAudience: [
-      "Lecteurs passionnés de 18 à 45 ans, notamment en Guinée",
-      "Auteurs africains francophones en recherche de visibilité",
-      "Relais culturels capables d'amplifier naturellement le projet",
-    ],
-    mainFeatures: [
-      "Page d'accueil orientée découverte",
-      "Filtrage des livres par auteur, pays ou thématique",
-      "Présentation claire des livres et des auteurs",
-      "Avis, commentaires et vues pour engager la communauté",
-      "Page dédiée au Book Club et aux rencontres littéraires",
-    ],
-    stackTitle: "Cadrage & design",
-    technologies: [
-      "Figma",
-      "UI/UX",
-      "Design Thinking",
-      "Cadrage MVP",
-      "Architecture de contenu",
-    ],
+      "Plateforme culturelle conçue pour améliorer la découverte de la littérature africaine francophone.",
+    technologies: ["Figma", "UI/UX", "Design Thinking", "MVP"],
+    year: "2024",
     link: "",
-    buttonText: "Voir le projet",
-    iconKey: "book",
     category: "Bibliothèque numérique",
     filterKey: "library",
     isInProgress: true,
-    featured: false,
-    showInCarousel: false,
   },
 ];
