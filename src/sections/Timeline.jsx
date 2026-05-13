@@ -74,15 +74,23 @@ export default function Timeline() {
       icon: <UserCheck className="h-8 w-8 text-cyan-100" />,
     },
     {
-      year: "2025",
-      title: "Stage Mansa Digitale",
-      description: "Stage de développeur Front-End",
+      year: "2025 - Aujourd'hui",
+      title: "Mansa Digital / Mansa Talent",
+      description:
+        "Développeuse front-end sur des produits réels orientés expérience utilisateur.",
       details: (
         <>
-          <p>Technologies utilisées : Next.js, React, Tailwind CSS, Docker, Git.</p>
           <p>
-            Compétences acquises : Conception et intégration d’interfaces web, gestion de la logique
-            fonctionnelle du code, accessibilité, optimisation du rendu et performance.
+            Rôle : intégration des maquettes en interfaces React/Next.js, création de
+            composants réutilisables et respect strict du responsive.
+          </p>
+          <p>
+            Collaboration : intégration d&apos;API avec les équipes back-end et mobile,
+            participation aux ajustements UI pour améliorer la lisibilité et les parcours.
+          </p>
+          <p>
+            Impact : réduction des écarts design/dev, meilleure cohérence produit et
+            expérience plus fluide sur mobile et desktop.
           </p>
         </>
       ),

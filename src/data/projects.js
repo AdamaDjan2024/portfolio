@@ -13,14 +13,14 @@ export const portfolioProjects = [
     title: "Mansa Digital",
     img: "/images/projects/mansadigital-empereur.png",
     summary:
-      "Intégration front des pages de présentation de l'agence, création de composants Next.js réutilisables et adaptation responsive complète du site.",
+      "Développement front-end du site vitrine pour clarifier l'offre de l'agence, renforcer la crédibilité de la marque et faciliter la conversion.",
     details:
-      "J'ai transformé les maquettes Figma en interfaces exploitables, harmonisé les sections clés du site et ajusté l'UI avec l'équipe pour rendre l'offre plus lisible et la prise de contact plus simple.",
+      "J'ai transformé les maquettes en interfaces Next.js pixel-perfect, structuré des composants réutilisables et optimisé les sections clés pour une lecture rapide sur mobile et desktop.",
     focusTag: "Acquisition de leads",
     highlight:
-      "Objectif : rendre l'offre de l'agence plus lisible et plus convaincante pour transformer les visites en opportunités.",
+      "Objectif : améliorer la qualité perçue du site et augmenter les prises de contact qualifiées.",
     contribution:
-      "Mon rôle a porté sur l'intégration front, la structuration de composants réutilisables, la qualité du responsive et la livraison d'un rendu propre dans l'environnement Docker du projet.",
+      "Mon rôle a couvert l'intégration front, la standardisation des patterns UI, le responsive complet et l'alignement continu avec les retours design/produit.",
     roleHighlights: [
       "Transformation des maquettes Figma en pages vitrines fonctionnelles",
       "Création de composants réutilisables en Next.js pour les sections marketing",
@@ -86,17 +86,17 @@ export const portfolioProjects = [
   },
   {
     id: 2,
-    title: "Mansa Talents",
+    title: "Mansa Talent",
     img: "/images/projects/mansatalents.jpg",
     summary:
-      "J'ai travaillé côté front sur une plateforme emploi qui rend les parcours candidat et recruteur plus clairs, plus lisibles et plus simples à utiliser.",
+      "Plateforme produit RH sur laquelle j'ai construit des interfaces front-end pour simplifier les parcours candidat et recruteur.",
     details:
-      "Mon intervention a porté sur l'expérience front, l'organisation des écrans et l'intégration des éléments utiles aux parcours de recherche d'emploi et de recrutement.",
+      "J'ai intégré des écrans métier, connecté les données API et travaillé la cohérence UI pour fluidifier la recherche d'emploi, la publication d'offres et le suivi des candidatures.",
     focusTag: "Recrutement",
     highlight:
-      "Objectif : simplifier la recherche d'emploi et la gestion du recrutement sur une même plateforme.",
+      "Objectif : réduire la friction sur des parcours sensibles (candidature, publication et tri des profils).",
     contribution:
-      "Je me suis concentrée sur le front-end des interfaces utiles aux candidats et aux recruteurs, avec un vrai travail d'intégration, de lisibilité et de cohérence entre les parcours.",
+      "J'ai pris en charge l'intégration front des interfaces clés, la qualité responsive et la mise en place de composants partagés pour accélérer les évolutions produit.",
     problem:
       "Les candidats manquent souvent d'outils clairs pour valoriser leur profil, tandis que les recruteurs ont besoin d'un espace simple pour publier, trier et suivre les candidatures.",
     solution:
@@ -293,14 +293,15 @@ export const portfolioProjects = [
   },
   {
     id: 5,
-    title: "AfriBook",
+    title: "AfriBooks",
+    img: "/images/projects/afribooks.png",
     summary:
-      "Plateforme culturelle pensée pour rendre la littérature africaine francophone plus accessible, plus visible et plus vivante.",
+      "Projet de plateforme culturelle conçu pour améliorer la découverte de la littérature africaine francophone et créer une expérience communautaire autour de la lecture.",
     details:
-      "Le projet démarre avec un focus sur la Guinée et l'Afrique de l'Ouest, avec l'ambition de réunir lecteurs, auteurs et passionnés de culture dans un même espace numérique et communautaire.",
+      "J'ai cadré le MVP, structuré les parcours de découverte et défini une interface orientée engagement (filtres, fiches livres, profils auteurs, interactions communautaires).",
     focusTag: "Culture & communauté",
     highlight:
-      "Le MVP vise à centraliser la découverte de livres africains, les profils d'auteurs et les échanges autour de la lecture dans une expérience simple et engageante.",
+      "Objectif : centraliser découverte, recommandation et échanges pour augmenter la visibilité des auteurs et l'engagement des lecteurs.",
     problem:
       "Les œuvres d'auteurs africains restent peu visibles, dispersées et difficiles à découvrir, tandis que les lecteurs disposent de peu d'espaces pour échanger et construire une communauté autour de la lecture.",
     solution:

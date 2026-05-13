@@ -1,178 +1,64 @@
-"use client";
-
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, Keyboard, A11y } from "swiper/modules";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { portfolioProjects } from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard";
 
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-
-export default function ProjectCarousel() {
-  const projects = portfolioProjects.filter((project) => project.showInCarousel);
-  const [swiper, setSwiper] = useState(null);
-  const [announce, setAnnounce] = useState("");
-  const canLoop = projects.length >= 5;
+export default function Projects() {
+  const deliveredProjects = portfolioProjects.filter((project) => !project.isInProgress);
+  const inProgressProjects = portfolioProjects.filter((project) => project.isInProgress);
 
   return (
-    <section className="relative w-full py-20 sm:py-24 bg-gray-50">
-      <div className="relative page-shell">
-        {/* Titre principal */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-4xl sm:text-5xl font-bold mb-12 sm:mb-16 text-center text-[#001B4B] tracking-wide"
-        >
-          Mes Projets
-        </motion.h2>
+    <section id="projects" aria-label="Projets réalisés">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-lightest lg:sr-only">
+          Projets
+        </h2>
+      </div>
 
-        <Swiper
-          className="!bg-gray-50"
-          onSwiper={setSwiper}
-          modules={[Autoplay, EffectCoverflow, Keyboard, A11y]}
-          initialSlide={projects.length > 1 ? 1 : 0}
-          slidesPerView={3}
-          centeredSlides={true}
-          spaceBetween={30}
-          loop={canLoop}
-          rewind={!canLoop}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          allowTouchMove={true} // Permet la navigation tactile
-          watchSlidesProgress={true} // Améliore le suivi des slides
-          effect="coverflow"
-          coverflowEffect={{
-            rotate: 30,
-            stretch: 0,
-            depth: 120,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          keyboard={{ enabled: true }}
-          onSlideChange={(swiper) => {
-            const realIndex =
-              (swiper.realIndex ?? swiper.activeIndex) % projects.length;
-            // Annonce pour les lecteurs d'écran
-            setAnnounce(
-              `Projet ${projects[realIndex]?.title || ""} - ${
-                realIndex + 1
-              } sur ${projects.length} projets`
-            );
-          }}
-          breakpoints={{
-            320: { slidesPerView: 1, spaceBetween: 16 },
-            640: { slidesPerView: 1.15, spaceBetween: 18 },
-            768: { slidesPerView: 2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 30 },
-          }}
-        >
-          {projects.map((project, index) => (
-            <SwiperSlide
-              key={index}
-              className="flex justify-center"
-              role="group"
-              aria-label={`Projet ${index + 1} sur ${projects.length}: ${
-                project.title
-              }`}
-            >
-              <div
-                className="relative w-full max-w-sm h-[26rem] sm:h-96 rounded-2xl overflow-hidden shadow-lg focus:outline-none focus:ring-4 focus:ring-[#2AE8A8]/40"
-                tabIndex={0}
-              >
-                <Image
-                  src={project.img || "/image-par-defaut.jpg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 bg-gray-100/80 backdrop-blur-md">
-                  <h3 className="text-lg font-semibold text-[#001B4B] mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-800 mb-4">
-                    {project.summary}
-                  </p>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-4 py-2 text-sm font-medium text-white bg-[#2AE8A8] hover:bg-[#24C896] rounded-md transition-colors duration-300"
-                  >
-                    {project.buttonText}
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <ul className="group/list">
+        {deliveredProjects.map((project) => (
+          <li key={project.id} className="mb-12">
+            <ProjectCard project={project} />
+          </li>
+        ))}
+      </ul>
 
-        {/* Boutons de navigation */}
-        <div className="flex justify-center sm:justify-between items-center gap-4 mt-8">
-          <button
-            aria-label="Projet précédent"
-            onClick={() => {
-              if (swiper) {
-                swiper.allowSlidePrev = true; // S'assure que la navigation vers la gauche est activée
-                swiper.slidePrev(300, true); // Ajoute une durée de transition et force la navigation
-                swiper.autoplay.start();
-              }
-            }}
-            className="w-12 h-12 rounded-full bg-[#2AE8A8] text-[#001B4B] flex items-center justify-center shadow-lg hover:bg-[#24C896] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2AE8A8]"
-            tabIndex={0}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          <div className="sr-only" aria-live="polite">
-            {announce}
-          </div>
-
-          <button
-            aria-label="Projet suivant"
-            onClick={() => {
-              if (swiper) {
-                swiper.slideNext();
-                // Assure que l'autoplay continue après le clic
-                swiper.autoplay.start();
-              }
-            }}
-            className="w-12 h-12 rounded-full bg-[#2AE8A8] text-[#001B4B] flex items-center justify-center shadow-lg hover:bg-[#24C896] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2AE8A8]"
-            tabIndex={0}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
+      {inProgressProjects.length > 0 && (
+        <div className="mt-16">
+          <h3 className="mb-8 text-sm font-semibold uppercase tracking-widest text-lightest">
+            En cours
+          </h3>
+          <ul className="group/list">
+            {inProgressProjects.map((project) => (
+              <li key={project.id} className="mb-12">
+                <ProjectCard project={project} />
+              </li>
+            ))}
+          </ul>
         </div>
+      )}
+
+      <div className="mt-12">
+        <a
+          className="inline-flex items-center font-semibold leading-tight text-lightest group"
+          aria-label="Voir l'archive des projets"
+          href="/projects"
+        >
+          <span className="relative pb-px transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 group-hover:after:w-full">
+            Voir l&apos;archive des projets
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l4.158-3.92H3.75A.75.75 0 013 10z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </a>
       </div>
     </section>
   );

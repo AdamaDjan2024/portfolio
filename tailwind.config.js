@@ -9,43 +9,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          900: "#001B4B",
-          700: "#02457A",
-          500: "#018ABE",
-          300: "#97CADB",
-          100: "#D6E8EE",
+        background: "#0f172a", // Navy/Slate 950
+        "navy-shadow": "rgba(2, 12, 27, 0.7)",
+        lightest: "#f8fafc", // Slate 50
+        light: "#e2e8f0", // Slate 200
+        slate: "#94a3b8", // Slate 400
+        darkslate: "#475569", // Slate 600
+        accent: {
+          DEFAULT: "#5eead4", // Teal 300
+          hover: "rgba(94, 234, 212, 0.1)",
         },
       },
-      container: {
-        center: true,
-        padding: "1rem",
-        screens: {
-          sm: "560px",
-          md: "700px",
-          lg: "920px",
-          xl: "1080px",
-        },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
       },
       keyframes: {
         fadeInUp: {
           "0%": { opacity: 0, transform: "translateY(20px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
-        float: {
-          "0%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(-10px) translateX(5px)" },
-          "100%": { transform: "translateY(0) translateX(0)" },
-        },
-        typing: {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        },
       },
       animation: {
-        fadeInUp: "fadeInUp 1s ease-out forwards",
-        float: "float 4s ease-in-out infinite",
-        typing: "typing 0.05s forwards", // vitesse par lettre rapide
+        fadeInUp: "fadeInUp 0.5s ease-out forwards",
       },
     },
   },

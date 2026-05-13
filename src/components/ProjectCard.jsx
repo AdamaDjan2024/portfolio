@@ -1,19 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import Reveal from "@/components/Reveal";
-
-function TechBadge({ children }) {
-  return (
-    <span className="inline-flex items-center rounded-full bg-slate-900/60 px-3 py-1 text-xs font-medium text-cyan-200/80 ring-1 ring-inset ring-cyan-300/10">
-      {children}
-    </span>
-  );
-}
 
 export default function ProjectCard({ project }) {
   const href = project?.link?.trim?.() || "";
   const canVisit = Boolean(href);
-  const isInProgress = Boolean(project?.isInProgress);
   const hasImage = Boolean(project?.img);
   const Wrapper = canVisit ? Link : "div";
   const wrapperProps = canVisit
@@ -26,100 +16,81 @@ export default function ProjectCard({ project }) {
     : {};
 
   return (
-    <Reveal as="article" className="group relative">
-      <Wrapper
-        {...wrapperProps}
-        className={[
-          "relative block rounded-xl p-5 transition-transform duration-300 will-change-transform",
-          isInProgress ? "" : "hover:-translate-y-0.5",
-          canVisit
-            ? "focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/50"
-            : "",
-        ].join(" ")}
-      >
-        {/* Hover/focus backdrop (Brittany-style) */}
-        <div
-          aria-hidden="true"
-          className={[
-            "pointer-events-none absolute -inset-x-4 -inset-y-4 hidden rounded-xl opacity-0 transition",
-            "lg:block",
-            isInProgress
-              ? "lg:group-hover:opacity-70"
-              : "lg:group-hover:opacity-100 lg:group-focus-visible:opacity-100 lg:group-hover:translate-y-0",
-            "bg-slate-800/40",
-            "ring-1 ring-inset ring-white/10",
-            "shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]",
-          ].join(" ")}
-        />
-
-        <div
-          className={[
-            "grid gap-4 sm:items-start",
-            hasImage ? "sm:grid-cols-[160px,1fr]" : "sm:grid-cols-1",
-          ].join(" ")}
-        >
-          {hasImage ? (
-            <div className="relative overflow-hidden rounded-lg border border-white/5 bg-white/[0.02]">
-              <div className="relative aspect-[16/10]">
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  fill
-                  className="object-cover opacity-90 transition duration-500 will-change-transform group-hover:scale-[1.02] group-hover:opacity-100"
-                  sizes="(min-width: 640px) 160px, 100vw"
-                />
-              </div>
-            </div>
-          ) : null}
-
-          <div className="min-w-0">
-            <div className="flex items-start justify-between gap-4">
-              <div className="min-w-0">
-                {isInProgress ? (
-                  <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-cyan-200/75">
-                    En cours de conception
-                  </p>
-                ) : null}
-                <h3 className="inline-flex items-center gap-2 text-[1.03rem] font-semibold text-slate-100 transition-colors duration-300 group-hover:text-cyan-100">
-                  <span>{project.title}</span>
-                  {canVisit && !isInProgress ? (
-                    <span
-                      aria-hidden="true"
-                      className="text-slate-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-cyan-100"
-                    >
-                      ↗
-                    </span>
-                  ) : null}
-                </h3>
-                {project.category ? (
-                  <p className="mt-1 text-xs text-slate-400">{project.category}</p>
-                ) : null}
-              </div>
-
-              {!canVisit ? (
-                <span className="text-xs font-semibold text-slate-500">
-                  {isInProgress ? "En préparation" : project.buttonText || "Bientôt"}
-                </span>
-              ) : null}
-            </div>
-
-            {project.summary ? (
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-slate-200/70">{project.summary}</p>
-            ) : null}
-
-            {Array.isArray(project.technologies) && project.technologies.length ? (
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {project.technologies.slice(0, 10).map((tech) => (
-                  <li key={tech}>
-                    <TechBadge>{tech}</TechBadge>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+    <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-12 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+      {/* Background Hover Effect */}
+      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
+      
+      {/* Image Column (4/12) */}
+      <div className="z-10 sm:col-span-4 mt-1">
+        {hasImage ? (
+          <div className="relative overflow-hidden rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:translate-y-1">
+            <Image
+              src={project.img}
+              alt={project.title}
+              width={200}
+              height={48}
+              className="aspect-video w-full object-cover opacity-80 transition duration-500 group-hover:opacity-100 group-hover:scale-105"
+              sizes="(min-width: 640px) 200px, 100vw"
+            />
           </div>
-        </div>
-      </Wrapper>
-    </Reveal>
+        ) : (
+          <div className="aspect-video w-full bg-slate-800/50 rounded flex items-center justify-center text-[0.6rem] uppercase tracking-widest text-slate border-2 border-slate-200/10">
+            No Preview
+          </div>
+        )}
+      </div>
+
+      {/* Content Column (8/12) */}
+      <div className="z-10 sm:col-span-8">
+        <h3 className="font-medium leading-snug text-lightest">
+          <div>
+            <Wrapper
+              {...wrapperProps}
+              className="inline-flex items-baseline font-semibold leading-tight text-lightest hover:text-accent focus-visible:text-accent group/link text-base transition-all duration-300 group-hover:-translate-y-0.5"
+            >
+              <span className="absolute -inset-x-4 -inset-y-4 hidden rounded md:-inset-x-6 lg:block" />
+              <span>
+                {project.title}
+                {canVisit && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </span>
+            </Wrapper>
+          </div>
+        </h3>
+        
+        {project.category && (
+          <p className="mt-1 text-xs font-medium uppercase tracking-widest text-slate-500">
+            {project.category}
+          </p>
+        )}
+
+        <p className="mt-3 text-sm leading-normal text-slate/90">
+          {project.summary}
+        </p>
+        
+        {Array.isArray(project.technologies) && (
+          <ul className="mt-4 flex flex-wrap" aria-label="Technologies used">
+            {project.technologies.map((tech, i) => (
+              <li key={i} className="mr-1.5 mt-2">
+                <div className="tag px-3 py-1 text-[0.7rem]">{tech}</div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
   );
 }
-
