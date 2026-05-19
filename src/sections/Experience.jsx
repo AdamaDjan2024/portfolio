@@ -66,7 +66,7 @@ export default function Experience() {
                 <h3 className="font-medium leading-snug text-lightest">
                   <div>
                     <a
-                      className="inline-flex items-baseline font-medium leading-tight text-lightest hover:text-accent focus-visible:text-accent group/link text-lg"
+                      className="inline-flex items-baseline font-medium leading-tight text-lightest hover:text-accent focus-visible:text-accent group/link text-[1.02rem]"
                       href={exp.companyUrl}
                       target={exp.companyUrl.startsWith("http") ? "_blank" : undefined}
                       rel={exp.companyUrl.startsWith("http") ? "noreferrer" : undefined}
@@ -79,7 +79,7 @@ export default function Experience() {
                     </a>
                   </div>
                 </h3>
-                <p className="mt-2 text-base leading-relaxed">{exp.description}</p>
+                <p className="mt-2 text-[0.96rem] leading-relaxed">{exp.description}</p>
                 {exp.hint && (
                   <a
                     href={exp.companyUrl}
@@ -105,7 +105,7 @@ export default function Experience() {
                 <ul className="mt-4 flex flex-wrap" aria-label="Technologies utilisées">
                   {exp.tags.map((tag, i) => (
                     <li key={i} className="mr-1.5 mt-2">
-                      <div className="flex items-center rounded-full bg-accent/10 px-3.5 py-1.5 text-sm font-medium leading-5 text-accent">
+                      <div className="flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium leading-5 text-accent">
                         {tag}
                       </div>
                     </li>

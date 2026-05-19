@@ -23,10 +23,10 @@ export default function HomePage() {
             <h1 className="max-w-[22ch] text-[2rem] font-bold leading-[1.02] tracking-[-0.02em] text-lightest sm:text-[2.6rem] md:text-[3rem] lg:text-[2.75rem] xl:text-[3rem]">
               <a href="/">{siteData.fullName}</a>
             </h1>
-            <h2 className="mt-3 text-lg font-medium leading-snug tracking-[-0.01em] text-accent sm:text-xl lg:text-[1.2rem]">
+            <h2 className="mt-3 text-base font-medium leading-snug tracking-[-0.01em] text-accent sm:text-lg lg:text-[1.05rem]">
               {siteData.title}
             </h2>
-            <p className="mt-5 max-w-[34ch] text-base leading-relaxed text-slate sm:text-[1.05rem]">
+            <p className="mt-5 max-w-[34ch] text-[0.98rem] leading-relaxed text-slate sm:text-base">
               J&apos;intègre des interfaces React/Next.js précises, responsive et
               orientées expérience utilisateur.
             </p>
@@ -79,7 +79,7 @@ export default function HomePage() {
               aria-label="À propos de moi"
             >
               <div className="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-background/80 px-6 py-5 backdrop-blur sm:-mx-10 sm:px-10 md:-mx-14 md:px-14 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:mb-4 lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-base font-bold uppercase tracking-widest text-lightest sm:text-lg lg:sr-only">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-lightest sm:text-base lg:sr-only">
                   À propos
                 </h2>
               </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
               aria-label="Expérience professionnelle"
             >
               <div className="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-background/80 px-6 py-5 backdrop-blur sm:-mx-10 sm:px-10 md:-mx-14 md:px-14 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:mb-4 lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-base font-bold uppercase tracking-widest text-lightest sm:text-lg lg:sr-only">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-lightest sm:text-base lg:sr-only">
                   Expérience
                 </h2>
               </div>
@@ -105,14 +105,14 @@ export default function HomePage() {
               aria-label="Projets réalisés"
             >
               <div className="sticky top-0 z-20 -mx-6 mb-6 w-screen bg-background/80 px-6 py-5 backdrop-blur sm:-mx-10 sm:px-10 md:-mx-14 md:px-14 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:mb-4 lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-base font-bold uppercase tracking-widest text-lightest sm:text-lg lg:sr-only">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-lightest sm:text-base lg:sr-only">
                   Projets
                 </h2>
               </div>
               <Projects />
             </section>
 
-            <footer className="pb-16 text-base text-darkslate sm:pb-0">
+            <footer className="pb-16 text-sm text-darkslate sm:pb-0">
               <p>
                 Codé sur <span className="text-slate">Visual Studio Code</span>.
                 Construit avec <span className="text-slate">Next.js</span> et

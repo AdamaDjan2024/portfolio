@@ -69,17 +69,17 @@ export default function CertificationsPage() {
 
       <div className="page-shell py-10 sm:py-14">
         <header className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
             {headerContent.eyebrow}
           </p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-50 sm:text-5xl">
             {headerContent.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-200/75">
+          <p className="mt-4 max-w-2xl text-base text-slate-200/75">
             {headerContent.subtitle}
           </p>
           {issuerFilter && (
-            <p className="mt-3 text-base font-semibold text-cyan-200/80">
+            <p className="mt-3 text-sm font-semibold text-cyan-200/80">
               Filtre actif: {issuerFilter}
             </p>
           )}
@@ -88,7 +88,7 @@ export default function CertificationsPage() {
         <section id="certifs" className="mt-10 space-y-10 sm:mt-14">
           {Object.entries(certifsByCategory).map(([category, items]) => (
             <div key={category}>
-              <h2 className="mb-4 text-base font-semibold uppercase tracking-[0.18em] text-cyan-200/80">
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200/80">
                 {category}
               </h2>
 
@@ -118,20 +118,20 @@ export default function CertificationsPage() {
 
                       <div className="relative">
                         <header className="flex items-baseline justify-between gap-4">
-                          <span className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                             {cert.date}
                           </span>
-                          <span className="text-sm font-semibold text-cyan-200/80">
+                          <span className="text-xs font-semibold text-cyan-200/80">
                             {cert.issuer}
                           </span>
                         </header>
 
-                        <h3 className="mt-3 text-lg font-semibold text-slate-100">
+                        <h3 className="mt-3 text-base font-semibold text-slate-100">
                           {cert.description}
                         </h3>
-                        <p className="mt-2 text-base text-slate-200/75">{cert.name}</p>
+                        <p className="mt-2 text-sm text-slate-200/75">{cert.name}</p>
 
-                        <p className="mt-3 text-base text-slate-200/75">{cert.learning}</p>
+                        <p className="mt-3 text-sm text-slate-200/75">{cert.learning}</p>
 
                         {Array.isArray(cert.skills) && cert.skills.length ? (
                           <p className="mt-3 text-sm text-slate-300/85">
@@ -141,7 +141,7 @@ export default function CertificationsPage() {
 
                         <p className="mt-2 text-sm text-slate-300/80">Impact: {cert.impact}</p>
 
-                        <div className="mt-5 inline-flex items-center text-base font-semibold text-slate-200/85 transition-colors group-hover:text-slate-100">
+                        <div className="mt-5 inline-flex items-center text-sm font-semibold text-slate-200/85 transition-colors group-hover:text-slate-100">
                           Voir la pièce
                           <span
                             aria-hidden="true"
@@ -183,7 +183,7 @@ export default function CertificationsPage() {
               </button>
 
               <header className="mb-6 border-b border-white/10 pb-5 pr-10">
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
                   {selectedCertif.category} · {selectedCertif.issuer} · {selectedCertif.date}
                 </p>
                 <h2
@@ -192,7 +192,7 @@ export default function CertificationsPage() {
                 >
                   {selectedCertif.description}
                 </h2>
-                <p className="mt-2 text-base text-slate-200/75">{selectedCertif.learning}</p>
+                <p className="mt-2 text-sm text-slate-200/75">{selectedCertif.learning}</p>
               </header>
 
               <div className="h-[75vh] overflow-hidden rounded-2xl border border-white/10 bg-black/10">
@@ -203,7 +203,7 @@ export default function CertificationsPage() {
                 />
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-3 text-base">
+              <div className="mt-5 flex flex-wrap gap-3 text-sm">
                 <a
                   href={selectedCertif.url}
                   target="_blank"

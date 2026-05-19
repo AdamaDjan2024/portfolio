@@ -43,7 +43,7 @@ export default function ProjectCard({ project }) {
 
       <div className="z-10 sm:col-span-8">
         <h3 className="font-medium leading-snug text-lightest">
-          <span className="inline-flex items-center font-semibold leading-tight text-lightest text-lg transition-all duration-300 group-hover:text-accent group-focus-visible:text-accent">
+          <span className="inline-flex items-center font-semibold leading-tight text-lightest text-[1.02rem] transition-all duration-300 group-hover:text-accent group-focus-visible:text-accent">
             <span>{project.title}</span>
             {canVisit && (
               <svg
@@ -64,12 +64,12 @@ export default function ProjectCard({ project }) {
         </h3>
 
         {project.category && (
-          <p className="mt-1 text-sm font-medium uppercase tracking-widest text-slate-400">
+          <p className="mt-1 text-xs font-medium uppercase tracking-widest text-slate-400">
             {project.category}
           </p>
         )}
 
-        <p className="mt-3 text-base leading-relaxed text-slate/90">{project.summary}</p>
+        <p className="mt-3 text-[0.96rem] leading-relaxed text-slate/90">{project.summary}</p>
 
         {Array.isArray(project.technologies) && (
           <ul className="mt-4 flex flex-wrap" aria-label="Technologies utilisées">
