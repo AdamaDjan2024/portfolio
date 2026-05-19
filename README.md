@@ -1,34 +1,39 @@
-# Portfolio d'Adama Dian
+# Portfolio Front-End — Adama Dian Amadou Diallo
 
-Portfolio personnel développé avec Next.js 15, React, Tailwind CSS et Docker pour présenter mon parcours, mes compétences et mes projets en production.
+Portfolio personnel orienté recrutement tech (France), développé avec Next.js et Tailwind CSS.  
+Direction visuelle inspirée de la logique de structure de Brittany Chiang, adaptée avec une identité propre: moderne, sobre, premium et ATS-friendly.
 
-## Aperçu
+## Liens
 
-- Site en ligne : [mon-portfolio.vercel.app](https://mon-portfolio.vercel.app)
-- Code source : [github.com/AdamaDjan2024/portfolio](https://github.com/AdamaDjan2024/portfolio)
-- Profil GitHub : [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
-- LinkedIn : [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
+- Site: [mon-portfolio.vercel.app](https://mon-portfolio.vercel.app)
+- Code source: [github.com/AdamaDjan2024/portfolio](https://github.com/AdamaDjan2024/portfolio)
+- LinkedIn: [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
+- GitHub: [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
 
-## Stack
+## Positionnement
 
-- Next.js 15 + React 18
+- Développeuse Front-End
+- Stack principale: React, Next.js, Tailwind CSS
+- Focus: intégration UI, responsive design, accessibilité, intégration API REST
+
+## Stack Technique
+
+- Next.js 15
+- React 18
 - JavaScript
 - Tailwind CSS
 - Docker / Docker Compose
-- Git
-- SEO technique : metadata, Open Graph, sitemap, robots.txt
+- SEO: metadata, Open Graph, sitemap, robots.txt
 
-## Projets en production
+## Fonctionnalités du Portfolio
 
-- Portfolio : [mon-portfolio.vercel.app](https://mon-portfolio.vercel.app)
-- Mansa Digital : [mansa.digital](https://mansa.digital/)
-- Mansa Talents : [mansatalents.com](https://mansatalents.com/)
-- Billet Facile : [billetfacile.com](https://billetfacile.com/)
-- Guinée Data : [guineedata.org](https://guineedata.org/)
+- Hero section structurée et aérée (layout gauche/droite premium)
+- Sections: À propos, Expérience, Projets
+- Page archive des projets
+- Page certifications avec modal de consultation
+- Contenu éditable via `src/data/*`
 
-## Lancer le projet
-
-### En local
+## Exécution Locale
 
 ```bash
 npm install
@@ -37,13 +42,20 @@ npm run dev
 
 Application disponible sur `http://localhost:3000`.
 
-### Avec Docker
+## Build Production
+
+```bash
+npm run build
+npm run start
+```
+
+## Docker
 
 ```bash
 docker compose up --build
 ```
 
-## Scripts utiles
+## Scripts
 
 ```bash
 npm run dev
@@ -52,28 +64,36 @@ npm run start
 npm run lint
 ```
 
-## Structure
+## Structure du Projet
 
 ```text
 src/
-  app/          Pages et layout
+  app/          Pages + layout
   components/   Composants réutilisables
-  sections/     Sections de pages
-  data/         Contenus du portfolio
+  sections/     Sections de la home
+  data/         Données (site, projets, certifs, etc.)
   utils/        SEO et helpers
 public/
-  documents/    CV et certifications
-  images/       Photos et visuels de projets
+  documents/    CV + certifications
+  images/       Assets visuels
 ```
 
-## Personnalisation
+## Modifier le Contenu
 
-- Modifier les contenus dans `src/data/`
-- Remplacer le CV dans `public/documents/cv.pdf`
-- Mettre à jour les visuels dans `public/images/`
+- Titre, description, liens: `src/data/site.json`
+- Projets: `src/data/projects.js`
+- Certifications: `src/data/certifications.json`
+- Expériences: `src/sections/Experience.jsx`
+- CV: `public/documents/cv.pdf`
+
+## Déploiement Vercel (modifications continues)
+
+1. Connecter le repo GitHub à Vercel.
+2. Créer un projet Vercel dédié (ex: `adama-dian-amadou-portfolio`).
+3. Déployer la branche `main`.
+4. Chaque `git push` sur `main` déclenche un nouveau déploiement.
 
 ## Contact
 
-- Email : `adamadiandiallo9999@gmail.com`
-- GitHub : [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
-- LinkedIn : [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
+- Email: `adamadiandiallo9999@gmail.com`
+- LinkedIn: [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
