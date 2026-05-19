@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "degree": "Master en Informatique",
-    "school": "Université de Paris",
-    "period": "2017 - 2019",
-    "location": "Paris, France",
-    "description": "Spécialisation en développement web et bases de données",
-    "grade": "Mention Bien",
+    "degree": "Licence en Génie Informatique",
+    "school": "Université Mahatma Gandhi",
+    "period": "2020",
+    "location": "Conakry, Guinée",
+    "description": "Formation généraliste en informatique avec des bases solides en algorithmique, programmation et bases de données.",
+    "grade": "Diplôme obtenu",
     "relevant_courses": [
-      "Architecture des systèmes d'information",
-      "Développement web avancé",
-      "Bases de données relationnelles",
-      "Intelligence artificielle"
+      "Algorithmique",
+      "Structures de données",
+      "Base de données relationnelles",
+      "Méthodologie de projet"
     ]
   },
   {
     "id": 2,
-    "degree": "Licence en Informatique",
-    "school": "Université de Lyon",
-    "period": "2014 - 2017",
-    "location": "Lyon, France",
-    "description": "Formation générale en informatique et programmation",
-    "grade": "Mention Assez Bien",
+    "degree": "Parcours de spécialisation Front-End",
+    "school": "Nimba Hub · Udemy · Orange Digital Center",
+    "period": "2023 - 2025",
+    "location": "Conakry, Guinée",
+    "description": "Montée en compétence ciblée sur l'intégration UI, React/Next.js, UI/UX et méthodes produit.",
+    "grade": "Formations certifiantes",
     "relevant_courses": [
-      "Algorithmique et programmation",
-      "Structures de données",
-      "Systèmes d'exploitation",
-      "Réseaux informatiques"
+      "Intégration responsive",
+      "JavaScript moderne",
+      "React & composants",
+      "Figma et Design Thinking"
     ]
   }
 ]

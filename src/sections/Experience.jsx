@@ -1,43 +1,50 @@
 const experiences = [
   {
     year: "2025 — PRÉSENT",
-    title: "Stage Développeuse Front-End",
-    company: "Mansa Digitale",
-    companyUrl: "https://mansadigital.com",
-    description: "Conception et intégration d’interfaces web performantes. Collaboration étroite avec l'équipe de design pour transformer des maquettes complexes en composants React réutilisables. Optimisation de l'accessibilité et de la performance globale du site.",
-    tags: ["Next.js", "React", "Tailwind CSS", "Docker", "Git"],
+    title: "Développeuse Front-End",
+    company: "Mansa Digital",
+    companyUrl: "https://mansa.digital",
+    description:
+      "Intégration d'interfaces web pour des produits et sites clients. Travail en React/Next.js avec Tailwind CSS, en veillant à la fidélité des maquettes, à la qualité responsive et à la cohérence visuelle entre les pages.",
+    tags: ["Next.js", "React", "Tailwind CSS", "UI Integration", "Git"],
+  },
+  {
+    year: "2024 — 2025",
+    title: "Contributions Front-End Produits",
+    company: "Mansa Talents & BilletFacile",
+    companyUrl: "https://mansatalents.com/",
+    description:
+      "Participation à l'amélioration d'écrans orientés parcours utilisateur (emploi et billetterie): lisibilité des contenus, hiérarchie visuelle, composants réutilisables et comportement mobile. Collaboration avec l'équipe pour aligner besoins métier et expérience utilisateur.",
+    tags: ["React", "Next.js", "Tailwind CSS", "Responsive Design", "UX"],
   },
   {
     year: "2024",
-    title: "Formation Front-End Developer",
+    title: "Formation Développeuse Front-End",
     company: "Nimba Hub",
-    companyUrl: "#",
-    description: "Apprentissage intensif des fondamentaux du web et des frameworks modernes. Développement de plusieurs projets personnels et collaboratifs en mettant l'accent sur le responsive design et l'expérience utilisateur.",
-    tags: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+    companyUrl: "/certifications?issuer=Nimba%20Hub",
+    description:
+      "Consolidation des bases HTML/CSS/JavaScript puis mise en pratique avec React. Réalisation de projets d'intégration orientés composants, responsive design et bonnes pratiques de structuration du code.",
+    tags: ["HTML", "CSS", "JavaScript", "React", "Intégration UI"],
+    hint: "Voir les certifications Nimba Hub",
   },
   {
     year: "2023",
-    title: "Formation & Expériences Commerciales",
-    company: "Orange Digital & Autres",
-    companyUrl: "#",
-    description: "Formations en Leadership, Design Thinking et outils de design (Figma, Canva). Expériences en tant que développeuse commerciale, alliant compréhension technique et besoins utilisateurs.",
-    tags: ["Figma", "Design Thinking", "Gestion de projet"],
-  },
-  {
-    year: "2021 — 2022",
-    title: "Promotrice Commerciale",
-    company: "Calcaire Technologies",
-    companyUrl: "#",
-    description: "Promotion de produits technologiques, support client et gestion des ventes. Développement de compétences en communication et en organisation.",
-    tags: ["Relation client", "Négociation", "Organisation"],
+    title: "Formation Design Produit",
+    company: "Orange Digital Center",
+    companyUrl: "/certifications?issuer=Orange%20Digital%20Center",
+    description:
+      "Formations en Figma, Design Thinking et communication professionnelle. Ces acquis renforcent ma capacité à comprendre les intentions design et à les traduire en interfaces front-end cohérentes.",
+    tags: ["Figma", "Design Thinking", "UI/UX", "Collaboration"],
+    hint: "Voir les certifications Orange Digital Center",
   },
   {
     year: "2020",
     title: "Licence en Génie Informatique",
     company: "Université Mahatma Gandhi",
-    companyUrl: "#",
-    description: "Diplôme obtenu avec une spécialisation en développement informatique. Apprentissage des bases de l'algorithmique, des bases de données et de plusieurs langages de programmation.",
-    tags: ["MySQL", "C", "C++", "SQL", "JavaScript"],
+    companyUrl: "/formation",
+    description:
+      "Base académique en informatique: algorithmique, structures de données, bases de données et méthodologie de projet. Ce socle me permet d'aborder le front-end avec rigueur technique.",
+    tags: ["Algorithmique", "Bases de données", "Méthodologie", "JavaScript"],
   },
 ];
 
@@ -61,36 +68,40 @@ export default function Experience() {
                     <a
                       className="inline-flex items-baseline font-medium leading-tight text-lightest hover:text-accent focus-visible:text-accent group/link text-base"
                       href={exp.companyUrl}
-                      target="_blank"
-                      rel="noreferrer"
+                      target={exp.companyUrl.startsWith("http") ? "_blank" : undefined}
+                      rel={exp.companyUrl.startsWith("http") ? "noreferrer" : undefined}
                       aria-label={`${exp.title} chez ${exp.company}`}
                     >
                       <span className="absolute -inset-x-4 -inset-y-4 hidden rounded md:-inset-x-6 lg:block" />
                       <span>
-                        {exp.title} ·{" "}
-                        <span className="inline-block">
-                          {exp.company}
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
+                        {exp.title} · <span className="inline-block">{exp.company}</span>
                       </span>
                     </a>
                   </div>
                 </h3>
-                <p className="mt-2 text-sm leading-normal">
-                  {exp.description}
-                </p>
+                <p className="mt-2 text-sm leading-normal">{exp.description}</p>
+                {exp.hint && (
+                  <a
+                    href={exp.companyUrl}
+                    className="mt-3 inline-flex items-center text-xs font-semibold text-accent/90 transition hover:text-accent focus-visible:text-accent"
+                    aria-label={exp.hint}
+                  >
+                    <span>{exp.hint}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="ml-1 inline-block h-3.5 w-3.5 shrink-0 transition-transform hover:translate-x-1 motion-reduce:transition-none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l4.158-3.92H3.75A.75.75 0 013 10z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                )}
                 <ul className="mt-4 flex flex-wrap" aria-label="Technologies used">
                   {exp.tags.map((tag, i) => (
                     <li key={i} className="mr-1.5 mt-2">

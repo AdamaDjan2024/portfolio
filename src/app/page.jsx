@@ -27,7 +27,8 @@ export default function HomePage() {
               {siteData.title}
             </h2>
             <p className="mt-4 max-w-xs leading-normal text-slate">
-              Je conçois des interfaces web accessibles, modernes et centrées sur l&apos;utilisateur.
+              J&apos;intègre des interfaces React/Next.js précises, responsive et
+              orientées expérience utilisateur.
             </p>
 
             <SideNav items={navItems} />
@@ -112,9 +113,9 @@ export default function HomePage() {
 
           <footer className="max-w-md pb-16 text-sm text-darkslate sm:pb-0">
             <p>
-              Codé sur <span className="text-slate">Visual Studio Code</span>. 
-              Construit avec <span className="text-slate">Next.js</span> et 
-              <span className="text-slate"> Tailwind CSS</span>, déployé sur 
+              Codé sur <span className="text-slate">Visual Studio Code</span>.
+              Construit avec <span className="text-slate">Next.js</span> et
+              <span className="text-slate"> Tailwind CSS</span>, déployé sur
               <span className="text-slate"> Vercel</span>.
             </p>
           </footer>

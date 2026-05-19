@@ -4,34 +4,54 @@
     "issuer": "Orange Digital Center",
     "date": "2023",
     "url": "/documents/certifications/orange-canva-figma.pdf",
-    "description": "Formation Canva & Figma"
+    "description": "Canva & Figma",
+    "category": "Design d'interface",
+    "learning": "Structurer une interface claire, poser une hiérarchie visuelle et préparer des maquettes exploitables côté intégration.",
+    "skills": ["Figma", "Canva", "UI Basics"],
+    "impact": "Meilleure qualité de handoff design vers React/Next.js."
   },
   {
     "name": "Attestation de participation",
     "issuer": "Orange Digital Center",
     "date": "2023",
     "url": "/documents/certifications/design-thinking.pdf",
-    "description": "Formation Design Thinking"
+    "description": "Design Thinking",
+    "category": "Méthode produit",
+    "learning": "Identifier un besoin utilisateur, cadrer un problème et tester des pistes avant l'implémentation.",
+    "skills": ["Discovery", "Parcours utilisateur", "Résolution de problème"],
+    "impact": "Approche plus orientée usage dans mes choix d'interface."
   },
   {
     "name": "Attestation de participation",
     "issuer": "Orange Digital Center",
     "date": "2023",
     "url": "/documents/certifications/personal-branding.pdf",
-    "description": "Personal Branding et Leadership"
+    "description": "Personal Branding & Leadership",
+    "category": "Posture professionnelle",
+    "learning": "Présenter mon profil de façon claire, communiquer efficacement et travailler avec une logique d'amélioration continue.",
+    "skills": ["Communication", "Organisation", "Collaboration"],
+    "impact": "Posture plus structurée dans les échanges d'équipe et le suivi des tâches."
   },
   {
     "name": "Certificat de fin de formation",
     "issuer": "Udemy",
     "date": "2025",
     "url": "/documents/certifications/udemy-figma.pdf",
-    "description": "Complete Web & Mobile Designer UI/UX Figma"
+    "description": "Complete Web & Mobile Designer UI/UX Figma",
+    "category": "UI/UX avancé",
+    "learning": "Approfondir les composants, les variantes, les layouts responsive et la cohérence visuelle sur web/mobile.",
+    "skills": ["Design System", "Responsive UI", "Prototypage"],
+    "impact": "Interfaces plus homogènes et plus simples à implémenter côté front."
   },
   {
     "name": "Certificat de fin de formation",
     "issuer": "Nimba Hub",
     "date": "2025",
     "url": "/documents/certifications/nimba-hub.jpeg",
-    "description": "Devenir développeur front-end de A à Z"
+    "description": "Développeur front-end de A à Z",
+    "category": "Développement front-end",
+    "learning": "Consolider HTML, CSS, JavaScript et React à travers des exercices pratiques et des projets d'intégration.",
+    "skills": ["HTML/CSS", "JavaScript", "React", "Intégration UI"],
+    "impact": "Base technique solide pour contribuer sur des projets React/Next.js en production."
   }
 ]

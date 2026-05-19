@@ -1,14 +1,14 @@
 {
   "name": "Adama Dian",
   "fullName": "Adama Dian Amadou Diallo",
-  "title": "Développeuse Frontend Junior",
-  "description": "Portfolio personnel d'Adama Dian, développeuse frontend spécialisée en Next.js, Tailwind CSS, intégration responsive, accessibilité et interfaces web soignées.",
+  "title": "Développeuse Front-End Junior · React & Next.js",
+  "description": "Portfolio d'Adama Dian Amadou Diallo, développeuse front-end junior orientée intégration UI: React, Next.js, Tailwind CSS, responsive design, accessibilité et expérience utilisateur.",
   "siteUrl": "https://mon-portfolio.vercel.app",
   "cv": "/documents/cv.pdf",
   "email": "adamadiandiallo9999@gmail.com",
   "phone": "(+224) 629 31 95 56",
   "phoneRaw": "224629319556",
-  "location": "Guinée, Conakry",
+  "location": "Conakry (mobile Reims / Paris)",
   "gitRepo": "https://github.com/AdamaDjan2024/portfolio",
   "linkedin": "https://www.linkedin.com/in/adama-djan-diallo/",
   "github": "https://github.com/AdamaDjan2024",
@@ -16,5 +16,16 @@
   "twitterHandle": "@adahoussei",
   "profileImage": "/images/profile/adama.jpeg",
   "ogImage": "/images/profile/adama.jpeg",
-  "keywords": ["développeuse frontend", "react", "next.js", "tailwind css", "figma", "git", "docker", "responsive design", "accessibilité", "portfolio"]
+  "keywords": [
+    "alternance front-end",
+    "développeuse front-end junior",
+    "react",
+    "next.js",
+    "tailwind css",
+    "intégration web",
+    "figma to code",
+    "responsive design",
+    "accessibilité",
+    "portfolio"
+  ]
 }

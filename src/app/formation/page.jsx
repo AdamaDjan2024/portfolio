@@ -3,8 +3,8 @@ import educationData from '@/data/education.json'
 import SpotlightBackground from '@/components/SpotlightBackground'
 
 export const metadata = generateMetadata(
-  'Formation',
-  'Mon parcours académique et les formations qui structurent mon profil.',
+  'Learning Journey',
+  'Parcours de formation en informatique, front-end et UI/UX.',
   '/formation'
 )
 
@@ -23,13 +23,14 @@ export default function FormationPage() {
       <div className="page-shell py-10 sm:py-14">
         <header className="max-w-3xl">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">
-            Études · Cours
+            Learning Journey
           </p>
           <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-50">
             Formation
           </h1>
           <p className="mt-4 max-w-2xl text-base text-slate-200/70">
-            Mon parcours académique et les cours qui structurent mes bases.
+            Mon socle académique et mes formations ciblées pour évoluer en front-end
+            orienté UI, avec une progression continue entre design et développement.
           </p>
         </header>
 
@@ -77,7 +78,7 @@ export default function FormationPage() {
                   {Array.isArray(edu.relevant_courses) && edu.relevant_courses.length ? (
                     <div className="mt-5">
                       <h3 className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-200/70">
-                        Cours pertinents
+                        Compétences renforcées
                       </h3>
                       <ul className="mt-3 space-y-2 text-sm text-slate-200/70">
                         {edu.relevant_courses.map((course) => (
@@ -96,6 +97,33 @@ export default function FormationPage() {
               </li>
             ))}
           </ol>
+
+          <div className="mt-10">
+            <a
+              className="inline-flex items-center font-medium leading-tight text-lightest group"
+              aria-label="Voir toutes les certifications"
+              href="/certifications"
+            >
+              <span>
+                <span className="border-b border-transparent pb-px transition group-hover:border-accent motion-reduce:transition-none">
+                  Voir toutes les certifications
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l4.158-3.92H3.75A.75.75 0 013 10z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
         </section>
       </div>
     </main>

@@ -1,46 +1,47 @@
 export default function About() {
   const skills = [
+    "HTML5 / CSS3",
     "JavaScript (ES6+)",
-    "React",
+    "React.js",
     "Next.js",
     "Tailwind CSS",
-    "Figma",
-    "Design System",
+    "Intégration responsive (mobile-first)",
+    "Intégration Figma vers React/Next.js",
+    "Consommation d'API REST (bases)",
+    "Git / GitHub",
+    "Accessibilité web (WCAG - bases)",
   ];
 
   return (
     <div className="space-y-4 text-slate">
       <p>
-        Développeuse web passionnée par la création de{" "}
-        <span className="font-medium text-lightest">
-          sites modernes, intuitifs et centrés sur l’utilisateur
-        </span>
-        . Diplômée en génie informatique, j&apos;intègre des maquettes Figma en
-        interfaces Next.js et Tailwind CSS avec une attention particulière au
-        responsive, à l&apos;accessibilité et à la lisibilité.
+        Je suis développeuse front-end junior, spécialisée en intégration web
+        moderne. Mon point fort est de transformer des maquettes en interfaces
+        React/Next.js propres, lisibles et fidèles, avec une exigence élevée sur
+        le détail visuel.
       </p>
+
       <p>
-        Mon parcours m&apos;a permis de travailler sur divers projets, allant de
-        la conception d&apos;interfaces à l&apos;optimisation de la performance.
-        J&apos;aime transformer des idées en expériences digitales mémorables
-        tout en respectant les meilleures pratiques du développement web.
+        Sur les projets, je travaille la cohérence UI de bout en bout: structure
+        des composants, responsive design, clarté des parcours et qualité des
+        états interactifs. Mon objectif est simple: livrer des écrans utiles,
+        compréhensibles et agréables à utiliser sur desktop comme sur mobile.
       </p>
+
       <p>
-        Voici quelques technologies avec lesquelles j&apos;ai travaillé
-        récemment :
+        J&apos;utilise l&apos;IA comme outil de productivité pour accélérer la recherche,
+        la documentation et certaines implémentations.
       </p>
-      <ul className="grid grid-cols-2 gap-2 text-sm font-medium text-slate-300">
+
+      <p>Compétences techniques actuellement mobilisées :</p>
+      <ul className="grid grid-cols-1 gap-2 text-sm font-medium text-slate-300 sm:grid-cols-2">
         {skills.map((skill, index) => (
           <li key={index} className="flex items-center gap-2">
             <span className="text-accent">▹</span> {skill}
           </li>
         ))}
       </ul>
-      <p>
-        Quand je ne suis pas devant mon écran, j&apos;aime explorer de nouvelles
-        technologies, lire sur le design system ou contribuer à des projets qui
-        ont un impact positif.
-      </p>
+
     </div>
   );
 }
