@@ -73,7 +73,6 @@
   }
 }
 
-/* Custom Scrollbar to match Brittany Chiang's style */
 @layer utilities {
   ::-webkit-scrollbar {
     @apply w-1.5;
@@ -91,5 +90,224 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .archive-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    display: flex;
+    height: 2.05rem;
+    width: 2.05rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(100, 255, 218, 0.38);
+    background: rgba(10, 25, 47, 0.88);
+    color: #64ffda;
+    pointer-events: none;
+    transform: translate3d(-9999px, -9999px, 0);
+    opacity: 0;
+    scale: 0.92;
+    transition: opacity 160ms ease, scale 240ms cubic-bezier(0.2, 0.65, 0.3, 1),
+      background-color 220ms ease, border-color 220ms ease;
+    will-change: transform, opacity;
+  }
+
+  .archive-cursor[data-visible="true"] {
+    opacity: 1;
+  }
+
+  .archive-cursor[data-active="true"] {
+    scale: 1;
+    border-color: rgba(100, 255, 218, 0.72);
+    background: rgba(17, 34, 64, 0.98);
+  }
+
+  .archive-back-link {
+    @apply inline-flex items-center text-sm font-semibold tracking-wide text-accent;
+  }
+
+  .archive-back-icon {
+    @apply mr-2 h-4 w-4 transition-transform duration-300 ease-out group-hover:-translate-x-1 motion-reduce:transition-none;
+  }
+
+  .archive-title {
+    color: #ccd6f6;
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+  }
+
+  .archive-subtitle {
+    color: #8892b0;
+    @apply mt-3 text-base;
+  }
+
+  .archive-table {
+    @apply w-full border-collapse text-left;
+  }
+
+  .archive-table thead th {
+    color: #8892b0;
+    border-bottom: 1px solid rgba(136, 146, 176, 0.25);
+    @apply px-0 py-3 text-xs font-semibold uppercase tracking-widest;
+  }
+
+  .archive-table thead th:not(:first-child) {
+    @apply pl-6;
+  }
+
+  .archive-table thead th:first-child,
+  .archive-row .archive-cell:first-child {
+    padding-left: 0.75rem;
+  }
+
+  .archive-cell {
+    border-bottom: 1px solid rgba(136, 146, 176, 0.16);
+    @apply px-0 py-4 align-top text-sm;
+  }
+
+  .archive-row .archive-cell:not(:first-child) {
+    @apply pl-6;
+  }
+
+  .archive-row {
+    transition: background-color 220ms ease, opacity 220ms ease;
+  }
+
+  .archive-table tbody:hover .archive-row {
+    opacity: 0.44;
+  }
+
+  .archive-table tbody .archive-row:hover {
+    background: rgba(17, 34, 64, 0.55);
+    opacity: 1;
+  }
+
+  .archive-year {
+    color: #8892b0;
+    @apply text-sm font-medium;
+  }
+
+  .archive-project-link,
+  .archive-card-title {
+    color: #ccd6f6;
+    @apply inline-flex items-center gap-1.5 text-base font-semibold leading-tight;
+    transition: color 220ms ease;
+  }
+
+  .archive-inline-arrow {
+    color: #64ffda;
+    @apply h-4 w-4 shrink-0;
+    transform: translate3d(0, 0, 0);
+    transition: transform 240ms cubic-bezier(0.2, 0.65, 0.3, 1);
+    will-change: transform;
+  }
+
+  .archive-row:hover .archive-project-link,
+  .archive-card:hover .archive-card-title,
+  .archive-project-link:focus-visible,
+  .archive-card-title:focus-visible {
+    color: #64ffda;
+  }
+
+  .archive-row:hover .archive-inline-arrow,
+  .archive-card:hover .archive-inline-arrow,
+  .archive-project-link:focus-visible .archive-inline-arrow,
+  .archive-card-title:focus-visible .archive-inline-arrow {
+    transform: translate3d(3px, -3px, 0);
+  }
+
+  .archive-built {
+    color: #a8b2d1;
+    @apply text-sm;
+  }
+
+  .archive-tech-list {
+    @apply flex flex-wrap gap-x-4 gap-y-1;
+  }
+
+  .archive-tech-list li {
+    color: #8892b0;
+    @apply text-sm;
+  }
+
+  .archive-link {
+    color: #a8b2d1;
+    @apply inline-flex items-center justify-end gap-1 text-sm font-medium;
+    transition: color 220ms ease;
+  }
+
+  .archive-link-icon {
+    @apply h-4 w-4;
+    transform: translate3d(0, 0, 0);
+    transition: transform 240ms cubic-bezier(0.2, 0.65, 0.3, 1);
+    will-change: transform;
+  }
+
+  .archive-row:hover .archive-link,
+  .archive-card:hover .archive-link,
+  .archive-link:focus-visible {
+    color: #64ffda;
+  }
+
+  .archive-row:hover .archive-link-icon,
+  .archive-card:hover .archive-link-icon,
+  .archive-link:focus-visible .archive-link-icon {
+    transform: translate3d(3px, -3px, 0);
+  }
+
+  .archive-empty {
+    color: rgba(136, 146, 176, 0.4);
+    @apply text-sm;
+  }
+
+  .archive-link-cell {
+    @apply pr-3 text-right;
+  }
+
+  @media (min-width: 768px) {
+    .archive-table thead th:last-child,
+    .archive-row .archive-cell:last-child {
+      padding-right: 0.75rem;
+    }
+  }
+
+  .archive-card {
+    background: rgba(17, 34, 64, 0.32);
+    border: 1px solid rgba(136, 146, 176, 0.2);
+    @apply rounded-md p-4;
+    transition: background-color 220ms ease, border-color 220ms ease;
+  }
+
+  .archive-card:hover {
+    background: rgba(17, 34, 64, 0.6);
+    border-color: rgba(100, 255, 218, 0.28);
+  }
+
+  .archive-card-top {
+    @apply mb-2 flex items-center justify-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-cursor,
+  .archive-row,
+  .archive-project-link,
+  .archive-inline-arrow,
+  .archive-link,
+  .archive-link-icon,
+  .archive-card,
+  .archive-back-icon {
+    transition: none !important;
+  }
+
+  .archive-row:hover .archive-inline-arrow,
+  .archive-row:hover .archive-link-icon,
+  .archive-card:hover .archive-inline-arrow,
+  .archive-card:hover .archive-link-icon {
+    transform: none !important;
   }
 }
