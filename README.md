@@ -1,99 +1,177 @@
-# Portfolio Front-End — Adama Dian Amadou Diallo
+# Portfolio Personnel - Adama Djan
 
-Portfolio personnel orienté recrutement tech (France), développé avec Next.js et Tailwind CSS.  
-Direction visuelle inspirée de la logique de structure de Brittany Chiang, adaptée avec une identité propre: moderne, sobre, premium et ATS-friendly.
+Portfolio moderne, responsive et orienté recrutement, développé avec **Next.js 15 (App Router)**, **Tailwind CSS** et **Docker**.
 
-## Liens
+## Aperçu
 
 - Site: [mon-portfolio.vercel.app](https://mon-portfolio.vercel.app)
 - Code source: [github.com/AdamaDjan2024/portfolio](https://github.com/AdamaDjan2024/portfolio)
 - LinkedIn: [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
 - GitHub: [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
 
-## Positionnement
+## Table des matières
 
-- Développeuse Front-End
-- Stack principale: React, Next.js, Tailwind CSS
-- Focus: intégration UI, responsive design, accessibilité, intégration API REST
+- [Technologies](#technologies)
+- [Fonctionnalités](#fonctionnalités)
+- [Structure du projet](#structure-du-projet)
+- [Démarrage rapide](#démarrage-rapide)
+- [Utilisation avec Docker](#utilisation-avec-docker)
+- [Scripts NPM](#scripts-npm)
+- [Pages disponibles](#pages-disponibles)
+- [Données et personnalisation](#données-et-personnalisation)
+- [SEO](#seo)
+- [Déploiement](#déploiement)
+- [Contact](#contact)
+- [Licence](#licence)
+  je veux ca soit sur le githuj
 
-## Stack Technique
+## Technologies
 
-- Next.js 15
+- Next.js 15+ (App Router)
 - React 18
-- JavaScript
 - Tailwind CSS
-- Docker / Docker Compose
-- SEO: metadata, Open Graph, sitemap, robots.txt
+- Docker & Docker Compose
+- SEO technique (metadata, Open Graph, sitemap, robots)
 
-## Fonctionnalités du Portfolio
+## Fonctionnalités
 
-- Hero section structurée et aérée (layout gauche/droite premium)
-- Sections: À propos, Expérience, Projets
-- Page archive des projets
-- Page certifications avec modal de consultation
-- Contenu éditable via `src/data/*`
+- Design responsive (mobile-first)
+- Sections portfolio claires: profil, parcours, projets, certifications
+- Contenu centralisé dans des fichiers de données (`src/data/*`)
+- Optimisation SEO de base pour un meilleur référencement
 
-## Exécution Locale
+## Structure du projet
+
+```text
+mansa-portfolio/
+├── public/
+│   ├── documents/
+│   │   ├── cv.pdf
+│   │   └── certifications/
+│   ├── images/
+│   └── robots.txt
+├── src/
+│   ├── app/                # Pages et layout (App Router)
+│   ├── components/         # Composants réutilisables
+│   ├── data/               # Données (site, projets, parcours...)
+│   ├── sections/           # Sections spécifiques
+│   ├── styles/             # Styles globaux
+│   └── utils/              # Fonctions utilitaires
+├── Dockerfile
+├── Dockerfile.dev
+├── docker-compose.yml
+└── README.md
+```
+
+## Démarrage rapide
+
+### Prérequis
+
+- Node.js 20+
+- npm
+
+### Installation et lancement (sans Docker)
 
 ```bash
 npm install
 npm run dev
 ```
 
-Application disponible sur `http://localhost:3000`.
+Application accessible sur `http://localhost:3000`.
 
-## Build Production
+### Build production local
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Docker
+## Utilisation avec Docker
+
+### Développement
 
 ```bash
-docker compose up --build
+docker compose build --no-cache
+docker compose up
 ```
 
-## Scripts
+### Production
 
 ```bash
-npm run dev
-npm run build
-npm run start
-npm run lint
+docker compose -f docker-compose.yml build --no-cache
+docker compose -f docker-compose.yml up
 ```
 
-## Structure du Projet
+## Scripts NPM
 
-```text
-src/
-  app/          Pages + layout
-  components/   Composants réutilisables
-  sections/     Sections de la home
-  data/         Données (site, projets, certifs, etc.)
-  utils/        SEO et helpers
-public/
-  documents/    CV + certifications
-  images/       Assets visuels
-```
+- `npm run dev` : lance le serveur de développement
+- `npm run build` : génère le build de production
+- `npm run start` : démarre l'application en mode production
+- `npm run lint` : lance ESLint
+- `npm run export` : export statique (si compatible avec la configuration active)
 
-## Modifier le Contenu
+## Pages disponibles
 
-- Titre, description, liens: `src/data/site.json`
-- Projets: `src/data/projects.js`
-- Certifications: `src/data/certifications.json`
-- Expériences: `src/sections/Experience.jsx`
+- `/` : Accueil
+- `/about` : À propos
+- `/formation` : Formation
+- `/parcours` : Parcours académique
+- `/certifications` : Certifications
+- `/experience` : Expérience professionnelle
+- `/projects` : Projets
+- `/contact` : Contact
+
+## Données et personnalisation
+
+Modifier les contenus dans `src/data` :
+
+- `site.json` : informations globales (profil, liens, SEO)
+- `projects.js` : liste des projets
+- `education.json` : parcours académique
+- `certifications.json` : certifications
+
+Mettre à jour les assets :
+
 - CV: `public/documents/cv.pdf`
+- Images: `public/images/*`
+- Certifications: `public/documents/certifications/*`
 
-## Déploiement Vercel (modifications continues)
+Personnaliser le thème :
 
-1. Connecter le repo GitHub à Vercel.
-2. Créer un projet Vercel dédié (ex: `adama-dian-amadou-portfolio`).
-3. Déployer la branche `main`.
-4. Chaque `git push` sur `main` déclenche un nouveau déploiement.
+- Couleurs et design system: `tailwind.config.js`
+- Styles globaux: `src/app/globals.css`
+
+## SEO
+
+Le projet inclut une base SEO:
+
+- Metadata via le layout App Router
+- Open Graph
+- `sitemap.xml` via route dédiée
+- `robots.txt` dans `public/`
+
+## Déploiement
+
+### Vercel
+
+1. Connecter le dépôt GitHub à Vercel.
+2. Importer le projet.
+3. Déployer la branche principale.
+4. Chaque `git push` relance automatiquement un déploiement.
+
+### Docker
+
+```bash
+docker build -t mansa-portfolio .
+docker run -p 3000:3000 mansa-portfolio
+```
 
 ## Contact
 
 - Email: `adamadiandiallo9999@gmail.com`
 - LinkedIn: [linkedin.com/in/adama-djan-diallo](https://www.linkedin.com/in/adama-djan-diallo/)
+- GitHub: [github.com/AdamaDjan2024](https://github.com/AdamaDjan2024)
+
+## Licence
+
+Projet sous licence MIT.
