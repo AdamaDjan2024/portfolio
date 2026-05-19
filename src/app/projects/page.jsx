@@ -29,8 +29,8 @@ export default function ProjectsPage() {
         </Link>
 
         <header className="mb-10 mt-2 lg:mb-14">
-          <h1 className="archive-title">All Projects</h1>
-          <p className="archive-subtitle">A big list of things I&apos;ve worked on.</p>
+          <h1 className="archive-title">Tous les projets</h1>
+          <p className="archive-subtitle">Une vue complète de mes réalisations.</p>
         </header>
 
         <ProjectArchiveTable projects={allProjects} />

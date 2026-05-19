@@ -41,7 +41,7 @@
 
 @layer components {
   .page-shell {
-    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20;
   }
 
   .interactive-link {
@@ -57,7 +57,7 @@
   }
 
   .nav-text {
-    @apply text-xs font-bold uppercase tracking-widest text-darkslate group-hover:text-lightest group-focus-visible:text-lightest motion-reduce:transition-none;
+    @apply text-sm font-bold uppercase tracking-widest text-darkslate group-hover:text-lightest group-focus-visible:text-lightest motion-reduce:transition-none;
   }
 
   .nav-link.active .nav-indicator {
@@ -69,7 +69,7 @@
   }
 
   .tag {
-    @apply flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium leading-5 text-accent;
+    @apply flex items-center rounded-full bg-accent/10 px-3.5 py-1.5 text-sm font-medium leading-5 text-accent;
   }
 }
 
@@ -166,7 +166,7 @@
 
   .archive-cell {
     border-bottom: 1px solid rgba(136, 146, 176, 0.16);
-    @apply px-0 py-4 align-top text-sm;
+    @apply px-0 py-4 align-top text-base;
   }
 
   .archive-row .archive-cell:not(:first-child) {
@@ -188,7 +188,7 @@
 
   .archive-year {
     color: #8892b0;
-    @apply text-sm font-medium;
+    @apply text-base font-medium;
   }
 
   .archive-project-link,
@@ -222,7 +222,7 @@
 
   .archive-built {
     color: #a8b2d1;
-    @apply text-sm;
+    @apply text-base;
   }
 
   .archive-tech-list {
@@ -231,12 +231,12 @@
 
   .archive-tech-list li {
     color: #8892b0;
-    @apply text-sm;
+    @apply text-base;
   }
 
   .archive-link {
     color: #a8b2d1;
-    @apply inline-flex items-center justify-end gap-1 text-sm font-medium;
+    @apply inline-flex items-center justify-end gap-1 text-base font-medium;
     transition: color 220ms ease;
   }
 

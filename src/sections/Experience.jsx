@@ -5,8 +5,8 @@ const experiences = [
     company: "Mansa Digital",
     companyUrl: "https://mansa.digital",
     description:
-      "Intégration d'interfaces web pour des produits et sites clients. Travail en React/Next.js avec Tailwind CSS, en veillant à la fidélité des maquettes, à la qualité responsive et à la cohérence visuelle entre les pages.",
-    tags: ["Next.js", "React", "Tailwind CSS", "UI Integration", "Git"],
+      "Développement et intégration d'interfaces web pour des produits et sites clients, avec intégration API et gestion des données côté front. Travail en React/Next.js avec Tailwind CSS, en veillant à la fidélité des maquettes, à la qualité responsive et à la cohérence visuelle entre les pages.",
+    tags: ["Next.js", "React", "Tailwind CSS", "API REST", "UI Integration", "Git"],
   },
   {
     year: "2024 — 2025",
@@ -54,10 +54,10 @@ export default function Experience() {
       <ol className="group/list">
         {experiences.map((exp, index) => (
           <li key={index} className="mb-12">
-            <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+            <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-6 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
               <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
               <header
-                className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate sm:col-span-2"
+                className="z-10 mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-slate sm:col-span-2"
                 aria-label={exp.year}
               >
                 {exp.year}
@@ -66,7 +66,7 @@ export default function Experience() {
                 <h3 className="font-medium leading-snug text-lightest">
                   <div>
                     <a
-                      className="inline-flex items-baseline font-medium leading-tight text-lightest hover:text-accent focus-visible:text-accent group/link text-base"
+                      className="inline-flex items-baseline font-medium leading-tight text-lightest hover:text-accent focus-visible:text-accent group/link text-lg"
                       href={exp.companyUrl}
                       target={exp.companyUrl.startsWith("http") ? "_blank" : undefined}
                       rel={exp.companyUrl.startsWith("http") ? "noreferrer" : undefined}
@@ -79,11 +79,11 @@ export default function Experience() {
                     </a>
                   </div>
                 </h3>
-                <p className="mt-2 text-sm leading-normal">{exp.description}</p>
+                <p className="mt-2 text-base leading-relaxed">{exp.description}</p>
                 {exp.hint && (
                   <a
                     href={exp.companyUrl}
-                    className="mt-3 inline-flex items-center text-xs font-semibold text-accent/90 transition hover:text-accent focus-visible:text-accent"
+                    className="mt-3 inline-flex items-center text-sm font-semibold text-accent/90 transition hover:text-accent focus-visible:text-accent"
                     aria-label={exp.hint}
                   >
                     <span>{exp.hint}</span>
@@ -102,10 +102,10 @@ export default function Experience() {
                     </svg>
                   </a>
                 )}
-                <ul className="mt-4 flex flex-wrap" aria-label="Technologies used">
+                <ul className="mt-4 flex flex-wrap" aria-label="Technologies utilisées">
                   {exp.tags.map((tag, i) => (
                     <li key={i} className="mr-1.5 mt-2">
-                      <div className="flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium leading-5 text-accent">
+                      <div className="flex items-center rounded-full bg-accent/10 px-3.5 py-1.5 text-sm font-medium leading-5 text-accent">
                         {tag}
                       </div>
                     </li>

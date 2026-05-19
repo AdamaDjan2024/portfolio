@@ -13,9 +13,9 @@ function ProjectLink({ href, label }) {
       target="_blank"
       rel="noreferrer"
       className="archive-link"
-      aria-label={`Visit ${label}`}
+      aria-label={`Visiter ${label}`}
     >
-      <span>Visit</span>
+      <span>Visiter</span>
       <ArrowUpRight aria-hidden="true" className="archive-link-icon" />
     </a>
   );
@@ -32,13 +32,13 @@ function ProjectRow({ project }) {
           target={project.link ? "_blank" : undefined}
           rel={project.link ? "noreferrer" : undefined}
           className={`archive-project-link ${project.link ? "" : "pointer-events-none"}`}
-          aria-label={project.link ? `Open ${project.title}` : `${project.title} (coming soon)`}
+          aria-label={project.link ? `Ouvrir ${project.title}` : `${project.title} (bientôt disponible)`}
         >
           <span>{project.title}</span>
         </a>
       </td>
 
-      <td className="archive-cell archive-built hidden lg:table-cell">{project.category || "Personal"}</td>
+      <td className="archive-cell archive-built hidden lg:table-cell">{project.category || "Projet personnel"}</td>
 
       <td className="archive-cell hidden xl:table-cell">
         <ul className="archive-tech-list">
@@ -72,7 +72,7 @@ function ProjectCard({ project }) {
         <span>{project.title}</span>
       </a>
 
-      <p className="archive-built">{project.category || "Personal"}</p>
+      <p className="archive-built">{project.category || "Projet personnel"}</p>
 
       <ul className="archive-tech-list mt-4">
         {(project.technologies || []).slice(0, 4).map((tech) => (
@@ -87,14 +87,14 @@ export default function ProjectArchiveTable({ projects }) {
   return (
     <>
       <div className="hidden md:block">
-        <table className="archive-table" aria-label="All projects archive">
+        <table className="archive-table" aria-label="Archive de tous les projets">
           <thead>
             <tr>
-              <th>Year</th>
-              <th>Project</th>
-              <th className="hidden lg:table-cell">Made at</th>
-              <th className="hidden xl:table-cell">Built with</th>
-              <th className="text-right">Link</th>
+              <th>Année</th>
+              <th>Projet</th>
+              <th className="hidden lg:table-cell">Type</th>
+              <th className="hidden xl:table-cell">Technologies</th>
+              <th className="text-right">Lien</th>
             </tr>
           </thead>
 
@@ -106,7 +106,7 @@ export default function ProjectArchiveTable({ projects }) {
         </table>
       </div>
 
-      <div className="space-y-3 md:hidden" role="list" aria-label="All projects archive mobile">
+      <div className="space-y-3 md:hidden" role="list" aria-label="Archive mobile de tous les projets">
         {projects.map((project) => (
           <ProjectCard key={`card-${project.id}`} project={project} />
         ))}
