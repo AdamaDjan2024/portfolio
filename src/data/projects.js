@@ -14,7 +14,7 @@ export const portfolioProjects = [
     img: "/images/projects/mansadigital-empereur.png",
     summary:
       "Intégration du site avec une interface claire et structurée pour mieux présenter les services de l'agence et fluidifier la lecture sur mobile comme sur desktop.",
-    technologies: ["Next.js", "React", "Tailwind CSS", "UI Integration", "Responsive"],
+    technologies: ["Next.js", "React", "Tailwind CSS", "API REST", "UI Integration", "Responsive"],
     year: "2025",
     link: "https://mansa.digital/",
     category: "Site vitrine agence",
@@ -26,7 +26,7 @@ export const portfolioProjects = [
     img: "/images/projects/mansatalents.jpg",
     summary:
       "Contribution front-end sur des écrans orientés recrutement: recherche d'emploi, CV et parcours candidat, avec un travail de hiérarchie visuelle pour améliorer la compréhension.",
-    technologies: ["Next.js", "React", "Tailwind CSS", "UX Writing", "Responsive"],
+    technologies: ["Next.js", "React", "Tailwind CSS", "API REST", "UX Writing", "Responsive"],
     year: "2025",
     link: "https://mansatalents.com/",
     category: "Plateforme emploi",
@@ -50,7 +50,7 @@ export const portfolioProjects = [
     img: "/images/projects/billetfacile-official.png",
     summary:
       "Intégration d'interfaces liées à la billetterie et aux parcours utilisateur, avec une attention particulière à la rapidité d'action, à la clarté des étapes et à la cohérence des composants.",
-    technologies: ["Next.js", "React", "Tailwind CSS", "Design System", "Mobile UI"],
+    technologies: ["Next.js", "React", "Tailwind CSS", "API REST", "Design System", "Mobile UI"],
     year: "2024",
     link: "https://billetfacile.com/",
     category: "Billetterie en ligne",

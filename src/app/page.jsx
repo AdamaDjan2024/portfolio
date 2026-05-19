@@ -23,7 +23,7 @@ export default function HomePage() {
             <h1 className="max-w-[22ch] text-[2rem] font-bold leading-[1.02] tracking-[-0.02em] text-lightest sm:text-[2.6rem] md:text-[3rem] lg:text-[2.75rem] xl:text-[3rem]">
               <a href="/">{siteData.fullName}</a>
             </h1>
-            <h2 className="mt-3 text-base font-medium leading-snug tracking-[-0.01em] text-accent sm:text-lg lg:text-[1.1rem]">
+            <h2 className="mt-3 text-lg font-medium leading-snug tracking-[-0.01em] text-accent sm:text-xl lg:text-[1.2rem]">
               {siteData.title}
             </h2>
             <p className="mt-5 max-w-[34ch] text-base leading-relaxed text-slate sm:text-[1.05rem]">
