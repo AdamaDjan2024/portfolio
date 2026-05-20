@@ -5,21 +5,9 @@ export default function ProjectCard({ project }) {
   const href = project?.link?.trim?.() || "";
   const canVisit = Boolean(href);
   const hasImage = Boolean(project?.img);
-  const Wrapper = canVisit ? Link : "div";
-  const wrapperProps = canVisit
-    ? {
-        href,
-        target: "_blank",
-        rel: "noreferrer",
-        "aria-label": `${project.title} — ouvrir le projet`,
-      }
-    : {};
 
   return (
-    <Wrapper
-      {...wrapperProps}
-      className="group relative block grid gap-4 pb-1 transition-all sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
-    >
+    <article className="group relative block grid gap-4 pb-1 transition-all sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
       <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
 
       <div className="z-10 mt-1 sm:col-span-4">
@@ -43,9 +31,15 @@ export default function ProjectCard({ project }) {
 
       <div className="z-10 sm:col-span-8">
         <h3 className="font-medium leading-snug text-lightest">
-          <span className="inline-flex items-center font-semibold leading-tight text-lightest text-[1.02rem] transition-all duration-300 group-hover:text-accent group-focus-visible:text-accent">
-            <span>{project.title}</span>
-            {canVisit && (
+          {canVisit ? (
+            <Link
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${project.title} — ouvrir le projet`}
+              className="inline-flex items-center font-semibold leading-tight text-lightest text-[1.02rem] transition-all duration-300 group-hover:text-accent group-focus-visible:text-accent"
+            >
+              <span>{project.title}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -59,8 +53,12 @@ export default function ProjectCard({ project }) {
                   clipRule="evenodd"
                 />
               </svg>
-            )}
-          </span>
+            </Link>
+          ) : (
+            <span className="inline-flex items-center font-semibold leading-tight text-lightest text-[1.02rem]">
+              {project.title}
+            </span>
+          )}
         </h3>
 
         {project.category && (
@@ -70,6 +68,30 @@ export default function ProjectCard({ project }) {
         )}
 
         <p className="mt-3 text-[0.96rem] leading-relaxed text-slate/90">{project.summary}</p>
+
+        <div className="mt-4">
+          <Link
+            href={`/projects/impacts/${project.id}`}
+            className="group inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-slate-300 transition hover:text-accent focus-visible:text-accent"
+            aria-label={`Voir plus sur l'impact du projet ${project.title}`}
+          >
+            <span>Voir plus</span>
+            <span className="h-px w-6 bg-current transition-all duration-300 group-hover:w-10" aria-hidden="true" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="inline-block h-4 w-4 shrink-0 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-1"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l4.158-3.92H3.75A.75.75 0 013 10z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </Link>
+        </div>
 
         {Array.isArray(project.technologies) && (
           <ul className="mt-4 flex flex-wrap" aria-label="Technologies utilisées">
@@ -81,6 +103,6 @@ export default function ProjectCard({ project }) {
           </ul>
         )}
       </div>
-    </Wrapper>
+    </article>
   );
 }

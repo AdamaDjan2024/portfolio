@@ -13,60 +13,75 @@ export const portfolioProjects = [
     title: "Mansa Digital",
     img: "/images/projects/mansadigital-empereur.png",
     summary:
-      "Intégration du site avec une interface claire et structurée pour mieux présenter les services de l'agence et fluidifier la lecture sur mobile comme sur desktop.",
+      "Mansa Digital aide les entreprises à moderniser leur présence en ligne avec des expériences web plus claires et plus efficaces.",
     technologies: ["Next.js", "React", "Tailwind CSS", "API REST", "UI Integration", "Responsive"],
     year: "2025",
     link: "https://mansa.digital/",
     category: "Site vitrine agence",
     filterKey: "web",
+    impact: {
+      text: "Impact: la marque gagne en crédibilité, les services sont mieux compris et le parcours utilisateur plus fluide améliore la conversion des visiteurs en prospects.",
+    },
   },
   {
     id: 2,
     title: "Mansa Talents",
     img: "/images/projects/mansatalents.jpg",
     summary:
-      "Contribution front-end sur des écrans orientés recrutement: recherche d'emploi, CV et parcours candidat, avec un travail de hiérarchie visuelle pour améliorer la compréhension.",
+      "Mansa Talent connecte les talents aux opportunités professionnelles avec un parcours simple et orienté emploi.",
     technologies: ["Next.js", "React", "Tailwind CSS", "API REST", "UX Writing", "Responsive"],
     year: "2025",
     link: "https://mansatalents.com/",
     category: "Plateforme emploi",
     filterKey: "career",
+    impact: {
+      text: "Impact: les candidats identifient plus vite les opportunités adaptées à leur profil, tandis que les recruteurs accèdent à des talents plus visibles et mieux qualifiés.",
+    },
   },
   {
     id: 3,
     title: "Guinée Data",
     img: "/images/projects/guineedata.png",
     summary:
-      "Travail UI/UX sur la présentation des données pour rendre les informations plus lisibles, mieux organisées et plus accessibles à des profils non techniques.",
+      "Guinée Data valorise les données pour les rendre lisibles, utiles et exploitables par un public plus large.",
     technologies: ["UI/UX", "Figma", "Design Thinking", "Architecture de l'information"],
     year: "2023",
     link: "https://guineedata.org/",
     category: "Plateforme data",
     filterKey: "data",
+    impact: {
+      text: "Impact: des données plus lisibles renforcent la transparence et facilitent des décisions plus pertinentes dans des domaines clés comme l'éducation, la santé ou l'économie.",
+    },
   },
   {
     id: 4,
     title: "BilletFacile",
     img: "/images/projects/billetfacile-official.png",
     summary:
-      "Intégration d'interfaces liées à la billetterie et aux parcours utilisateur, avec une attention particulière à la rapidité d'action, à la clarté des étapes et à la cohérence des composants.",
+      "BilletFacile fluidifie le parcours de billetterie en rendant la recherche, la sélection et l'achat plus simples pour l'utilisateur.",
     technologies: ["Next.js", "React", "Tailwind CSS", "API REST", "Design System", "Mobile UI"],
     year: "2024",
     link: "https://billetfacile.com/",
     category: "Billetterie en ligne",
     filterKey: "event",
+    impact: {
+      text: "Impact: un parcours d'achat plus clair réduit les frictions et aide les utilisateurs à réserver leurs billets plus rapidement et avec plus de confiance.",
+    },
   },
   {
     id: 5,
     title: "AfriBooks",
     img: "/images/projects/afribooks.png",
     summary:
-      "Projet en cours autour d'une bibliothèque numérique. Focus sur l'expérience de découverte, l'identité visuelle et la construction d'un parcours de lecture simple et engageant.",
+      "AfriBook est une maquette en conception pour faciliter l'accès au livre et à l'apprentissage digital.",
     technologies: ["Figma", "UI/UX", "Design Thinking", "MVP"],
     year: "2024",
     link: "",
     category: "Bibliothèque numérique",
     filterKey: "library",
     isInProgress: true,
+    impact: {
+      text: "Impact futur: rendre l'apprentissage plus accessible via le digital, encourager la lecture régulière et mieux valoriser les contenus éducatifs africains.",
+    },
   },
 ];
